@@ -17,11 +17,13 @@ public class movingFroggo : MonoBehaviour
 
     Rigidbody2D rb;
     public new BoxCollider2D collider;
+    public Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -31,11 +33,17 @@ public class movingFroggo : MonoBehaviour
         {
             transform.Translate(Vector3.left * speed * Time.deltaTime);
             horizontal = -1f;
+            anim.SetBool("isRunning", true);
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.Translate(Vector3.right * speed * Time.deltaTime);
             horizontal = 1f;
+            anim.SetBool("isRunning", true);
+        }
+        else
+        {
+            anim.SetBool("isRunning", false);
         }
         if (Input.GetKey(KeyCode.UpArrow) && jumpAmount < 1)
         {
@@ -43,6 +51,13 @@ public class movingFroggo : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
             jumpAmount++;
             isGrounded = false;
+            anim.SetBool("isJumping", true);
+            //anim.SetBool("isRunning", false);
+            if (jumpAmount >= 1)
+            {
+                //anim.SetBool("isRunning", false);
+                anim.SetBool("isFalling", true);
+            }
         }
 
         Flip();
@@ -54,6 +69,8 @@ public class movingFroggo : MonoBehaviour
         {
             jumpAmount = 0;
             isGrounded = true;
+            anim.SetBool("isFalling", false);
+            anim.SetBool("isJumping", false);
         }
     }
 
@@ -62,6 +79,7 @@ public class movingFroggo : MonoBehaviour
         if (collision.collider.tag == "ground")
         {
             isGrounded = false;
+            anim.SetBool("isRunning", false);
         }
     }
 
@@ -73,7 +91,6 @@ public class movingFroggo : MonoBehaviour
             Vector3 localScale = transform.localScale;
             localScale.x *= -1f;
             transform.localScale = localScale;
-            Debug.Log("flip");
         }
     }
 }
