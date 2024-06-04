@@ -65,7 +65,7 @@ public class movingFroggo : MonoBehaviour
 
     void OnCollisionEnter2D(UnityEngine.Collision2D collision)
     {
-        if (collision.collider.tag == "ground")
+        if (collision.collider.tag == "ground" || collision.collider.tag == "Player" || collision.collider.tag == "player2")
         {
             jumpAmount = 0;
             isGrounded = true;
@@ -76,7 +76,7 @@ public class movingFroggo : MonoBehaviour
 
     void OnCollisionExit2D(UnityEngine.Collision2D collision)
     {
-        if (collision.collider.tag == "ground")
+        if (collision.collider.tag == "ground" || collision.collider.tag == "Player" || collision.collider.tag == "player2")
         {
             isGrounded = false;
             anim.SetBool("isRunning", false);
