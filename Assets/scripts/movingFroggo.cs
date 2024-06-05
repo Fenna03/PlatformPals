@@ -15,15 +15,21 @@ public class movingFroggo : MonoBehaviour
     //flipping
     private bool isFacingRight = true;
 
+    //things on character
     Rigidbody2D rb;
     public new BoxCollider2D collider;
     public Animator anim;
+
+    //scripts
+    //public buttonDiff2 button2Script;
+    //public GameObject button;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        //button2Script = GetComponent<buttonDiff2>();
     }
 
     // Update is called once per frame
@@ -65,22 +71,30 @@ public class movingFroggo : MonoBehaviour
 
     void OnCollisionEnter2D(UnityEngine.Collision2D collision)
     {
-        if (collision.collider.tag == "ground" || collision.collider.tag == "Player" || collision.collider.tag == "player2")
+        if (collision.collider.tag == "ground" || collision.collider.tag == "Player" || collision.collider.tag == "button")
         {
             jumpAmount = 0;
             isGrounded = true;
             anim.SetBool("isFalling", false);
             anim.SetBool("isJumping", false);
         }
+        //if (collision.collider.tag == "button")
+        //{
+        //    button2Script.player2 = true;
+        //}
     }
 
     void OnCollisionExit2D(UnityEngine.Collision2D collision)
     {
-        if (collision.collider.tag == "ground" || collision.collider.tag == "Player" || collision.collider.tag == "player2")
+        if (collision.collider.tag == "ground" || collision.collider.tag == "Player" || collision.collider.tag == "button")
         {
             isGrounded = false;
             anim.SetBool("isRunning", false);
         }
+        //if (collision.collider.tag == "button")
+        //{
+        //    button2Script.player2 = false;
+        //}
     }
 
     void Flip()
