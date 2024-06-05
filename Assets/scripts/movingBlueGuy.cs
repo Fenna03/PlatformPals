@@ -35,6 +35,12 @@ public class movingBlueGuy : Photon.MonoBehaviour
         if (photonView.isMine)
         {
             playerCamera.SetActive(true);
+            playerNameText.text = PhotonNetwork.playerName;
+        }
+        else
+        {
+            playerNameText.text = photonView.owner.name;
+            playerNameText.color = Color.gray;
         }
     }
 

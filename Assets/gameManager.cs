@@ -8,6 +8,7 @@ public class gameManager : MonoBehaviour
     public GameObject playerPrefab;
     public GameObject gameCanvas;
     public GameObject sceneCamera;
+    public Text pingText;
 
     private void Awake()
     {
