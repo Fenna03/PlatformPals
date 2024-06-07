@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Unity.Netcode;
 
-public class fanOnOff : MonoBehaviour
+public class fanOnOff : NetworkBehaviour
 {
     public Animator anim;
     public AreaEffector2D areaEffector2D;

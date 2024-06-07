@@ -43,8 +43,4 @@ MonoBehaviour:
   - RequestForPickupItems
   - RequestForPickupTimes
   - TaggedPlayer
-  - Flip
-  - FlipTrue
-  - FlipFalse
-  - FlipCheck
   DisableAutoOpenWizard: 1

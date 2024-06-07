@@ -1,10 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
-public class movingBlueGuy : Photon.MonoBehaviour
+public class movingBlueGuy : NetworkBehaviour
 {
     public float speed = 3f;
 
@@ -21,67 +24,40 @@ public class movingBlueGuy : Photon.MonoBehaviour
     Rigidbody2D rb;
     public new BoxCollider2D collider;
     public Animator anim;
-
-    //scripts
-    //public buttonDiff buttonScript;
-    //public GameObject button;
-
     public GameObject playerCamera;
-    public Text playerNameText;
-    public PhotonView photonView;
-
-    private void Awake()
-    {
-        if (photonView.isMine)
-        {
-            playerCamera.SetActive(true);
-            playerNameText.text = PhotonNetwork.playerName;
-        }
-        else
-        {
-            playerNameText.text = photonView.owner.name;
-            playerNameText.color = Color.gray;
-        }
-    }
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        //buttonScript = GetComponent<buttonDiff>();
+        //button2Script = GetComponent<buttonDiff2>();
     }
 
     // Update is called once per frame
-    private void Update()
+    void Update()
     {
-        if (photonView.isMine)
+        if (!IsOwner)
         {
-            Moving();
+            return;
         }
 
-        if (isGrounded == false)
-        {
-            anim.SetBool("isRunning", false);
-        }
-
-        //Flip();
+        Moving();
+        Flip();
     }
 
-    private void Moving()
+    void Moving()
     {
         if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(Vector3.left * speed * Time.deltaTime);
             horizontal = -1f;
-            photonView.RPC("FlipCheck", PhotonTargets.AllBuffered, horizontal);
             anim.SetBool("isRunning", true);
         }
         else if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(Vector3.right * speed * Time.deltaTime);
             horizontal = 1f;
-            photonView.RPC("FlipCheck", PhotonTargets.AllBuffered, horizontal);
             anim.SetBool("isRunning", true);
         }
         else
@@ -95,10 +71,10 @@ public class movingBlueGuy : Photon.MonoBehaviour
             jumpAmount++;
             isGrounded = false;
             anim.SetBool("isJumping", true);
-            anim.SetBool("isRunning", false);
+            //anim.SetBool("isRunning", false);
             if (jumpAmount >= 1)
             {
-                anim.SetBool("isRunning", false);
+                //anim.SetBool("isRunning", false);
                 anim.SetBool("isFalling", true);
             }
         }
@@ -113,6 +89,10 @@ public class movingBlueGuy : Photon.MonoBehaviour
             anim.SetBool("isFalling", false);
             anim.SetBool("isJumping", false);
         }
+        //if (collision.collider.tag == "button")
+        //{
+        //    button2Script.player2 = true;
+        //}
     }
 
     void OnCollisionExit2D(UnityEngine.Collision2D collision)
@@ -122,22 +102,20 @@ public class movingBlueGuy : Photon.MonoBehaviour
             isGrounded = false;
             anim.SetBool("isRunning", false);
         }
+        //if (collision.collider.tag == "button")
+        //{
+        //    button2Script.player2 = false;
+        //}
     }
 
-    [PunRPC]
-    private void FlipCheck(float direction)
+    void Flip()
     {
-        if (isFacingRight && direction < 0f || !isFacingRight && direction > 0f)
+        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
         {
-            Flip();
+            isFacingRight = !isFacingRight;
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1f;
+            transform.localScale = localScale;
         }
-    }
-
-    private void Flip()
-    {
-        isFacingRight = !isFacingRight;
-        Vector3 localScale = transform.localScale;
-        localScale.x *= -1f;
-        transform.localScale = localScale;
     }
 }
