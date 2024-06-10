@@ -13,7 +13,11 @@ public class menuScript : MonoBehaviour
         {
             SceneManager.LoadScene("Menu");
         }
-        if (gameMode == 1)
+        if(gameMode == 1)
+        {
+            SceneManager.LoadScene("characterSelect");
+        }
+        if (gameMode == 2)
         {
             SceneManager.LoadScene("level1");
         }

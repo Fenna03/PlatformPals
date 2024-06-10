@@ -6,25 +6,17 @@ using UnityEngine;
 
 public class optionsScript : NetworkBehaviour
 {
-    //public static optionsScript Instance { get; private set; }
+    public static optionsScript Instance { get; private set; }
 
     public GameObject optionsMenu;
-    //private bool isLocalGamePaused = false;
-    //public EventHandler onLocalGamePaused;
-    //public EventHandler onLocalGameUnpaused;
-    //public EventHandler onMultiplayerGamePaused;
-    //public EventHandler onMultiplayerGameUnpaused;
-
     public bool paused;
 
-    //private NetworkVariable<bool> isGamePaused = new NetworkVariable<bool>(false);
-    //private Dictionary<ulong, bool> playerPausedDictionary;
-
-    //private void Awake()
-    //{
-    //    Instance = this;
-    //    playerPausedDictionary = new Dictionary<ulong, bool>();
-    //}
+    private void Awake()
+    {
+        Instance = this;
+        // playerPausedDictionary = new Dictionary<ulong, bool>();
+        DontDestroyOnLoad(gameObject);
+    }
 
     void Update()
     {
@@ -33,8 +25,19 @@ public class optionsScript : NetworkBehaviour
             TogglePause();
         }
     }
-
     
+    public void startHost()
+    {
+        Debug.Log("HOST");
+        NetworkManager.Singleton.StartHost();
+    }
+
+    public void startClient()
+    {
+        Debug.Log("Client");
+        NetworkManager.Singleton.StartClient();
+    }
+
     public void TogglePause()
     {
         optionsMenu.gameObject.SetActive(!optionsMenu.gameObject.activeSelf);
@@ -57,6 +60,15 @@ public class optionsScript : NetworkBehaviour
         //    onLocalGameUnpaused?.Invoke(this, EventArgs.Empty);
         //}
     }
+    //private bool isLocalGamePaused = false;
+    //public EventHandler onLocalGamePaused;
+    //public EventHandler onLocalGameUnpaused;
+    //public EventHandler onMultiplayerGamePaused;
+    //public EventHandler onMultiplayerGameUnpaused;
+
+    //private NetworkVariable<bool> isGamePaused = new NetworkVariable<bool>(false);
+    //private Dictionary<ulong, bool> playerPausedDictionary;
+
     //public override void OnNetworkSpawn()
     //{
     //    isGamePaused.OnValueChanged += isPaused_OnValueChanged;
