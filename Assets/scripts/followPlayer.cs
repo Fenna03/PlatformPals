@@ -14,13 +14,6 @@ public class followPlayer : NetworkBehaviour
     private GameObject[] players;
     private int playersConnected;
 
-    private void Start()
-    {
-
-        
-        
-    }
-
     public override void OnNetworkSpawn()
     {
         base.OnNetworkSpawn();

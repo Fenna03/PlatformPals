@@ -10,12 +10,32 @@ public class optionsScript : NetworkBehaviour
 
     public GameObject optionsMenu;
     public bool paused;
+    [SerializeField] private Transform playerPrefab;
 
     private void Awake()
     {
         Instance = this;
         // playerPausedDictionary = new Dictionary<ulong, bool>();
         DontDestroyOnLoad(gameObject);
+              
+    }
+
+    public override void OnNetworkSpawn()
+    {
+        //Transform playerPrefab = GameObject.FindWithTag("Player").transform;
+        if (IsServer)
+        {
+            NetworkManager.Singleton.SceneManager.OnLoadEventCompleted += SceneManager_OnLoadEventCompleted;
+        }
+    }
+
+    private void SceneManager_OnLoadEventCompleted(string sceneName, UnityEngine.SceneManagement.LoadSceneMode loadSceneMode, List<ulong> clientsCompleted, List<ulong> clientsTimedOut)
+    {
+        foreach (ulong clientId in NetworkManager.Singleton.ConnectedClientsIds)
+        {
+            Transform playerTransform = Instantiate(playerPrefab);
+            playerTransform.GetComponent<NetworkObject>().SpawnAsPlayerObject(clientId, true);
+        }
     }
 
     void Update()

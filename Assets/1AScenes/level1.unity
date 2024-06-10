@@ -28128,6 +28128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionsMenu: {fileID: 1758414986}
   paused: 0
+  playerPrefab: {fileID: 8584461723596845618, guid: e11e725ecdc410c45a4aed0242d313c8, type: 3}
 --- !u!1 &1164119834
 GameObject:
   m_ObjectHideFlags: 0
