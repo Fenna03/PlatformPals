@@ -6,21 +6,26 @@ using UnityEngine;
 
 public class optionsScript : NetworkBehaviour
 {
-    public static optionsScript Instance { get; private set; }
+    //public static optionsScript Instance { get; private set; }
 
     public GameObject optionsMenu;
-    public bool localpaused;
-    public EventHandler onMultiplayerGamePaused;
-    public EventHandler onMultiplayerGameUnpaused;
+    //private bool isLocalGamePaused = false;
+    //public EventHandler onLocalGamePaused;
+    //public EventHandler onLocalGameUnpaused;
+    //public EventHandler onMultiplayerGamePaused;
+    //public EventHandler onMultiplayerGameUnpaused;
 
-    private NetworkVariable<bool> isPaused = new NetworkVariable<bool>(false);
-    private Dictionary<ulong, bool> playerPausedDictionary;
+    public bool paused;
 
-    private void Awake()
-    {
-        playerPausedDictionary = new Dictionary<ulong, bool>();
-    }
-    // Update is called once per frame
+    //private NetworkVariable<bool> isGamePaused = new NetworkVariable<bool>(false);
+    //private Dictionary<ulong, bool> playerPausedDictionary;
+
+    //private void Awake()
+    //{
+    //    Instance = this;
+    //    playerPausedDictionary = new Dictionary<ulong, bool>();
+    //}
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -28,74 +33,78 @@ public class optionsScript : NetworkBehaviour
             TogglePause();
         }
     }
-    public override void OnNetworkSpawn()
-    {
-        isPaused.OnValueChanged += isPaused_OnValueChanged;
-        base.OnNetworkSpawn();
-    }
 
-    private void isPaused_OnValueChanged(bool previousValue, bool newValue)
-    {
-        if (isPaused.Value)
-        {
-            Time.timeScale = 0f;
-            onMultiplayerGamePaused?.Invoke(this, EventArgs.Empty);
-        }
-        else
-        {
-            Time.timeScale = 1f;
-            onMultiplayerGameUnpaused?.Invoke(this, EventArgs.Empty);
-        }
-    }
-
+    
     public void TogglePause()
     {
-        localpaused = !localpaused;
+        optionsMenu.gameObject.SetActive(!optionsMenu.gameObject.activeSelf);
+        paused = !paused;
+        Time.timeScale = paused ? 0 : 1;
+        Debug.Log("Paused state: " + paused);
 
-        if (localpaused)
-        {
-            PauseGameServerRPC();
-            //Time.timeScale = 0;
-            optionsMenu.gameObject.SetActive(true);
-            Debug.Log("Paused state: " + localpaused);
-        }
-        else
-        {
-            unPauseGameServerRPC();
-            //Time.timeScale = 1;
-            optionsMenu.gameObject.SetActive(false);
-            Debug.Log("Paused state: " + localpaused);
-        }
-        //optionsMenu.gameObject.SetActive(!optionsMenu.gameObject.activeSelf);
-        //Time.timeScale = paused ? 0 : 1;
-    }
+        //isLocalGamePaused = !isLocalGamePaused;
 
-    [ServerRpc(RequireOwnership = false)]
-    private void PauseGameServerRPC(ServerRpcParams serverRpcParams = default)
-    {
-        playerPausedDictionary[serverRpcParams.Receive.SenderClientId] = true;
-        testGamePausedState();
+        //if (isLocalGamePaused)
+        //{
+        //   // PauseGameServerRPC();
+        //    optionsMenu.gameObject.SetActive(true);
+        //    onLocalGamePaused?.Invoke(this, EventArgs.Empty);
+        //}
+        //else
+        //{
+        //    //unPauseGameServerRPC();
+        //    optionsMenu.gameObject.SetActive(false);
+        //    onLocalGameUnpaused?.Invoke(this, EventArgs.Empty);
+        //}
     }
+    //public override void OnNetworkSpawn()
+    //{
+    //    isGamePaused.OnValueChanged += isPaused_OnValueChanged;
+    //    base.OnNetworkSpawn();
+    //}
 
-    [ServerRpc(RequireOwnership = false)]
-    private void unPauseGameServerRPC(ServerRpcParams serverRpcParams = default)
-    {
-        playerPausedDictionary[serverRpcParams.Receive.SenderClientId] = false;
-        testGamePausedState();
-    }
+    //private void isPaused_OnValueChanged(bool previousValue, bool newValue)
+    //{
+    //    if (isGamePaused.Value)
+    //    {
+    //        Time.timeScale = 0f;
+    //        onMultiplayerGamePaused?.Invoke(this, EventArgs.Empty);
+    //    }
+    //    else
+    //    {
+    //        Time.timeScale = 1f;
+    //        onMultiplayerGameUnpaused?.Invoke(this, EventArgs.Empty);
+    //    }
+    //}
 
-    private void testGamePausedState()
-    {
-        foreach (ulong clientId in NetworkManager.Singleton.ConnectedClientsIds)
-        {
-            if (playerPausedDictionary.ContainsKey(clientId) && playerPausedDictionary[clientId])
-            {
-                //this player is paused
-                isPaused.Value = true;
-                return;
-            }
-        }
-        //all players are unpaused
-        isPaused.Value = false;
-    }
+
+    //[ServerRpc(RequireOwnership = false)]
+    //private void PauseGameServerRPC(ServerRpcParams serverRpcParams = default)
+    //{
+    //    playerPausedDictionary[serverRpcParams.Receive.SenderClientId] = true;
+    //    testGamePausedState();
+    //}
+
+    //[ServerRpc(RequireOwnership = false)]
+    //private void unPauseGameServerRPC(ServerRpcParams serverRpcParams = default)
+    //{
+    //    playerPausedDictionary[serverRpcParams.Receive.SenderClientId] = false;
+    //    testGamePausedState();
+    //}
+
+    //private void testGamePausedState()
+    //{
+    //    foreach (ulong clientId in NetworkManager.Singleton.ConnectedClientsIds)
+    //    {
+    //        if (playerPausedDictionary.ContainsKey(clientId) && playerPausedDictionary[clientId])
+    //        {
+    //            //this player is paused
+    //            isGamePaused.Value = true;
+    //            return;
+    //        }
+    //    }
+    //    //all players are unpaused
+    //    isGamePaused.Value = false;
+    //}
 }
+
