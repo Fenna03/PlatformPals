@@ -31,7 +31,6 @@ public class movingBlueGuy : NetworkBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        //button2Script = GetComponent<buttonDiff2>();
     }
 
     // Update is called once per frame
@@ -66,15 +65,12 @@ public class movingBlueGuy : NetworkBehaviour
         }
         if (Input.GetKey(KeyCode.W) && jumpAmount < 1)
         {
-            // transform.Translate(Vector3.up * speed * Time.deltaTime);
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
             jumpAmount++;
             isGrounded = false;
             anim.SetBool("isJumping", true);
-            //anim.SetBool("isRunning", false);
             if (jumpAmount >= 1)
             {
-                //anim.SetBool("isRunning", false);
                 anim.SetBool("isFalling", true);
             }
         }
@@ -89,10 +85,6 @@ public class movingBlueGuy : NetworkBehaviour
             anim.SetBool("isFalling", false);
             anim.SetBool("isJumping", false);
         }
-        //if (collision.collider.tag == "button")
-        //{
-        //    button2Script.player2 = true;
-        //}
     }
 
     void OnCollisionExit2D(UnityEngine.Collision2D collision)
@@ -102,10 +94,6 @@ public class movingBlueGuy : NetworkBehaviour
             isGrounded = false;
             anim.SetBool("isRunning", false);
         }
-        //if (collision.collider.tag == "button")
-        //{
-        //    button2Script.player2 = false;
-        //}
     }
 
     void Flip()

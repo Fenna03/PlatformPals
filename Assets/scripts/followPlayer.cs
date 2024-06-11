@@ -15,7 +15,7 @@ public class followPlayer : NetworkBehaviour
     private int playersConnected;
 
 
-    private void Awake()
+    private void Start()
     {
         targetGroup = GameObject.Find("Target Group").GetComponent<CinemachineTargetGroup>();
         players = GameObject.FindGameObjectsWithTag("Player");
@@ -37,7 +37,7 @@ public class followPlayer : NetworkBehaviour
         if(playersConnected != GameObject.FindGameObjectsWithTag("Player").Length) {
             players = GameObject.FindGameObjectsWithTag("Player");
             playersConnected = players.Length;
-            Debug.Log(players[players.Length - 1]);
+            Debug.Log(playersConnected);
             targetGroup.AddMember(players[players.Length-1].GetComponent<Transform>(),
                                    target.weight, 
                                    target.radius);
@@ -46,7 +46,7 @@ public class followPlayer : NetworkBehaviour
     }
 }
 
-//vcam.Follow = GameObject.FindWithTag("Player").transform;
+//vcam.Follow = GameObject.FindGameObjectsWithTag("Player").transform;
 
 //for (int i = 0; i < targetGroup.m_Targets.Length; i++)
 //{
