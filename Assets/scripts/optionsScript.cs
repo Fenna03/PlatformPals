@@ -22,7 +22,6 @@ public class optionsScript : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        //Transform playerPrefab = GameObject.FindWithTag("Player").transform;
         if (IsServer)
         {
             NetworkManager.Singleton.SceneManager.OnLoadEventCompleted += SceneManager_OnLoadEventCompleted;
