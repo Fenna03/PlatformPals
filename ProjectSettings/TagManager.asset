@@ -8,6 +8,7 @@ TagManager:
   - button
   - lever
   - player2
+  - wall
   layers:
   - Default
   - TransparentFX

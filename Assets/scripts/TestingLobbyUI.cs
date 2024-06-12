@@ -17,6 +17,7 @@ public class TestingLobbyUI : MonoBehaviour
             optionsScript.Instance.startHost();
             Loader.loadNetwork(Loader.Scene.characterSelect);
         });
+
         joinGameButton.onClick.AddListener(() =>
         {
             optionsScript.Instance.startClient();

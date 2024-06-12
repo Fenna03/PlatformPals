@@ -54,9 +54,10 @@ public class optionsScript : NetworkBehaviour
     
     public void startHost()
     {
-        Debug.Log("HOST");
+        NetworkManager.NetworkConfig.ConnectionApproval = true;
+        NetworkManager.Singleton.ConnectionApprovalCallback = NetworkManager_ConnectionApprovalCallback;
         NetworkManager.Singleton.StartHost();
-        NetworkManager.Singleton.ConnectionApprovalCallback += NetworkManager_ConnectionApprovalCallback;
+       // Debug.Log(NetworkManager.Singleton.ConnectedClientsIds.Count);
     }
 
     private void NetworkManager_ConnectionApprovalCallback(NetworkManager.ConnectionApprovalRequest connectionApprovalRequest, NetworkManager.ConnectionApprovalResponse connectionApprovalResponse)
@@ -76,6 +77,7 @@ public class optionsScript : NetworkBehaviour
         }
 
         connectionApprovalResponse.Approved = true;
+        
     }
 
     public void startClient()
@@ -83,12 +85,15 @@ public class optionsScript : NetworkBehaviour
         OnTryingToJoinGame?.Invoke(this, EventArgs.Empty);
 
         NetworkManager.Singleton.OnClientDisconnectCallback += NetworkManager_onClientDisconnectCallback;
+        NetworkManager.NetworkConfig.ConnectionApproval = true;
+        Debug.Log(NetworkManager.NetworkConfig.ConnectionApproval);
         NetworkManager.Singleton.StartClient();
     }
 
     private void NetworkManager_onClientDisconnectCallback(ulong clientId)
     {
         OnFailedToJoinGame?.Invoke(this, EventArgs.Empty);
+        Debug.Log("Ello");
     }
 
     public void TogglePause()
