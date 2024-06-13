@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class menuScript : MonoBehaviour
+public class menuScript : NetworkBehaviour
 {
     public void PlayGame(int gameMode = 1)
     {
@@ -11,6 +12,7 @@ public class menuScript : MonoBehaviour
 
         if (gameMode == 0)
         {
+            NetworkManager.Singleton.Shutdown();
             SceneManager.LoadScene("Menu");
         }
         if(gameMode == 1)

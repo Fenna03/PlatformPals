@@ -11,7 +11,6 @@ public class Loader : MonoBehaviour
         characterSelect,
         Menu,
         level1,
-        LoadingScene,
     }
 
     private static Scene targetScene;
@@ -21,7 +20,7 @@ public class Loader : MonoBehaviour
         Loader.targetScene = targetScene;
 
 
-        SceneManager.LoadScene(Scene.LoadingScene.ToString());
+        SceneManager.LoadScene(Scene.Menu.ToString());
     }
 
     public static void loadNetwork(Scene targetScene)

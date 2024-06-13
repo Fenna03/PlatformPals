@@ -5,10 +5,14 @@ using Unity.Netcode;
 using UnityEngine;
 using static Unity.Netcode.NetworkManager;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class optionsScript : NetworkBehaviour
 {
     public static optionsScript Instance { get; private set; }
+
+
+    //[SerializeField] private Button mainMenu;
 
     public GameObject optionsMenu;
     public bool paused;
@@ -22,9 +26,14 @@ public class optionsScript : NetworkBehaviour
     private void Awake()
     {
         Instance = this;
-        // playerPausedDictionary = new Dictionary<ulong, bool>();
+
         DontDestroyOnLoad(gameObject);
-              
+        
+        //mainMenu.onClick.AddListener(() =>
+        //{
+        //    NetworkManager.Singleton.Shutdown();
+        //    Loader.Load(Loader.Scene.Menu);
+        //});
     }
 
     public override void OnNetworkSpawn()
@@ -100,7 +109,7 @@ public class optionsScript : NetworkBehaviour
     {
         optionsMenu.gameObject.SetActive(!optionsMenu.gameObject.activeSelf);
         paused = !paused;
-        Time.timeScale = paused ? 0 : 1;
+        //Time.timeScale = paused ? 0 : 1;
         Debug.Log("Paused state: " + paused);
 
         //isLocalGamePaused = !isLocalGamePaused;

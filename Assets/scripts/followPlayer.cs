@@ -23,25 +23,40 @@ public class followPlayer : NetworkBehaviour
         target.weight = 1;
         target.radius = 2;
 
+        //for (int i = 0; i < players.Length; i++)
+        //{
+        //    target.target = players[i].GetComponent<Transform>();
+
+        //    targetGroup.AddMember(target.target, target.weight, target.radius);
+        //    Debug.Log("added player");
+        //}
+    }
+
+    public void Update()    
+    {
         for (int i = 0; i < players.Length; i++)
         {
             target.target = players[i].GetComponent<Transform>();
 
             targetGroup.AddMember(target.target, target.weight, target.radius);
-            Debug.Log("added player");
         }
-    }
 
-    public void Update()    
-    {
-        if(playersConnected != GameObject.FindGameObjectsWithTag("Player").Length) {
+        if(playersConnected != GameObject.FindGameObjectsWithTag("Player").Length) 
+        {
             players = GameObject.FindGameObjectsWithTag("Player");
-            playersConnected = players.Length;
-            Debug.Log(playersConnected);
-            targetGroup.AddMember(players[players.Length-1].GetComponent<Transform>(),
-                                   target.weight, 
-                                   target.radius);
-            Debug.Log("new player added to targetGroup");
+            for (int i = 0; i < players.Length; i++)
+            {
+                target.target = players[i].GetComponent<Transform>();
+
+                targetGroup.AddMember(target.target, target.weight, target.radius);
+            }
+            //    players = GameObject.FindGameObjectsWithTag("Player");
+            //    playersConnected = players.Length;
+            //    Debug.Log(playersConnected);
+            //    targetGroup.AddMember(players[players.Length-1].GetComponent<Transform>(),
+            //                           target.weight, 
+            //                           target.radius);
+            //    Debug.Log("new player added to targetGroup");
         }
     }
 }
