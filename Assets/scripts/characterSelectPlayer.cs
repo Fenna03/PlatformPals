@@ -36,7 +36,7 @@ public class characterSelectPlayer : MonoBehaviour
         {
             Show();
 
-            playerData playerData = optionsScript.Instance.getPlayerDataFromPlayerIndex(playerIndex);
+            playerData playerData = optionsScript.Instance.GetPlayerDataFromPlayerIndex(playerIndex);
             ReadyGameObject.SetActive(characterSelectReady.Instance.isPlayerReady(playerData.clientId));
             playerVisual.SetPlayerSkin(optionsScript.Instance.GetPlayerSkin(playerIndex));
         }

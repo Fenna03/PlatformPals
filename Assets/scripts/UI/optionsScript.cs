@@ -120,15 +120,102 @@ public class optionsScript : NetworkBehaviour
         Debug.Log("Ello");
     }
 
+
+
+
     public bool isPlayerIndexConnected(int playerIndex)
     {
         return playerIndex < playerDataNetworkList.Count;
     }
 
-    public playerData getPlayerDataFromPlayerIndex(int playerIndex)
+    public int GetPlayerDataIndexFromClientId(ulong clientId)
+    {
+        for (int i = 0; i < playerDataNetworkList.Count; i++)
+        {
+            if (playerDataNetworkList[i].clientId == clientId)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public playerData GetPlayerDataFromClientId(ulong clientId)
+    {
+        foreach (playerData playerData in playerDataNetworkList)
+        {
+            if (playerData.clientId == clientId)
+            {
+                return playerData;
+            }
+        }
+        return default;
+    }
+
+    public playerData GetPlayerData()
+    {
+        return GetPlayerDataFromClientId(NetworkManager.Singleton.LocalClientId);
+    }
+
+    public playerData GetPlayerDataFromPlayerIndex(int playerIndex)
     {
         return playerDataNetworkList[playerIndex];
     }
+
+    public GameObject GetPlayerSkin(int skinId)
+    {
+        return playerSkinList[skinId];
+    }
+
+    //public void ChangePlayerSkin(int colorId)
+    //{
+    //    ChangePlayerSkinServerRpc(colorId);
+    //}
+
+    //[ServerRpc(RequireOwnership = false)]
+    //private void ChangePlayerSkinServerRpc(int skinId, ServerRpcParams serverRpcParams = default)
+    //{
+    //    if (!IsSkinAvailable(skinId))
+    //    {
+    //        // Color not available
+    //        return;
+    //    }
+
+    //    int playerDataIndex = GetPlayerDataIndexFromClientId(serverRpcParams.Receive.SenderClientId);
+
+    //    playerData playerData = playerDataNetworkList[playerDataIndex];
+
+    //    playerData.skinId = skinId;
+
+    //    playerDataNetworkList[playerDataIndex] = playerData;
+    //}
+
+    //private bool IsSkinAvailable(int skinId)
+    //{
+    //    foreach (playerData playerData in playerDataNetworkList)
+    //    {
+    //        if (playerData.skinId == skinId)
+    //        {
+    //            // Already in use
+    //            return false;
+    //        }
+    //    }
+    //    return true;
+    //}
+
+    //private int GetFirstUnusedSkinId()
+    //{
+    //    for (int i = 0; i < playerSkinList.Count; i++)
+    //    {
+    //        if (IsSkinAvailable(i))
+    //        {
+    //            return i;
+    //        }
+    //    }
+    //    return -1;
+    //}
+
+
     public void TogglePause()
     {
         optionsMenu.gameObject.SetActive(!optionsMenu.gameObject.activeSelf);
@@ -151,12 +238,6 @@ public class optionsScript : NetworkBehaviour
         //    onLocalGameUnpaused?.Invoke(this, EventArgs.Empty);
         //}
     }
-
-    public GameObject GetPlayerSkin(int skinId)
-    {
-        return playerSkinList[skinId];
-    }
-
 
     //private bool isLocalGamePaused = false;
     //public EventHandler onLocalGamePaused;

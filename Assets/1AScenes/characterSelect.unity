@@ -1437,6 +1437,7 @@ GameObject:
   - component: {fileID: 1198570296}
   - component: {fileID: 1198570295}
   - component: {fileID: 1198570294}
+  - component: {fileID: 1198570297}
   m_Layer: 5
   m_Name: BlueGuyButton
   m_TagString: Untagged
@@ -1546,6 +1547,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1198570292}
   m_CullTransparentMesh: 1
+--- !u!114 &1198570297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198570292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8a6c80d12c33ad44ab15feb724ac1f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skinId: 0
+  image: {fileID: 0}
+  selectedGameObject: {fileID: 0}
 --- !u!1 &1341865020
 GameObject:
   m_ObjectHideFlags: 0
@@ -1833,6 +1849,7 @@ GameObject:
   - component: {fileID: 1529177125}
   - component: {fileID: 1529177124}
   - component: {fileID: 1529177123}
+  - component: {fileID: 1529177126}
   m_Layer: 5
   m_Name: maskerButton
   m_TagString: Untagged
@@ -1942,6 +1959,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1529177121}
   m_CullTransparentMesh: 1
+--- !u!114 &1529177126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1529177121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8a6c80d12c33ad44ab15feb724ac1f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skinId: 0
+  image: {fileID: 0}
+  selectedGameObject: {fileID: 0}
 --- !u!1 &1641500860
 GameObject:
   m_ObjectHideFlags: 0
@@ -2345,6 +2377,7 @@ GameObject:
   - component: {fileID: 1896569120}
   - component: {fileID: 1896569119}
   - component: {fileID: 1896569118}
+  - component: {fileID: 1896569121}
   m_Layer: 5
   m_Name: PinkieButton
   m_TagString: Untagged
@@ -2454,6 +2487,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1896569116}
   m_CullTransparentMesh: 1
+--- !u!114 &1896569121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896569116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8a6c80d12c33ad44ab15feb724ac1f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skinId: 0
+  image: {fileID: 0}
+  selectedGameObject: {fileID: 0}
 --- !u!1 &1944334828
 GameObject:
   m_ObjectHideFlags: 0
@@ -2548,7 +2596,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2073895024}
   m_Layer: 5
-  m_Name: whichCharacter?
+  m_Name: characterSkinSelectUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2673,6 +2721,7 @@ GameObject:
   - component: {fileID: 2124302442}
   - component: {fileID: 2124302441}
   - component: {fileID: 2124302440}
+  - component: {fileID: 2124302443}
   m_Layer: 5
   m_Name: FroggoButton
   m_TagString: Untagged
@@ -2782,6 +2831,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2124302438}
   m_CullTransparentMesh: 1
+--- !u!114 &2124302443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124302438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8a6c80d12c33ad44ab15feb724ac1f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skinId: 0
+  image: {fileID: 0}
+  selectedGameObject: {fileID: 0}
 --- !u!1001 &6992417361643469388
 PrefabInstance:
   m_ObjectHideFlags: 0
