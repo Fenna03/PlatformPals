@@ -961,6 +961,11 @@ MonoBehaviour:
   optionsMenu: {fileID: 2082087472}
   paused: 0
   playerPrefab: {fileID: 8584461723596845618, guid: e11e725ecdc410c45a4aed0242d313c8, type: 3}
+  playerSkinList:
+  - {fileID: 5585514345970034802, guid: e11e725ecdc410c45a4aed0242d313c8, type: 3}
+  - {fileID: 2998782839987481812, guid: 87f4f4d3b0cdba6459f43be3e8dd77a5, type: 3}
+  - {fileID: 3808902763708336337, guid: ccb014a6acdcfe249916a72a223b4f59, type: 3}
+  - {fileID: 1187464962888537031, guid: 06533f8dc28231c49994202dff475568, type: 3}
 --- !u!1 &729021782
 GameObject:
   m_ObjectHideFlags: 0

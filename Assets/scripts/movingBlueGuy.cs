@@ -24,7 +24,6 @@ public class movingBlueGuy : NetworkBehaviour
     Rigidbody2D rb;
     public new BoxCollider2D collider;
     public Animator anim;
-    public GameObject playerCamera;
 
     // Start is called before the first frame update
     void Start()

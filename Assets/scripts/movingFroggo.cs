@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
+using UnityEngine.UI;
 
-public class movingFroggo : MonoBehaviour
+public class movingFroggo : NetworkBehaviour
 {
     public float speed = 3f;
 
@@ -20,28 +22,35 @@ public class movingFroggo : MonoBehaviour
     public new BoxCollider2D collider;
     public Animator anim;
 
-    //scripts
-    //public buttonDiff2 button2Script;
-    //public GameObject button;
-
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        //button2Script = GetComponent<buttonDiff2>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftArrow))
+
+        if (!IsOwner)
+        {
+            return;
+        }
+
+        Moving();
+        Flip();
+    }
+
+    void Moving()
+    {
+        if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(Vector3.left * speed * Time.deltaTime);
             horizontal = -1f;
             anim.SetBool("isRunning", true);
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(Vector3.right * speed * Time.deltaTime);
             horizontal = 1f;
@@ -51,22 +60,17 @@ public class movingFroggo : MonoBehaviour
         {
             anim.SetBool("isRunning", false);
         }
-        if (Input.GetKey(KeyCode.UpArrow) && jumpAmount < 1)
+        if (Input.GetKey(KeyCode.W) && jumpAmount < 1)
         {
-            // transform.Translate(Vector3.up * speed * Time.deltaTime);
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
             jumpAmount++;
             isGrounded = false;
             anim.SetBool("isJumping", true);
-            //anim.SetBool("isRunning", false);
             if (jumpAmount >= 1)
             {
-                //anim.SetBool("isRunning", false);
                 anim.SetBool("isFalling", true);
             }
         }
-
-        Flip();
     }
 
     void OnCollisionEnter2D(UnityEngine.Collision2D collision)
@@ -78,10 +82,6 @@ public class movingFroggo : MonoBehaviour
             anim.SetBool("isFalling", false);
             anim.SetBool("isJumping", false);
         }
-        //if (collision.collider.tag == "button")
-        //{
-        //    button2Script.player2 = true;
-        //}
     }
 
     void OnCollisionExit2D(UnityEngine.Collision2D collision)
@@ -91,10 +91,6 @@ public class movingFroggo : MonoBehaviour
             isGrounded = false;
             anim.SetBool("isRunning", false);
         }
-        //if (collision.collider.tag == "button")
-        //{
-        //    button2Script.player2 = false;
-        //}
     }
 
     void Flip()

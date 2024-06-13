@@ -17,11 +17,15 @@ public class optionsScript : NetworkBehaviour
     public GameObject optionsMenu;
     public bool paused;
     [SerializeField] private Transform playerPrefab;
+    [SerializeField] private List<GameObject> playerSkinList;
 
     private const int MAX_PLAYER_AMOUNT = 4;
 
     public event EventHandler OnTryingToJoinGame;
     public event EventHandler OnFailedToJoinGame;
+    public event EventHandler OnPlayerDataNetworkListChanged;
+
+    private NetworkList<playerData> playerDataNetworkList;
 
     private void Awake()
     {
@@ -29,11 +33,13 @@ public class optionsScript : NetworkBehaviour
 
         DontDestroyOnLoad(gameObject);
         
-        //mainMenu.onClick.AddListener(() =>
-        //{
-        //    NetworkManager.Singleton.Shutdown();
-        //    Loader.Load(Loader.Scene.Menu);
-        //});
+        playerDataNetworkList = new NetworkList<playerData>();
+        playerDataNetworkList.OnListChanged += playerDataNetworkList_onListChanged;
+    }
+
+    private void playerDataNetworkList_onListChanged(NetworkListEvent<playerData> changeEvent)
+    {
+        OnPlayerDataNetworkListChanged?.Invoke(this, EventArgs.Empty);
     }
 
     public override void OnNetworkSpawn()
@@ -48,7 +54,7 @@ public class optionsScript : NetworkBehaviour
     {
         foreach (ulong clientId in NetworkManager.Singleton.ConnectedClientsIds)
         {
-            Transform playerTransform = Instantiate(playerPrefab);
+            Transform playerTransform = Instantiate(playerPrefab, new Vector3( 2.0f, 10f, 0), Quaternion.identity);
             playerTransform.GetComponent<NetworkObject>().SpawnAsPlayerObject(clientId, true);
         }
     }
@@ -65,8 +71,17 @@ public class optionsScript : NetworkBehaviour
     {
         NetworkManager.NetworkConfig.ConnectionApproval = true;
         NetworkManager.Singleton.ConnectionApprovalCallback = NetworkManager_ConnectionApprovalCallback;
+        NetworkManager.Singleton.OnClientConnectedCallback += NetworkManager_OnClientConnectedCallback;
         NetworkManager.Singleton.StartHost();
        // Debug.Log(NetworkManager.Singleton.ConnectedClientsIds.Count);
+    }
+
+    private void NetworkManager_OnClientConnectedCallback(ulong clientId)
+    {
+        playerDataNetworkList.Add(new playerData
+        {
+            clientId = clientId,
+        });
     }
 
     private void NetworkManager_ConnectionApprovalCallback(NetworkManager.ConnectionApprovalRequest connectionApprovalRequest, NetworkManager.ConnectionApprovalResponse connectionApprovalResponse)
@@ -105,6 +120,15 @@ public class optionsScript : NetworkBehaviour
         Debug.Log("Ello");
     }
 
+    public bool isPlayerIndexConnected(int playerIndex)
+    {
+        return playerIndex < playerDataNetworkList.Count;
+    }
+
+    public playerData getPlayerDataFromPlayerIndex(int playerIndex)
+    {
+        return playerDataNetworkList[playerIndex];
+    }
     public void TogglePause()
     {
         optionsMenu.gameObject.SetActive(!optionsMenu.gameObject.activeSelf);
@@ -127,6 +151,13 @@ public class optionsScript : NetworkBehaviour
         //    onLocalGameUnpaused?.Invoke(this, EventArgs.Empty);
         //}
     }
+
+    public GameObject GetPlayerSkin(int skinId)
+    {
+        return playerSkinList[skinId];
+    }
+
+
     //private bool isLocalGamePaused = false;
     //public EventHandler onLocalGamePaused;
     //public EventHandler onLocalGameUnpaused;
