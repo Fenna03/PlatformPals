@@ -11,11 +11,12 @@ public struct playerData :IEquatable<playerData>, INetworkSerializable
 
     public bool Equals(playerData other)
     {
-        return clientId == other.clientId;
+        return clientId == other.clientId && skinId == other.skinId;
     }
 
     public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
     {
         serializer.SerializeValue(ref clientId);
+        serializer.SerializeValue(ref skinId);
     }
 }

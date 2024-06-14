@@ -81,6 +81,7 @@ public class optionsScript : NetworkBehaviour
         playerDataNetworkList.Add(new playerData
         {
             clientId = clientId,
+            skinId = GetFirstUnusedSkinId(),
         });
     }
 
@@ -167,53 +168,53 @@ public class optionsScript : NetworkBehaviour
         return playerSkinList[skinId];
     }
 
-    //public void ChangePlayerSkin(int colorId)
-    //{
-    //    ChangePlayerSkinServerRpc(colorId);
-    //}
+    public void ChangePlayerSkin(int skinId)
+    {
+        ChangePlayerSkinServerRpc(skinId);
+    }
 
-    //[ServerRpc(RequireOwnership = false)]
-    //private void ChangePlayerSkinServerRpc(int skinId, ServerRpcParams serverRpcParams = default)
-    //{
-    //    if (!IsSkinAvailable(skinId))
-    //    {
-    //        // Color not available
-    //        return;
-    //    }
+    [ServerRpc(RequireOwnership = false)]
+    private void ChangePlayerSkinServerRpc(int skinId, ServerRpcParams serverRpcParams = default)
+    {
+        if (!IsSkinAvailable(skinId))
+        {
+            // Color not available
+            return;
+        }
 
-    //    int playerDataIndex = GetPlayerDataIndexFromClientId(serverRpcParams.Receive.SenderClientId);
+        int playerDataIndex = GetPlayerDataIndexFromClientId(serverRpcParams.Receive.SenderClientId);
 
-    //    playerData playerData = playerDataNetworkList[playerDataIndex];
+        playerData playerData = playerDataNetworkList[playerDataIndex];
 
-    //    playerData.skinId = skinId;
+        playerData.skinId = skinId;
 
-    //    playerDataNetworkList[playerDataIndex] = playerData;
-    //}
+        playerDataNetworkList[playerDataIndex] = playerData;
+    }
 
-    //private bool IsSkinAvailable(int skinId)
-    //{
-    //    foreach (playerData playerData in playerDataNetworkList)
-    //    {
-    //        if (playerData.skinId == skinId)
-    //        {
-    //            // Already in use
-    //            return false;
-    //        }
-    //    }
-    //    return true;
-    //}
+    private bool IsSkinAvailable(int skinId)
+    {
+        foreach (playerData playerData in playerDataNetworkList)
+        {
+            if (playerData.skinId == skinId)
+            {
+                // Already in use
+                return false;
+            }
+        }
+        return true;
+    }
 
-    //private int GetFirstUnusedSkinId()
-    //{
-    //    for (int i = 0; i < playerSkinList.Count; i++)
-    //    {
-    //        if (IsSkinAvailable(i))
-    //        {
-    //            return i;
-    //        }
-    //    }
-    //    return -1;
-    //}
+    private int GetFirstUnusedSkinId()
+    {
+        for (int i = 0; i < playerSkinList.Count; i++)
+        {
+            if (IsSkinAvailable(i))
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
 
 
     public void TogglePause()

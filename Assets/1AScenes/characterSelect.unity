@@ -1560,8 +1560,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skinId: 0
-  image: {fileID: 0}
-  selectedGameObject: {fileID: 0}
+  image: {fileID: 1198570295}
+  selectedGameObject: {fileID: 2103793842}
 --- !u!1 &1341865020
 GameObject:
   m_ObjectHideFlags: 0
@@ -1971,9 +1971,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a6c80d12c33ad44ab15feb724ac1f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skinId: 0
-  image: {fileID: 0}
-  selectedGameObject: {fileID: 0}
+  skinId: 2
+  image: {fileID: 1529177124}
+  selectedGameObject: {fileID: 19733243}
 --- !u!1 &1641500860
 GameObject:
   m_ObjectHideFlags: 0
@@ -2499,9 +2499,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a6c80d12c33ad44ab15feb724ac1f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skinId: 0
-  image: {fileID: 0}
-  selectedGameObject: {fileID: 0}
+  skinId: 3
+  image: {fileID: 1896569119}
+  selectedGameObject: {fileID: 795715005}
 --- !u!1 &1944334828
 GameObject:
   m_ObjectHideFlags: 0
@@ -2843,9 +2843,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a6c80d12c33ad44ab15feb724ac1f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skinId: 0
-  image: {fileID: 0}
-  selectedGameObject: {fileID: 0}
+  skinId: 1
+  image: {fileID: 2124302441}
+  selectedGameObject: {fileID: 1944334828}
 --- !u!1001 &6992417361643469388
 PrefabInstance:
   m_ObjectHideFlags: 0
