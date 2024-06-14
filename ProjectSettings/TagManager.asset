@@ -9,6 +9,7 @@ TagManager:
   - lever
   - player2
   - wall
+  - skin
   layers:
   - Default
   - TransparentFX

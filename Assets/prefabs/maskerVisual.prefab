@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3841157134833827896}
   m_Layer: 0
   m_Name: maskerVisual
-  m_TagString: Untagged
+  m_TagString: skin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
