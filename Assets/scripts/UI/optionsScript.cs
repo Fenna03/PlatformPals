@@ -54,7 +54,7 @@ public class optionsScript : NetworkBehaviour
     {
         foreach (ulong clientId in NetworkManager.Singleton.ConnectedClientsIds)
         {
-            Transform playerTransform = Instantiate(playerPrefab, new Vector3( 2.0f, 10f, 0), Quaternion.identity);
+            Transform playerTransform = Instantiate(GetPlayerSkin(GetPlayerDataFromClientId(clientId).skinId).transform, new Vector3( 2.0f, 10f, 0), Quaternion.identity);
             playerTransform.GetComponent<NetworkObject>().SpawnAsPlayerObject(clientId, true);
         }
     }

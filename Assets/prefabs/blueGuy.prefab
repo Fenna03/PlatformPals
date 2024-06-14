@@ -326,11 +326,10 @@ MonoBehaviour:
   speed: 3
   horizontal: 0
   jumpingPower: 7
-  isGrounded: 1
+  isGrounded: 0
   jumpAmount: 0
   collider: {fileID: 2725216566980873300}
   anim: {fileID: 6701152514582955002}
-  playerCamera: {fileID: 1943173837284450409}
 --- !u!114 &-2522871107767549707
 MonoBehaviour:
   m_ObjectHideFlags: 0

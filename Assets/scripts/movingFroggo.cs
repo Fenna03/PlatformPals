@@ -22,6 +22,7 @@ public class movingFroggo : NetworkBehaviour
     public new BoxCollider2D collider;
     public Animator anim;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +33,6 @@ public class movingFroggo : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (!IsOwner)
         {
             return;
