@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,13 +11,23 @@ public class characterSelectPlayer : MonoBehaviour
     [SerializeField] private int playerIndex;
     [SerializeField] private GameObject ReadyGameObject;
     [SerializeField] private playerVisual playerVisual;
+    [SerializeField] private Button kickButton;
 
-
+    private void Awake()
+    {
+        kickButton.onClick.AddListener(() =>
+        {
+            playerData playerData = optionsScript.Instance.GetPlayerDataFromPlayerIndex(playerIndex);
+            optionsScript.Instance.kickPlayer(playerData.clientId);
+        });
+    }
 
     private void Start()
     {
         optionsScript.Instance.OnPlayerDataNetworkListChanged += optionsScript_OnPlayerDataNetworkListChanged;
         characterSelectReady.Instance.onReadyChanged += characterSelectReady_OnreadyChanged; 
+       
+        kickButton.gameObject.SetActive(NetworkManager.Singleton.IsServer);
         UpdatePlayer();
     }
 

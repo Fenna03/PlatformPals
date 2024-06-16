@@ -58,22 +58,26 @@ public class optionsScript : NetworkBehaviour
             playerTransform.GetComponent<NetworkObject>().SpawnAsPlayerObject(clientId, true);
         }
     }
-
-    void Update()
-    {
-        //if (Input.GetKeyDown(KeyCode.Escape))
-        //{
-        //    TogglePause();
-        //}
-    }
     
     public void startHost()
     {
         NetworkManager.NetworkConfig.ConnectionApproval = true;
         NetworkManager.Singleton.ConnectionApprovalCallback = NetworkManager_ConnectionApprovalCallback;
         NetworkManager.Singleton.OnClientConnectedCallback += NetworkManager_OnClientConnectedCallback;
+        NetworkManager.Singleton.OnClientDisconnectCallback += NetworkManager_Server_onClientDisconnectCallback;
         NetworkManager.Singleton.StartHost();
-       // Debug.Log(NetworkManager.Singleton.ConnectedClientsIds.Count);
+    }
+
+    private void NetworkManager_Server_onClientDisconnectCallback(ulong clientId)
+    {
+        for (int i = 0; i < playerDataNetworkList.Count; i++)
+        {
+            playerData playerData = playerDataNetworkList[i];
+            if (playerData.clientId == clientId)
+            {
+                playerDataNetworkList.RemoveAt(i);
+            }
+        }
     }
 
     private void NetworkManager_OnClientConnectedCallback(ulong clientId)
@@ -109,20 +113,17 @@ public class optionsScript : NetworkBehaviour
     {
         OnTryingToJoinGame?.Invoke(this, EventArgs.Empty);
 
-        NetworkManager.Singleton.OnClientDisconnectCallback += NetworkManager_onClientDisconnectCallback;
+        NetworkManager.Singleton.OnClientDisconnectCallback += NetworkManager_Client_onClientDisconnectCallback;
         NetworkManager.NetworkConfig.ConnectionApproval = true;
         Debug.Log(NetworkManager.NetworkConfig.ConnectionApproval);
         NetworkManager.Singleton.StartClient();
     }
 
-    private void NetworkManager_onClientDisconnectCallback(ulong clientId)
+    private void NetworkManager_Client_onClientDisconnectCallback(ulong clientId)
     {
         OnFailedToJoinGame?.Invoke(this, EventArgs.Empty);
         Debug.Log("Ello");
     }
-
-
-
 
     public bool isPlayerIndexConnected(int playerIndex)
     {
@@ -216,6 +217,11 @@ public class optionsScript : NetworkBehaviour
         return -1;
     }
 
+    public void kickPlayer(ulong clientId)
+    {
+        NetworkManager.Singleton.DisconnectClient(clientId);
+        NetworkManager_Server_onClientDisconnectCallback(clientId);
+    }
 
     //public void TogglePause()
     //{

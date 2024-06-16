@@ -958,9 +958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76460285a65f32149b91334f28fbf762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  optionsMenu: {fileID: 2082087472}
-  paused: 0
-  playerPrefab: {fileID: 8584461723596845618, guid: e11e725ecdc410c45a4aed0242d313c8, type: 3}
+  playerPrefab: {fileID: 0}
   playerSkinList:
   - {fileID: 5585514345970034802, guid: e11e725ecdc410c45a4aed0242d313c8, type: 3}
   - {fileID: 2998782839987481812, guid: 87f4f4d3b0cdba6459f43be3e8dd77a5, type: 3}
@@ -2566,6 +2564,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a243ee54aeeff040a8731afa0f36d60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  optionsMenu: {fileID: 0}
+  paused: 0
 --- !u!224 &2082087474
 RectTransform:
   m_ObjectHideFlags: 0
