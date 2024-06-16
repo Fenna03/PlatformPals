@@ -14,8 +14,8 @@ public class optionsScript : NetworkBehaviour
 
     //[SerializeField] private Button mainMenu;
 
-    public GameObject optionsMenu;
-    public bool paused;
+    //public GameObject optionsMenu;
+    //public bool paused;
     [SerializeField] private Transform playerPrefab;
     [SerializeField] private List<GameObject> playerSkinList;
 
@@ -61,10 +61,10 @@ public class optionsScript : NetworkBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            TogglePause();
-        }
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    TogglePause();
+        //}
     }
     
     public void startHost()
@@ -217,28 +217,28 @@ public class optionsScript : NetworkBehaviour
     }
 
 
-    public void TogglePause()
-    {
-        optionsMenu.gameObject.SetActive(!optionsMenu.gameObject.activeSelf);
-        paused = !paused;
-        //Time.timeScale = paused ? 0 : 1;
-        Debug.Log("Paused state: " + paused);
+    //public void TogglePause()
+    //{
+    //    optionsMenu.gameObject.SetActive(!optionsMenu.gameObject.activeSelf);
+    //    paused = !paused;
+    //    //Time.timeScale = paused ? 0 : 1;
+    //    Debug.Log("Paused state: " + paused);
 
-        //isLocalGamePaused = !isLocalGamePaused;
+    //    //isLocalGamePaused = !isLocalGamePaused;
 
-        //if (isLocalGamePaused)
-        //{
-        //   // PauseGameServerRPC();
-        //    optionsMenu.gameObject.SetActive(true);
-        //    onLocalGamePaused?.Invoke(this, EventArgs.Empty);
-        //}
-        //else
-        //{
-        //    //unPauseGameServerRPC();
-        //    optionsMenu.gameObject.SetActive(false);
-        //    onLocalGameUnpaused?.Invoke(this, EventArgs.Empty);
-        //}
-    }
+    //    //if (isLocalGamePaused)
+    //    //{
+    //    //   // PauseGameServerRPC();
+    //    //    optionsMenu.gameObject.SetActive(true);
+    //    //    onLocalGamePaused?.Invoke(this, EventArgs.Empty);
+    //    //}
+    //    //else
+    //    //{
+    //    //    //unPauseGameServerRPC();
+    //    //    optionsMenu.gameObject.SetActive(false);
+    //    //    onLocalGameUnpaused?.Invoke(this, EventArgs.Empty);
+    //    //}
+    //}
 
     //private bool isLocalGamePaused = false;
     //public EventHandler onLocalGamePaused;
