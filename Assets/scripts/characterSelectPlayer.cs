@@ -18,6 +18,7 @@ public class characterSelectPlayer : MonoBehaviour
         kickButton.onClick.AddListener(() =>
         {
             playerData playerData = optionsScript.Instance.GetPlayerDataFromPlayerIndex(playerIndex);
+            multiplayerGameLobby.Instance.KickPlayer(playerData.playerId.ToString());
             optionsScript.Instance.kickPlayer(playerData.clientId);
         });
     }
@@ -25,8 +26,9 @@ public class characterSelectPlayer : MonoBehaviour
     private void Start()
     {
         optionsScript.Instance.OnPlayerDataNetworkListChanged += optionsScript_OnPlayerDataNetworkListChanged;
-        characterSelectReady.Instance.onReadyChanged += characterSelectReady_OnreadyChanged; 
-       
+        characterSelectReady.Instance.onReadyChanged += characterSelectReady_OnreadyChanged;
+
+        Debug.Log(NetworkManager.Singleton.IsServer);
         kickButton.gameObject.SetActive(NetworkManager.Singleton.IsServer);
         UpdatePlayer();
     }

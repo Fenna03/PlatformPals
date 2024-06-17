@@ -6,7 +6,7 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class connectingResponeMessageUI : MonoBehaviour
+public class lobbyMessageUI : MonoBehaviour
 {
     [SerializeField] private Text messageText;
     [SerializeField] private Button closeButton;

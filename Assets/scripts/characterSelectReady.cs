@@ -44,6 +44,7 @@ public class characterSelectReady : NetworkBehaviour
 
         if (allClientsReady)
         {
+            multiplayerGameLobby.Instance.deleteLobby();
             Loader.loadNetwork(Loader.Scene.level1);
         }
     }

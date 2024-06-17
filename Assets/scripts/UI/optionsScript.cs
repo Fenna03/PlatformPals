@@ -6,6 +6,7 @@ using UnityEngine;
 using static Unity.Netcode.NetworkManager;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Unity.Services.Authentication;
 
 public class optionsScript : NetworkBehaviour
 {
@@ -19,7 +20,7 @@ public class optionsScript : NetworkBehaviour
     [SerializeField] private Transform playerPrefab;
     [SerializeField] private List<GameObject> playerSkinList;
 
-    private const int MAX_PLAYER_AMOUNT = 4;
+    public const int MAX_PLAYER_AMOUNT = 4;
 
     public event EventHandler OnTryingToJoinGame;
     public event EventHandler OnFailedToJoinGame;
@@ -87,6 +88,7 @@ public class optionsScript : NetworkBehaviour
             clientId = clientId,
             skinId = GetFirstUnusedSkinId(),
         });
+        setPlayerIdServerRPC(AuthenticationService.Instance.PlayerId);
     }
 
     private void NetworkManager_ConnectionApprovalCallback(NetworkManager.ConnectionApprovalRequest connectionApprovalRequest, NetworkManager.ConnectionApprovalResponse connectionApprovalResponse)
@@ -114,9 +116,27 @@ public class optionsScript : NetworkBehaviour
         OnTryingToJoinGame?.Invoke(this, EventArgs.Empty);
 
         NetworkManager.Singleton.OnClientDisconnectCallback += NetworkManager_Client_onClientDisconnectCallback;
+        NetworkManager.Singleton.OnClientConnectedCallback += NetworkManager_Client_OnClientConnectedCallback;
         NetworkManager.NetworkConfig.ConnectionApproval = true;
         Debug.Log(NetworkManager.NetworkConfig.ConnectionApproval);
         NetworkManager.Singleton.StartClient();
+    }
+
+    private void NetworkManager_Client_OnClientConnectedCallback(ulong obj)
+    {
+        setPlayerIdServerRPC(AuthenticationService.Instance.PlayerId);
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    private void setPlayerIdServerRPC(string playerId, ServerRpcParams serverRpcParams = default)
+    {
+        int playerDataIndex = GetPlayerDataIndexFromClientId(serverRpcParams.Receive.SenderClientId);
+
+        playerData playerdata = playerDataNetworkList[playerDataIndex];
+
+        playerdata.playerId = playerId;
+
+        playerDataNetworkList[playerDataIndex] = playerdata;
     }
 
     private void NetworkManager_Client_onClientDisconnectCallback(ulong clientId)
