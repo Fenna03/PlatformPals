@@ -6,7 +6,6 @@ using Unity.Netcode;
 
 public class followPlayer : NetworkBehaviour
 {
-
     Cinemachine.CinemachineTargetGroup.Target target;
     public CinemachineVirtualCamera vcam;
 
@@ -22,14 +21,6 @@ public class followPlayer : NetworkBehaviour
         playersConnected = players.Length;
         target.weight = 1;
         target.radius = 2;
-
-        //for (int i = 0; i < players.Length; i++)
-        //{
-        //    target.target = players[i].GetComponent<Transform>();
-
-        //    targetGroup.AddMember(target.target, target.weight, target.radius);
-        //    Debug.Log("added player");
-        //}
     }
 
     public void Update()    
@@ -39,6 +30,10 @@ public class followPlayer : NetworkBehaviour
             target.target = players[i].GetComponent<Transform>();
 
             targetGroup.AddMember(target.target, target.weight, target.radius);
+        }
+        if (players.Length <= 0)
+        {
+            Debug.Log("No players found");
         }
 
         if(playersConnected != GameObject.FindGameObjectsWithTag("Player").Length) 
@@ -50,24 +45,6 @@ public class followPlayer : NetworkBehaviour
 
                 targetGroup.AddMember(target.target, target.weight, target.radius);
             }
-            //    players = GameObject.FindGameObjectsWithTag("Player");
-            //    playersConnected = players.Length;
-            //    Debug.Log(playersConnected);
-            //    targetGroup.AddMember(players[players.Length-1].GetComponent<Transform>(),
-            //                           target.weight, 
-            //                           target.radius);
-            //    Debug.Log("new player added to targetGroup");
         }
     }
 }
-
-//vcam.Follow = GameObject.FindGameObjectsWithTag("Player").transform;
-
-//for (int i = 0; i < targetGroup.m_Targets.Length; i++)
-//{
-//    if (targetGroup.m_Targets[i].target == null)
-//    {
-//        targetGroup.m_Targets.SetValue(target, i);
-//        return;
-//    }
-//}
