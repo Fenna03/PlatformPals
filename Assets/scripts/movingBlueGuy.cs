@@ -83,6 +83,7 @@ public class movingBlueGuy : NetworkBehaviour
             isGrounded = true;
             anim.SetBool("isFalling", false);
             anim.SetBool("isJumping", false);
+            //Debug.Log(collision.collider.tag == "button");
         }
     }
 
@@ -92,6 +93,7 @@ public class movingBlueGuy : NetworkBehaviour
         {
             isGrounded = false;
             anim.SetBool("isRunning", false);
+            //Debug.Log(collision.collider.tag == "button");
         }
     }
 

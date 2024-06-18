@@ -28,7 +28,7 @@ public class characterSelectPlayer : MonoBehaviour
         optionsScript.Instance.OnPlayerDataNetworkListChanged += optionsScript_OnPlayerDataNetworkListChanged;
         characterSelectReady.Instance.onReadyChanged += characterSelectReady_OnreadyChanged;
 
-        Debug.Log(NetworkManager.Singleton.IsServer);
+        //Debug.Log(NetworkManager.Singleton.IsServer);
         kickButton.gameObject.SetActive(NetworkManager.Singleton.IsServer);
         UpdatePlayer();
     }

@@ -14,35 +14,24 @@ public class ButtonScript : NetworkBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        //GetComponent<BoxCollider2D>().size = new Vector2(2.56f, 1.330697f);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter2D(Collision2D col)
     {
-
-    }
-
-    void OnCollisionEnter2D(Collision2D col)
-    {
-
-        if (col.gameObject.tag == "Player" || col.gameObject.tag == "player2")
+        if (col.gameObject.CompareTag("Player"))
         {
             anim.SetBool("isPressed", true);
+            anim.SetBool("isReleased", false);
             fanScript.On();
-           // Debug.Log("yay");
-           // GetComponent<BoxCollider2D>().size = new Vector2(2.56f, 0.29f);
         }
     }
-    void OnCollisionExit2D(Collision2D col)
+    private void OnCollisionExit2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Player" || col.gameObject.tag == "player2")
+        if (col.gameObject.CompareTag("Player"))
         {
             anim.SetBool("isPressed", false);
-            anim.SetBool("isreleased", true);
+            anim.SetBool("isReleased", true);
             fanScript.Off();
-            //Debug.Log("nay");
-            //GetComponent<BoxCollider2D>().size = new Vector2(2.56f, 1.330697f);
         }
     }
 }
