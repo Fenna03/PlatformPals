@@ -13,7 +13,7 @@ public class lobbyUI : MonoBehaviour
     [SerializeField] private Button quickJoinButton;
     [SerializeField] private Button codeJoinButton;
 
-    [SerializeField] private TMP_InputField codeInputField;
+    [SerializeField] private InputField codeInputField;
     [SerializeField] private createLobbyUI createLobbyUI;
 
     [SerializeField] private Transform lobbyContainer;

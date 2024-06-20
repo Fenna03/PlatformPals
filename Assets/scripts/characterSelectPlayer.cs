@@ -17,9 +17,12 @@ public class characterSelectPlayer : MonoBehaviour
     {
         kickButton.onClick.AddListener(() =>
         {
-            playerData playerData = optionsScript.Instance.GetPlayerDataFromPlayerIndex(playerIndex);
-            multiplayerGameLobby.Instance.KickPlayer(playerData.playerId.ToString());
-            optionsScript.Instance.kickPlayer(playerData.clientId);
+            if (!NetworkManager.Singleton.IsServer)
+            {
+                playerData playerData = optionsScript.Instance.GetPlayerDataFromPlayerIndex(playerIndex);
+                multiplayerGameLobby.Instance.KickPlayer(playerData.playerId.ToString());
+                optionsScript.Instance.kickPlayer(playerData.clientId);
+            }
         });
     }
 

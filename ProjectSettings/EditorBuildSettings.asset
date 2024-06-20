@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/1AScenes/characterSelect.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/1AScenes/levelSelect.unity
+    guid: 6c2425ed8bb7d2546b0e90241bf33e81
+  - enabled: 1
     path: Assets/1AScenes/level1.unity
     guid: 01542b619b6debd4cad258966721d99c
   m_configObjects: {}

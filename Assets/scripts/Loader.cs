@@ -10,6 +10,7 @@ public class Loader : MonoBehaviour
     {
         characterSelect,
         Menu,
+        levelSelect,
         level1,
     }
 

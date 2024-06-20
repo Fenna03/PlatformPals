@@ -37,6 +37,6 @@ public class createLobbyUI : MonoBehaviour
     }
     private void hide()
     {
-        gameObject.SetActive(true);
+        gameObject.SetActive(false);
     }
 }

@@ -118,7 +118,7 @@ public class optionsScript : NetworkBehaviour
         NetworkManager.Singleton.OnClientDisconnectCallback += NetworkManager_Client_onClientDisconnectCallback;
         NetworkManager.Singleton.OnClientConnectedCallback += NetworkManager_Client_OnClientConnectedCallback;
         NetworkManager.NetworkConfig.ConnectionApproval = true;
-        Debug.Log(NetworkManager.NetworkConfig.ConnectionApproval);
+        //Debug.Log(NetworkManager.NetworkConfig.ConnectionApproval);
         NetworkManager.Singleton.StartClient();
     }
 
@@ -142,7 +142,7 @@ public class optionsScript : NetworkBehaviour
     private void NetworkManager_Client_onClientDisconnectCallback(ulong clientId)
     {
         OnFailedToJoinGame?.Invoke(this, EventArgs.Empty);
-        Debug.Log("Ello");
+        //Debug.Log("Ello");
     }
 
     public bool isPlayerIndexConnected(int playerIndex)
