@@ -8,7 +8,7 @@ public class sceneManager : MonoBehaviour
     [SerializeField] private Button menuButton;
     [SerializeField] private Button characterSelectButton;
     [SerializeField] private Button level1;
-    //[SerializeField] private Button level2;
+    [SerializeField] private Button level2;
     //[SerializeField] private Button level3;
     //[SerializeField] private Button level4;
 
@@ -25,6 +25,10 @@ public class sceneManager : MonoBehaviour
         level1.onClick.AddListener(() =>
         {
             Loader.loadNetwork(Loader.Scene.level1);
+        });
+        level2.onClick.AddListener(() =>
+        {
+            Loader.loadNetwork(Loader.Scene.level2);
         });
     }
 }

@@ -12,6 +12,9 @@ public class Loader : MonoBehaviour
         Menu,
         levelSelect,
         level1,
+        level2,
+        level3,
+        level4,
     }
 
     private static Scene targetScene;
