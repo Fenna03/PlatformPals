@@ -26,7 +26,7 @@ public class fanOnOff : NetworkBehaviour
 public void On()
     {
         anim.SetBool("ifActivated", true);
-        areaEffector2D.forceMagnitude = 30;
+        areaEffector2D.forceMagnitude = 10;
     }
 public void Off()
     {
