@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class sceneManager : MonoBehaviour
 {
     [SerializeField] private Button menuButton;
-    [SerializeField] private Button characterSelectButton;
+    //[SerializeField] private Button characterSelectButton;
     [SerializeField] private Button level1;
     [SerializeField] private Button level2;
     //[SerializeField] private Button level3;
@@ -18,10 +18,10 @@ public class sceneManager : MonoBehaviour
         {
             Loader.loadNetwork(Loader.Scene.Menu);
         });
-        characterSelectButton.onClick.AddListener(() =>
-        {
-            Loader.loadNetwork(Loader.Scene.characterSelect);
-        });
+        //characterSelectButton.onClick.AddListener(() =>
+        //{
+        //    Loader.loadNetwork(Loader.Scene.characterSelect);
+        //});
         level1.onClick.AddListener(() =>
         {
             Loader.loadNetwork(Loader.Scene.level1);

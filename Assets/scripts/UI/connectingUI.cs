@@ -7,18 +7,18 @@ public class connectingUI : MonoBehaviour
 {
     private void Start()
     {
-        optionsScript.Instance.OnTryingToJoinGame += KitchenGameMultiplayer_OnTryingToJoinGame;
-        optionsScript.Instance.OnFailedToJoinGame += KitchenGameManager_OnFailedToJoinGame;
+        optionsScript.Instance.OnTryingToJoinGame += Multiplayer_OnTryingToJoinGame;
+        optionsScript.Instance.OnFailedToJoinGame += Multiplayer_OnFailedToJoinGame;
 
         Hide();
     }
 
-    private void KitchenGameManager_OnFailedToJoinGame(object sender, System.EventArgs e)
+    private void Multiplayer_OnFailedToJoinGame(object sender, System.EventArgs e)
     {
         Hide();
     }
 
-    private void KitchenGameMultiplayer_OnTryingToJoinGame(object sender, System.EventArgs e)
+    private void Multiplayer_OnTryingToJoinGame(object sender, System.EventArgs e)
     {
         Show();
     }
@@ -35,7 +35,7 @@ public class connectingUI : MonoBehaviour
 
     private void OnDestroy()
     {
-        optionsScript.Instance.OnTryingToJoinGame -= KitchenGameMultiplayer_OnTryingToJoinGame;
-        optionsScript.Instance.OnFailedToJoinGame -= KitchenGameManager_OnFailedToJoinGame;
+        optionsScript.Instance.OnTryingToJoinGame -= Multiplayer_OnTryingToJoinGame;
+        optionsScript.Instance.OnFailedToJoinGame -= Multiplayer_OnFailedToJoinGame;
     }
 }
