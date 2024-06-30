@@ -7,9 +7,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
-public class movingBlueGuy : NetworkBehaviour
+public class MovingPlayer : NetworkBehaviour
 {
     public float speed = 3f;
+    public float health = 10f;
 
     //jumping
     public float horizontal;
@@ -22,7 +23,6 @@ public class movingBlueGuy : NetworkBehaviour
 
     //things on character
     Rigidbody2D rb;
-    public new BoxCollider2D collider;
     public Animator anim;
 
     // Start is called before the first frame update
@@ -83,7 +83,6 @@ public class movingBlueGuy : NetworkBehaviour
             isGrounded = true;
             anim.SetBool("isFalling", false);
             anim.SetBool("isJumping", false);
-            //Debug.Log(collision.collider.tag == "button");
         }
     }
 
@@ -93,7 +92,6 @@ public class movingBlueGuy : NetworkBehaviour
         {
             isGrounded = false;
             anim.SetBool("isRunning", false);
-            //Debug.Log(collision.collider.tag == "button");
         }
     }
 
@@ -106,5 +104,18 @@ public class movingBlueGuy : NetworkBehaviour
             localScale.x *= -1f;
             transform.localScale = localScale;
         }
+    }
+
+    public void Die()
+    {
+        Debug.Log("You died");
+        //if(isOwner)
+        //{
+            //deadscreen.GameObject.SetActive(true);
+        //}
+        //if(!isOwner)
+        //{
+            //otherDiedScreen.GameObject.SetActive(true);
+        //}
     }
 }

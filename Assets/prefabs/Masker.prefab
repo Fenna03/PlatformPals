@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 3608520499965720924}
   - component: {fileID: 1230223691448146826}
   - component: {fileID: 345483025482996238}
-  - component: {fileID: 7242181402983583209}
   - component: {fileID: 3841157134833827896}
   - component: {fileID: 5411357502087705789}
   - component: {fileID: 97454900797477156}
   - component: {fileID: 4952367474409714444}
+  - component: {fileID: -6489754379965801579}
   m_Layer: 0
   m_Name: Masker
   m_TagString: Player
@@ -185,25 +185,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &7242181402983583209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3808902763708336337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef20cd6325921844d893d9e3a9d9e54b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  horizontal: 0
-  jumpingPower: 7
-  isGrounded: 0
-  jumpAmount: 0
-  collider: {fileID: 1230223691448146826}
-  anim: {fileID: 3608520499965720924}
 --- !u!114 &3841157134833827896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,3 +253,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TransitionStateInfoList: []
   m_Animator: {fileID: 3608520499965720924}
+--- !u!114 &-6489754379965801579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3808902763708336337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c317e74315ae9a74880e23822bf0ebb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  horizontal: 0
+  jumpingPower: 7
+  isGrounded: 1
+  jumpAmount: 0
+  anim: {fileID: 3608520499965720924}

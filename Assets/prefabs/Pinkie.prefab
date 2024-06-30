@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 7880982677957560120}
   - component: {fileID: 1566942740058240028}
   - component: {fileID: 2861744302726014350}
-  - component: {fileID: 1988307047999101251}
   - component: {fileID: 6118298721791596611}
   - component: {fileID: 5925609093173807958}
   - component: {fileID: 2596852013254460583}
   - component: {fileID: 3858739197721016967}
+  - component: {fileID: 4690363929776473697}
   m_Layer: 0
   m_Name: Pinkie
   m_TagString: Player
@@ -185,25 +185,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.21912694, y: 0.25399667}
   m_EdgeRadius: 0
---- !u!114 &1988307047999101251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1187464962888537031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fdc32c88e640344eabe00ebf85983f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  horizontal: 0
-  jumpingPower: 7
-  isGrounded: 0
-  jumpAmount: 0
-  collider: {fileID: 2861744302726014350}
-  anim: {fileID: 7880982677957560120}
 --- !u!114 &6118298721791596611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,3 +253,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d7c879794dfda4687da0e400131852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4690363929776473697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187464962888537031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c317e74315ae9a74880e23822bf0ebb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  horizontal: 0
+  jumpingPower: 7
+  isGrounded: 1
+  jumpAmount: 0
+  anim: {fileID: 7880982677957560120}

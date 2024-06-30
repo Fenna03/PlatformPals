@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 6701152514582955002}
   - component: {fileID: 9113099473138863675}
   - component: {fileID: 2725216566980873300}
-  - component: {fileID: 6736714356305481601}
   - component: {fileID: -2522871107767549707}
   - component: {fileID: 8583733040631526651}
   - component: {fileID: 7569902583141572660}
   - component: {fileID: -5935808334969297736}
+  - component: {fileID: -810106631385029833}
   m_Layer: 0
   m_Name: blueGuy
   m_TagString: Player
@@ -185,25 +185,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.22435252, y: 0.24576624}
   m_EdgeRadius: 0
---- !u!114 &6736714356305481601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5585514345970034802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c1b1551bb0886543a36d728b8e6de1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  horizontal: 0
-  jumpingPower: 7
-  isGrounded: 0
-  jumpAmount: 0
-  collider: {fileID: 2725216566980873300}
-  anim: {fileID: 6701152514582955002}
 --- !u!114 &-2522871107767549707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,3 +253,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d7c879794dfda4687da0e400131852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-810106631385029833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5585514345970034802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c317e74315ae9a74880e23822bf0ebb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  horizontal: 0
+  jumpingPower: 7
+  isGrounded: 1
+  jumpAmount: 0
+  collider: {fileID: 2725216566980873300}
+  anim: {fileID: 6701152514582955002}
