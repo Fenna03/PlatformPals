@@ -12,6 +12,7 @@ public class characterSelectPlayer : MonoBehaviour
     [SerializeField] private GameObject ReadyGameObject;
     [SerializeField] private playerVisual playerVisual;
     [SerializeField] private Button kickButton;
+    public Image sameCharacter;
 
     private void Awake()
     {
@@ -31,6 +32,7 @@ public class characterSelectPlayer : MonoBehaviour
         optionsScript.Instance.OnPlayerDataNetworkListChanged += optionsScript_OnPlayerDataNetworkListChanged;
         characterSelectReady.Instance.onReadyChanged += characterSelectReady_OnreadyChanged;
 
+        sameCharacter.enabled = false;
         //Debug.Log(NetworkManager.Singleton.IsServer);
         kickButton.gameObject.SetActive(NetworkManager.Singleton.IsServer);
         UpdatePlayer();

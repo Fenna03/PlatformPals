@@ -26,6 +26,7 @@ public class optionsScript : NetworkBehaviour
     public event EventHandler OnFailedToJoinGame;
     public event EventHandler OnPlayerDataNetworkListChanged;
 
+
     private NetworkList<playerData> playerDataNetworkList;
 
     private void Awake()
@@ -86,7 +87,7 @@ public class optionsScript : NetworkBehaviour
         playerDataNetworkList.Add(new playerData
         {
             clientId = clientId,
-            skinId = GetFirstUnusedSkinId(),
+            //skinId = GetFirstUnusedSkinId(),
         });
         setPlayerIdServerRPC(AuthenticationService.Instance.PlayerId);
     }
@@ -194,14 +195,20 @@ public class optionsScript : NetworkBehaviour
         ChangePlayerSkinServerRpc(skinId);
     }
 
+
+    characterSelectPlayer characterSelectPlayer;
+
     [ServerRpc(RequireOwnership = false)]
     private void ChangePlayerSkinServerRpc(int skinId, ServerRpcParams serverRpcParams = default)
     {
-        if (!IsSkinAvailable(skinId))
-        {
-            // Color not available
-            return;
-        }
+        //i don't get how this fucks up my fucking buttons
+        characterSelectPlayer.sameCharacter.enabled = true;
+        //if (!IsSkinAvailable(skinId))
+        //{
+        //    characterSelectPlayer.sameCharacter.enabled = true;
+        //    // Color not available
+        //    //    return;
+        //}
 
         int playerDataIndex = GetPlayerDataIndexFromClientId(serverRpcParams.Receive.SenderClientId);
 
@@ -225,17 +232,17 @@ public class optionsScript : NetworkBehaviour
         return true;
     }
 
-    private int GetFirstUnusedSkinId()
-    {
-        for (int i = 0; i < playerSkinList.Count; i++)
-        {
-            if (IsSkinAvailable(i))
-            {
-                return i;
-            }
-        }
-        return -1;
-    }
+    //private int GetFirstUnusedSkinId()
+    //{
+    //    for (int i = 0; i < playerSkinList.Count; i++)
+    //    {
+    //        if (IsSkinAvailable(i))
+    //        {
+    //            return i;
+    //        }
+    //    }
+    //    return -1;
+    //}
 
     public void kickPlayer(ulong clientId)
     {
