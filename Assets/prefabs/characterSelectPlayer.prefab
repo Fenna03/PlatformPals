@@ -156,7 +156,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2871185715311740397}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -431,7 +431,7 @@ MonoBehaviour:
   playerIndex: 0
   ReadyGameObject: {fileID: 3387067259517845012}
   playerVisual: {fileID: 7061104510615293257}
-  kickButton: {fileID: 0}
+  kickButton: {fileID: 4126670781681052414}
   sameCharacter: {fileID: 8275875993249266140}
 --- !u!114 &7061104510615293257
 MonoBehaviour:

@@ -39,6 +39,14 @@ public class optionsScript : NetworkBehaviour
         playerDataNetworkList.OnListChanged += playerDataNetworkList_onListChanged;
     }
 
+    private void Start()
+    {
+        characterSP.sameCharacter.enabled = false;
+    }
+    private void Update()
+    {
+        Debug.Log(characterSP.sameCharacter.enabled);
+    }
     private void playerDataNetworkList_onListChanged(NetworkListEvent<playerData> changeEvent)
     {
         OnPlayerDataNetworkListChanged?.Invoke(this, EventArgs.Empty);
@@ -196,19 +204,26 @@ public class optionsScript : NetworkBehaviour
     }
 
 
-    characterSelectPlayer characterSelectPlayer;
+    public characterSelectPlayer characterSP;
 
     [ServerRpc(RequireOwnership = false)]
     private void ChangePlayerSkinServerRpc(int skinId, ServerRpcParams serverRpcParams = default)
     {
         //i don't get how this fucks up my fucking buttons
-        characterSelectPlayer.sameCharacter.enabled = true;
-        //if (!IsSkinAvailable(skinId))
-        //{
-        //    characterSelectPlayer.sameCharacter.enabled = true;
-        //    // Color not available
-        //    //    return;
-        //}
+        //characterSelectPlayer.sameCharacter.enabled = true;
+
+        //characterSP.Change();
+        
+        if (!IsSkinAvailable(skinId))
+        {
+            characterSP.sameCharacter.enabled = true;
+            //    // Color not available
+            //    //    return;
+        }
+        else
+        {
+            characterSP.sameCharacter.enabled = false;
+        }
 
         int playerDataIndex = GetPlayerDataIndexFromClientId(serverRpcParams.Receive.SenderClientId);
 

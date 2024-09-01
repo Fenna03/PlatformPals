@@ -16,9 +16,10 @@ public class characterSelectPlayer : MonoBehaviour
 
     private void Awake()
     {
+        sameCharacter.enabled = false;
         kickButton.onClick.AddListener(() =>
         {
-            if (!NetworkManager.Singleton.IsServer)
+            if (NetworkManager.Singleton.IsServer)
             {
                 playerData playerData = optionsScript.Instance.GetPlayerDataFromPlayerIndex(playerIndex);
                 multiplayerGameLobby.Instance.KickPlayer(playerData.playerId.ToString());
@@ -32,7 +33,7 @@ public class characterSelectPlayer : MonoBehaviour
         optionsScript.Instance.OnPlayerDataNetworkListChanged += optionsScript_OnPlayerDataNetworkListChanged;
         characterSelectReady.Instance.onReadyChanged += characterSelectReady_OnreadyChanged;
 
-        sameCharacter.enabled = false;
+        
         //Debug.Log(NetworkManager.Singleton.IsServer);
         kickButton.gameObject.SetActive(NetworkManager.Singleton.IsServer);
         UpdatePlayer();
@@ -72,5 +73,10 @@ public class characterSelectPlayer : MonoBehaviour
     private void Hide()
     {
         gameObject.SetActive(false);
+    }
+
+    public void Change()
+    {
+        sameCharacter.enabled = true;
     }
 }
