@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
 public class characterSelectPlayer : MonoBehaviour
@@ -12,11 +13,10 @@ public class characterSelectPlayer : MonoBehaviour
     [SerializeField] private GameObject ReadyGameObject;
     [SerializeField] private playerVisual playerVisual;
     [SerializeField] private Button kickButton;
-    public Image sameCharacter;
+    [SerializeField] public Image sameCharacter;
 
     private void Awake()
     {
-        sameCharacter.enabled = false;
         kickButton.onClick.AddListener(() =>
         {
             if (NetworkManager.Singleton.IsServer)
@@ -73,10 +73,5 @@ public class characterSelectPlayer : MonoBehaviour
     private void Hide()
     {
         gameObject.SetActive(false);
-    }
-
-    public void Change()
-    {
-        sameCharacter.enabled = true;
     }
 }

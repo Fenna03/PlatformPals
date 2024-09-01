@@ -41,7 +41,7 @@ public class optionsScript : NetworkBehaviour
 
     private void Start()
     {
-        characterSP.sameCharacter.enabled = false;
+        //characterSP.sameCharacter.enabled = false;
     }
     private void Update()
     {
@@ -95,7 +95,7 @@ public class optionsScript : NetworkBehaviour
         playerDataNetworkList.Add(new playerData
         {
             clientId = clientId,
-            //skinId = GetFirstUnusedSkinId(),
+            skinId = GetFirstUnusedSkinId(),
         });
         setPlayerIdServerRPC(AuthenticationService.Instance.PlayerId);
     }
@@ -208,21 +208,16 @@ public class optionsScript : NetworkBehaviour
 
     [ServerRpc(RequireOwnership = false)]
     private void ChangePlayerSkinServerRpc(int skinId, ServerRpcParams serverRpcParams = default)
-    {
-        //i don't get how this fucks up my fucking buttons
-        //characterSelectPlayer.sameCharacter.enabled = true;
-
-        //characterSP.Change();
-        
+    {        
         if (!IsSkinAvailable(skinId))
         {
-            characterSP.sameCharacter.enabled = true;
+             characterSP.sameCharacter.enabled = true;
             //    // Color not available
-            //    //    return;
+            //        return;
         }
         else
         {
-            characterSP.sameCharacter.enabled = false;
+               characterSP.sameCharacter.enabled = false;
         }
 
         int playerDataIndex = GetPlayerDataIndexFromClientId(serverRpcParams.Receive.SenderClientId);
@@ -247,104 +242,22 @@ public class optionsScript : NetworkBehaviour
         return true;
     }
 
-    //private int GetFirstUnusedSkinId()
-    //{
-    //    for (int i = 0; i < playerSkinList.Count; i++)
-    //    {
-    //        if (IsSkinAvailable(i))
-    //        {
-    //            return i;
-    //        }
-    //    }
-    //    return -1;
-    //}
+    private int GetFirstUnusedSkinId()
+    {
+        for (int i = 0; i < playerSkinList.Count; i++)
+        {
+            if (IsSkinAvailable(i))
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
 
     public void kickPlayer(ulong clientId)
     {
         NetworkManager.Singleton.DisconnectClient(clientId);
         NetworkManager_Server_onClientDisconnectCallback(clientId);
     }
-
-    //public void TogglePause()
-    //{
-    //    optionsMenu.gameObject.SetActive(!optionsMenu.gameObject.activeSelf);
-    //    paused = !paused;
-    //    //Time.timeScale = paused ? 0 : 1;
-    //    Debug.Log("Paused state: " + paused);
-
-    //    //isLocalGamePaused = !isLocalGamePaused;
-
-    //    //if (isLocalGamePaused)
-    //    //{
-    //    //   // PauseGameServerRPC();
-    //    //    optionsMenu.gameObject.SetActive(true);
-    //    //    onLocalGamePaused?.Invoke(this, EventArgs.Empty);
-    //    //}
-    //    //else
-    //    //{
-    //    //    //unPauseGameServerRPC();
-    //    //    optionsMenu.gameObject.SetActive(false);
-    //    //    onLocalGameUnpaused?.Invoke(this, EventArgs.Empty);
-    //    //}
-    //}
-
-    //private bool isLocalGamePaused = false;
-    //public EventHandler onLocalGamePaused;
-    //public EventHandler onLocalGameUnpaused;
-    //public EventHandler onMultiplayerGamePaused;
-    //public EventHandler onMultiplayerGameUnpaused;
-
-    //private NetworkVariable<bool> isGamePaused = new NetworkVariable<bool>(false);
-    //private Dictionary<ulong, bool> playerPausedDictionary;
-
-    //public override void OnNetworkSpawn()
-    //{
-    //    isGamePaused.OnValueChanged += isPaused_OnValueChanged;
-    //    base.OnNetworkSpawn();
-    //}
-
-    //private void isPaused_OnValueChanged(bool previousValue, bool newValue)
-    //{
-    //    if (isGamePaused.Value)
-    //    {
-    //        Time.timeScale = 0f;
-    //        onMultiplayerGamePaused?.Invoke(this, EventArgs.Empty);
-    //    }
-    //    else
-    //    {
-    //        Time.timeScale = 1f;
-    //        onMultiplayerGameUnpaused?.Invoke(this, EventArgs.Empty);
-    //    }
-    //}
-
-
-    //[ServerRpc(RequireOwnership = false)]
-    //private void PauseGameServerRPC(ServerRpcParams serverRpcParams = default)
-    //{
-    //    playerPausedDictionary[serverRpcParams.Receive.SenderClientId] = true;
-    //    testGamePausedState();
-    //}
-
-    //[ServerRpc(RequireOwnership = false)]
-    //private void unPauseGameServerRPC(ServerRpcParams serverRpcParams = default)
-    //{
-    //    playerPausedDictionary[serverRpcParams.Receive.SenderClientId] = false;
-    //    testGamePausedState();
-    //}
-
-    //private void testGamePausedState()
-    //{
-    //    foreach (ulong clientId in NetworkManager.Singleton.ConnectedClientsIds)
-    //    {
-    //        if (playerPausedDictionary.ContainsKey(clientId) && playerPausedDictionary[clientId])
-    //        {
-    //            //this player is paused
-    //            isGamePaused.Value = true;
-    //            return;
-    //        }
-    //    }
-    //    //all players are unpaused
-    //    isGamePaused.Value = false;
-    //}
 }
 
