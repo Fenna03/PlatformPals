@@ -41,7 +41,7 @@ public class optionsScript : NetworkBehaviour
 
     private void Start()
     {
-        //characterSP.sameCharacter.enabled = false;
+        characterSP.disableImage();
     }
     private void Update()
     {
@@ -211,13 +211,13 @@ public class optionsScript : NetworkBehaviour
     {        
         if (!IsSkinAvailable(skinId))
         {
-             characterSP.sameCharacter.enabled = true;
+            characterSP.EnableImage();
             //    // Color not available
             //        return;
         }
         else
         {
-               characterSP.sameCharacter.enabled = false;
+               characterSP.disableImage();
         }
 
         int playerDataIndex = GetPlayerDataIndexFromClientId(serverRpcParams.Receive.SenderClientId);

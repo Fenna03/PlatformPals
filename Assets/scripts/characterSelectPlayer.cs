@@ -17,6 +17,7 @@ public class characterSelectPlayer : MonoBehaviour
 
     private void Awake()
     {
+        disableImage();
         kickButton.onClick.AddListener(() =>
         {
             if (NetworkManager.Singleton.IsServer)
@@ -26,6 +27,19 @@ public class characterSelectPlayer : MonoBehaviour
                 optionsScript.Instance.kickPlayer(playerData.clientId);
             }
         });
+    }
+
+    public void EnableImage()
+    {
+        Debug.Log("letsgo");
+       //sameCharacter.gameObject.SetActive(true);
+        sameCharacter.enabled = true;
+    }
+    public void disableImage()
+    {
+        Debug.Log("stoppp");
+       // sameCharacter.gameObject.SetActive(false);
+        sameCharacter.enabled = false;
     }
 
     private void Start()
