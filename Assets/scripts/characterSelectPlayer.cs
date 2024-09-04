@@ -13,7 +13,7 @@ public class characterSelectPlayer : MonoBehaviour
     [SerializeField] private GameObject ReadyGameObject;
     [SerializeField] private playerVisual playerVisual;
     [SerializeField] private Button kickButton;
-    [SerializeField] public Image sameCharacter;
+    [SerializeField] private GameObject sameCharacter;
 
     private void Awake()
     {
@@ -32,14 +32,14 @@ public class characterSelectPlayer : MonoBehaviour
     public void EnableImage()
     {
         Debug.Log("letsgo");
-       //sameCharacter.gameObject.SetActive(true);
-        sameCharacter.enabled = true;
+        sameCharacter.SetActive(true);
+       // sameCharacter.enabled = true;
     }
     public void disableImage()
     {
         Debug.Log("stoppp");
-       // sameCharacter.gameObject.SetActive(false);
-        sameCharacter.enabled = false;
+        sameCharacter.SetActive(false);
+        //sameCharacter.enabled = false;
     }
 
     private void Start()

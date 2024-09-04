@@ -17,7 +17,7 @@ public class optionsScript : NetworkBehaviour
 
     //public GameObject optionsMenu;
     //public bool paused;
-    [SerializeField] private Transform playerPrefab;
+    //[SerializeField] private Transform playerPrefab;
     [SerializeField] private List<GameObject> playerSkinList;
 
     public const int MAX_PLAYER_AMOUNT = 4;
@@ -45,7 +45,7 @@ public class optionsScript : NetworkBehaviour
     }
     private void Update()
     {
-        Debug.Log(characterSP.sameCharacter.enabled);
+        //Debug.Log(characterSP.sameCharacter.enabled);
     }
     private void playerDataNetworkList_onListChanged(NetworkListEvent<playerData> changeEvent)
     {
@@ -208,7 +208,8 @@ public class optionsScript : NetworkBehaviour
 
     [ServerRpc(RequireOwnership = false)]
     private void ChangePlayerSkinServerRpc(int skinId, ServerRpcParams serverRpcParams = default)
-    {        
+    {
+        //characterSP.EnableImage();
         if (!IsSkinAvailable(skinId))
         {
             characterSP.EnableImage();
@@ -217,7 +218,7 @@ public class optionsScript : NetworkBehaviour
         }
         else
         {
-               characterSP.disableImage();
+            characterSP.disableImage();
         }
 
         int playerDataIndex = GetPlayerDataIndexFromClientId(serverRpcParams.Receive.SenderClientId);
