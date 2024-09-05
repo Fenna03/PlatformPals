@@ -39,10 +39,6 @@ public class optionsScript : NetworkBehaviour
         playerDataNetworkList.OnListChanged += playerDataNetworkList_onListChanged;
     }
 
-    private void Start()
-    {
-        characterSP.disableImage();
-    }
     private void Update()
     {
         //Debug.Log(characterSP.sameCharacter.enabled);
