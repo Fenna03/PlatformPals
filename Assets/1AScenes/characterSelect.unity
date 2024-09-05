@@ -2106,6 +2106,10 @@ PrefabInstance:
       propertyPath: sameCharacter
       value: 
       objectReference: {fileID: 1457008902}
+    - target: {fileID: 1325508367218890392, guid: 4acea850d96a6e0499a43036b62183b3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1934312298184006567, guid: 4acea850d96a6e0499a43036b62183b3, type: 3}
       propertyPath: m_LocalScale.x
       value: -5
@@ -3553,6 +3557,10 @@ PrefabInstance:
       propertyPath: sameCharacter
       value: 
       objectReference: {fileID: 6992417361643469390}
+    - target: {fileID: 1325508367218890392, guid: 4acea850d96a6e0499a43036b62183b3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1820045709928928640, guid: 4acea850d96a6e0499a43036b62183b3, type: 3}
       propertyPath: m_FontData.m_MaxSize
       value: 124
@@ -3873,6 +3881,7 @@ PrefabInstance:
     - {fileID: 3294196684496808287, guid: 4acea850d96a6e0499a43036b62183b3, type: 3}
     m_RemovedGameObjects:
     - {fileID: 1038555586231947496, guid: 4acea850d96a6e0499a43036b62183b3, type: 3}
+    - {fileID: 2871185715311740397, guid: 4acea850d96a6e0499a43036b62183b3, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4acea850d96a6e0499a43036b62183b3, type: 3}

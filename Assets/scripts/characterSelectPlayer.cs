@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
@@ -18,6 +19,8 @@ public class characterSelectPlayer : MonoBehaviour
     private void Awake()
     {
         disableImage();
+
+        kickButton.onClick.RemoveAllListeners();
         kickButton.onClick.AddListener(() =>
         {
             if (NetworkManager.Singleton.IsServer)
@@ -32,13 +35,16 @@ public class characterSelectPlayer : MonoBehaviour
     public void EnableImage()
     {
         Debug.Log("letsgo");
-        sameCharacter.SetActive(true);
+        //sameCharacter.SetActive(true);
+        sameCharacter.GetComponent<Text>().enabled = true;
+        Destroy(gameObject);
        // sameCharacter.enabled = true;
     }
     public void disableImage()
     {
         Debug.Log("stoppp");
-        sameCharacter.SetActive(false);
+        //sameCharacter.SetActive(false);
+        sameCharacter.GetComponent<Text>().enabled = false;
         //sameCharacter.enabled = false;
     }
 

@@ -209,6 +209,7 @@ public class optionsScript : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     private void ChangePlayerSkinServerRpc(int skinId, ServerRpcParams serverRpcParams = default)
     {
+        Debug.Log(" Change player skin called");
         //characterSP.EnableImage();
         if (!IsSkinAvailable(skinId))
         {

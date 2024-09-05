@@ -14,6 +14,8 @@ public class characterSkinSelectUI : MonoBehaviour
 
     private void Awake()
     {
+        GetComponent<Button>().onClick.RemoveAllListeners();
+
         GetComponent<Button>().onClick.AddListener(() =>
         {
             optionsScript.Instance.ChangePlayerSkin(skinId);
