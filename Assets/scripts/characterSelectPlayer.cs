@@ -19,7 +19,6 @@ public class characterSelectPlayer : MonoBehaviour
     private void Awake()
     {
         disableImage();
-        test();
 
         kickButton.onClick.RemoveAllListeners();
         kickButton.onClick.AddListener(() =>
@@ -33,19 +32,12 @@ public class characterSelectPlayer : MonoBehaviour
         });
     }
 
-    IEnumerator test()
-    {
-        yield return new WaitForSeconds(5);
-        Debug.Log("tset");
-        sameCharacter.SetActive(true);
-    }
-
     public void EnableImage()
     {
         Debug.Log("letsgo");
         sameCharacter.SetActive(true);
         //sameCharacter.GetComponent<Text>().enabled = true;
-       // Destroy(gameObject);
+        Destroy(gameObject);
        // sameCharacter.enabled = true;
     }
     public void disableImage()
