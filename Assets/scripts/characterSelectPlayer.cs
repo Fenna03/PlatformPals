@@ -14,7 +14,7 @@ public class characterSelectPlayer : MonoBehaviour
 
     private void Awake()
     {
-        disableImage();
+        DisableImage();
 
         kickButton.onClick.RemoveAllListeners();
         kickButton.onClick.AddListener(() =>
@@ -31,47 +31,13 @@ public class characterSelectPlayer : MonoBehaviour
     public void EnableImage()
     {
         Debug.Log("letsgo");
-
         sameCharacter.SetActive(true);
-
-        Debug.Log(sameCharacter.activeSelf);
-
-        if (sameCharacter.activeInHierarchy)
-        {
-            Debug.Log("The sameCharacter is active in the hierarchy.");
-        }
-        else
-        {
-            Debug.Log("The sameCharacter is NOT active in the hierarchy.");
-        }
-
-        if (this.gameObject.activeInHierarchy)
-        {
-            Debug.Log(this.gameObject + " is active in the hierarchy.");
-        }
-        else
-        {
-            Debug.Log(this.gameObject + " is NOT active in the hierarchy.");
-        }
-
-        //sameCharacter.GetComponent<Text>().enabled = true;
-        //Debug.Log(sameCharacter.GetComponent<Text>().enabled);
-
-        //still gives the same error that i cannot get rid of asset
-        //Destroy(gameObject);
-        // sameCharacter.enabled = true;
     }
-    public void disableImage()
+
+    public void DisableImage()
     {
         Debug.Log("stoppp");
-
-        //sameCharacter.GetComponent<Text>().enabled = false;
-        // Debug.Log(sameCharacter.GetComponent<Text>().enabled);
-
-
         sameCharacter.SetActive(false);
-        //Debug.Log(sameCharacter.activeSelf);
-        //sameCharacter.enabled = false;
     }
 
     private void Start()

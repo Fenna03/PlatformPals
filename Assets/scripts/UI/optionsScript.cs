@@ -7,11 +7,11 @@ using static Unity.Netcode.NetworkManager;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Unity.Services.Authentication;
+using UnityEngine.TextCore.Text;
 
 public class optionsScript : NetworkBehaviour
 {
     public static optionsScript Instance { get; private set; }
-
 
     //[SerializeField] private Button mainMenu;
 
@@ -19,14 +19,13 @@ public class optionsScript : NetworkBehaviour
     //public bool paused;
     //[SerializeField] private Transform playerPrefab;
     [SerializeField] private List<GameObject> playerSkinList;
+    public List<characterSelectPlayer> playerCSP = new List<characterSelectPlayer>();
 
     public const int MAX_PLAYER_AMOUNT = 4;
 
     public event EventHandler OnTryingToJoinGame;
     public event EventHandler OnFailedToJoinGame;
     public event EventHandler OnPlayerDataNetworkListChanged;
-
-    public characterSelectPlayer characterSP;
 
     private NetworkList<playerData> playerDataNetworkList;
 
@@ -39,11 +38,21 @@ public class optionsScript : NetworkBehaviour
         playerDataNetworkList = new NetworkList<playerData>();
         playerDataNetworkList.OnListChanged += playerDataNetworkList_onListChanged;
     }
-
+    
     private void Update()
     {
-        //Debug.Log(characterSP.sameCharacter.enabled);
+        var components = FindObjectsOfType<characterSelectPlayer>();
+        foreach (var component in components)
+        {
+            // Check if the component is already in the list
+            if (!playerCSP.Contains(component))
+            {
+                // If not, add it to the list
+                playerCSP.Add(component);
+            }
+        }
     }
+
     private void playerDataNetworkList_onListChanged(NetworkListEvent<playerData> changeEvent)
     {
         OnPlayerDataNetworkListChanged?.Invoke(this, EventArgs.Empty);
@@ -200,32 +209,39 @@ public class optionsScript : NetworkBehaviour
         ChangePlayerSkinServerRpc(skinId);
     }
 
-
     [ServerRpc(RequireOwnership = false)]
     private void ChangePlayerSkinServerRpc(int skinId, ServerRpcParams serverRpcParams = default)
     {
-        
-        //characterSP.EnableImage();
-        if (!IsSkinAvailable(skinId))
-        {
-            Debug.Log("Change player skin called");
-            characterSP.EnableImage();
-            //    // Color not available
-            //        return;
-        }
-        else
-        {
-           // characterSP.disableImage();
-        }
+        ChangePlayerSkinClientRpc(skinId);
 
+        // Update player data in the network list
         int playerDataIndex = GetPlayerDataIndexFromClientId(serverRpcParams.Receive.SenderClientId);
-
         playerData playerData = playerDataNetworkList[playerDataIndex];
-
         playerData.skinId = skinId;
-
         playerDataNetworkList[playerDataIndex] = playerData;
     }
+
+    [ClientRpc]
+    void ChangePlayerSkinClientRpc(int skinId)
+    {
+        var components = FindObjectsOfType<characterSelectPlayer>();
+        // Get the client ID of the player calling this RPC
+        
+
+        foreach (characterSelectPlayer ready in playerCSP)
+        {
+            // Enable or disable the image on the specific player's CharacterSP
+            if (!IsSkinAvailable(skinId))
+            {
+                ready.EnableImage();
+            }
+            else
+            {
+                ready.DisableImage();
+            }
+        }
+    }
+
 
     private bool IsSkinAvailable(int skinId)
     {
@@ -258,4 +274,3 @@ public class optionsScript : NetworkBehaviour
         NetworkManager_Server_onClientDisconnectCallback(clientId);
     }
 }
-

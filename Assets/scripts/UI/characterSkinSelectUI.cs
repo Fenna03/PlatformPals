@@ -26,8 +26,6 @@ public class characterSkinSelectUI : MonoBehaviour
     {
         optionsScript.Instance.OnPlayerDataNetworkListChanged += Instance_OnPlayerDataNetworkListChanged;
         UpdateIsSelected();
-        //i don't need this because i have sprite on button so image doesn't need to be color
-        //image.color = optionsScript.Instance.GetPlayerSkin(skinId);
     }
 
     private void Instance_OnPlayerDataNetworkListChanged(object sender, EventArgs e)
