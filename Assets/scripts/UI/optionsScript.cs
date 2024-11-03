@@ -26,6 +26,7 @@ public class optionsScript : NetworkBehaviour
     public event EventHandler OnFailedToJoinGame;
     public event EventHandler OnPlayerDataNetworkListChanged;
 
+    public characterSelectPlayer characterSP;
 
     private NetworkList<playerData> playerDataNetworkList;
 
@@ -200,22 +201,21 @@ public class optionsScript : NetworkBehaviour
     }
 
 
-    public characterSelectPlayer characterSP;
-
     [ServerRpc(RequireOwnership = false)]
     private void ChangePlayerSkinServerRpc(int skinId, ServerRpcParams serverRpcParams = default)
     {
-        Debug.Log(" Change player skin called");
+        
         //characterSP.EnableImage();
         if (!IsSkinAvailable(skinId))
         {
+            Debug.Log("Change player skin called");
             characterSP.EnableImage();
             //    // Color not available
             //        return;
         }
         else
         {
-            characterSP.disableImage();
+           // characterSP.disableImage();
         }
 
         int playerDataIndex = GetPlayerDataIndexFromClientId(serverRpcParams.Receive.SenderClientId);

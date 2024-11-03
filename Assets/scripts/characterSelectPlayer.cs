@@ -1,10 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using Unity.Netcode;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
 public class characterSelectPlayer : MonoBehaviour
@@ -35,16 +31,46 @@ public class characterSelectPlayer : MonoBehaviour
     public void EnableImage()
     {
         Debug.Log("letsgo");
+
         sameCharacter.SetActive(true);
+
+        Debug.Log(sameCharacter.activeSelf);
+
+        if (sameCharacter.activeInHierarchy)
+        {
+            Debug.Log("The sameCharacter is active in the hierarchy.");
+        }
+        else
+        {
+            Debug.Log("The sameCharacter is NOT active in the hierarchy.");
+        }
+
+        if (this.gameObject.activeInHierarchy)
+        {
+            Debug.Log(this.gameObject + " is active in the hierarchy.");
+        }
+        else
+        {
+            Debug.Log(this.gameObject + " is NOT active in the hierarchy.");
+        }
+
         //sameCharacter.GetComponent<Text>().enabled = true;
-        Destroy(gameObject);
-       // sameCharacter.enabled = true;
+        //Debug.Log(sameCharacter.GetComponent<Text>().enabled);
+
+        //still gives the same error that i cannot get rid of asset
+        //Destroy(gameObject);
+        // sameCharacter.enabled = true;
     }
     public void disableImage()
     {
         Debug.Log("stoppp");
+
+        //sameCharacter.GetComponent<Text>().enabled = false;
+        // Debug.Log(sameCharacter.GetComponent<Text>().enabled);
+
+
         sameCharacter.SetActive(false);
-       // sameCharacter.GetComponent<Text>().enabled = false;
+        //Debug.Log(sameCharacter.activeSelf);
         //sameCharacter.enabled = false;
     }
 

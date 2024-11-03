@@ -62,7 +62,7 @@ public class MovingPlayer : NetworkBehaviour
         {
             anim.SetBool("isRunning", false);
         }
-        if (Input.GetKey(KeyCode.W) && jumpAmount < 1)
+        if (Input.GetKey(KeyCode.W) && jumpAmount < 1 || Input.GetKey(KeyCode.Space) && jumpAmount < 1)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
             jumpAmount++;

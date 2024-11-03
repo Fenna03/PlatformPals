@@ -1229,6 +1229,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1032338803}
   m_CullTransparentMesh: 1
+--- !u!1001 &1132878692
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2689097001375023646, guid: 4acea850d96a6e0499a43036b62183b3, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 3790897111
+      objectReference: {fileID: 0}
+    - target: {fileID: 4171269836882267667, guid: 4acea850d96a6e0499a43036b62183b3, type: 3}
+      propertyPath: m_Name
+      value: characterSelectPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5216428387513381025, guid: 4acea850d96a6e0499a43036b62183b3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5216428387513381025, guid: 4acea850d96a6e0499a43036b62183b3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5216428387513381025, guid: 4acea850d96a6e0499a43036b62183b3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.2183695
+      objectReference: {fileID: 0}
+    - target: {fileID: 5216428387513381025, guid: 4acea850d96a6e0499a43036b62183b3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5216428387513381025, guid: 4acea850d96a6e0499a43036b62183b3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5216428387513381025, guid: 4acea850d96a6e0499a43036b62183b3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5216428387513381025, guid: 4acea850d96a6e0499a43036b62183b3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5216428387513381025, guid: 4acea850d96a6e0499a43036b62183b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5216428387513381025, guid: 4acea850d96a6e0499a43036b62183b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5216428387513381025, guid: 4acea850d96a6e0499a43036b62183b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519541547156043359, guid: 4acea850d96a6e0499a43036b62183b3, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2141541273
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146991240624732808, guid: 4acea850d96a6e0499a43036b62183b3, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 4211428181
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4acea850d96a6e0499a43036b62183b3, type: 3}
 --- !u!1 &1139638760
 GameObject:
   m_ObjectHideFlags: 0
@@ -4384,7 +4453,7 @@ GameObject:
   - component: {fileID: 6306767592694265717}
   - component: {fileID: 4126670782397750266}
   m_Layer: 5
-  m_Name: Button
+  m_Name: kickButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4403,7 +4472,7 @@ GameObject:
   - component: {fileID: 6306767591386293318}
   - component: {fileID: 4126670781683271881}
   m_Layer: 5
-  m_Name: Button
+  m_Name: kickButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4422,7 +4491,7 @@ GameObject:
   - component: {fileID: 6306767590894315398}
   - component: {fileID: 4126670780664777481}
   m_Layer: 5
-  m_Name: Button
+  m_Name: kickButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5311,6 +5380,7 @@ GameObject:
   - component: {fileID: 1811042330424451608}
   - component: {fileID: 772830936774990619}
   - component: {fileID: 3056366615623175993}
+  - component: {fileID: 9100515924541325714}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5547,7 +5617,7 @@ GameObject:
   - component: {fileID: 3930566322046172221}
   - component: {fileID: 6363286919574278322}
   m_Layer: 5
-  m_Name: Button
+  m_Name: kickButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7104,6 +7174,27 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 1.75}
   m_SizeDelta: {x: 774, y: 435.6}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &9100515924541325714
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4978919308676750256}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ae19d16e63ac1b5459dffb6d16219179, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &9146991240626690239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7246,3 +7337,4 @@ SceneRoots:
   - {fileID: 5216428388942053797}
   - {fileID: 79150084}
   - {fileID: 1563447921}
+  - {fileID: 1132878692}
