@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class characterSelectUI : MonoBehaviour
 {
     [SerializeField] private Button MainMenuButton;
-    [SerializeField] private Button ReadyButton;
+    [SerializeField] public Button ReadyButton;
 
     [SerializeField] private Text lobbyNameText;
     [SerializeField] private Text lobbyCodeText;
@@ -24,8 +24,23 @@ public class characterSelectUI : MonoBehaviour
 
         ReadyButton.onClick.AddListener(() =>
         {
-            characterSelectReady.Instance.setPlayerReady();
+            if (optionsScript.Instance.samePlayer == false)
+            {
+                characterSelectReady.Instance.setPlayerReady();
+            }
         });
+    }
+
+    public void Update()
+    {
+        if (optionsScript.Instance.samePlayer == false)
+        {
+            ReadyButton.GetComponent<Image>().color = Color.white;
+        }
+        else
+        {
+            ReadyButton.GetComponent<Image>().color = Color.gray;
+        }
     }
 
     private void Start()

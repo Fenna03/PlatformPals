@@ -221,6 +221,8 @@ public class optionsScript : NetworkBehaviour
         playerDataNetworkList[playerDataIndex] = playerData;
     }
 
+    public bool samePlayer;
+
     [ClientRpc]
     void ChangePlayerSkinClientRpc(int skinId)
     {
@@ -234,10 +236,12 @@ public class optionsScript : NetworkBehaviour
             if (!IsSkinAvailable(skinId))
             {
                 ready.EnableImage();
+                samePlayer = true;
             }
             else
             {
                 ready.DisableImage();
+                samePlayer = false;
             }
         }
     }
