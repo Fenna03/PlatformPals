@@ -2,24 +2,47 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class trampolineOnOff : MonoBehaviour
+public class trampolineOnOff : onOffScript
 {
-    public Animator anim;
-    public BoxCollider2D boxCollider;
+    public List<MovingPlayer> players = new List<MovingPlayer>();
 
-    // Start is called before the first frame update
-    void Start()
+    public float speed = 10f;
+
+    private void Update()
     {
-        anim = GetComponent<Animator>();
-        boxCollider = GetComponent<BoxCollider2D>();
+        var components = FindObjectsOfType<MovingPlayer>();
+        foreach (var component in components)
+        {
+            // Check if the component is already in the list
+            if (!players.Contains(component))
+            {
+                // If not, add it to the list
+                players.Add(component);
+            }
+        }
     }
+    public override void On()
+    {
+        anim.SetBool("isOff", true);
 
-    public void On()
+    }
+    public override void Off()
     {
         anim.SetBool("isOff", false);
     }
-    public void Off()
+    private void OnCollisionEnter2D(Collision2D col)
     {
-        anim.SetBool("isOff", true);
+        if (anim.GetBool("isOff") == true)
+        {
+            if (col.gameObject.CompareTag("Player"))
+            {
+
+                Debug.Log("test");
+                foreach (MovingPlayer player in players)
+                {
+                    player.GetComponent<Rigidbody2D>().velocity = Vector2.up * speed;
+                }
+            }
+        }
     }
 }

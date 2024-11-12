@@ -74,9 +74,15 @@ public class optionsScript : NetworkBehaviour
             playerTransform.GetComponent<NetworkObject>().SpawnAsPlayerObject(clientId, true);
         }
     }
-    
+
     public void startHost()
     {
+        if (NetworkManager.Singleton == null)
+        {
+            Debug.LogError("NetworkManager is not initialized or not assigned in the scene.");
+            return;
+        }
+
         NetworkManager.NetworkConfig.ConnectionApproval = true;
         NetworkManager.Singleton.ConnectionApprovalCallback = NetworkManager_ConnectionApprovalCallback;
         NetworkManager.Singleton.OnClientConnectedCallback += NetworkManager_OnClientConnectedCallback;

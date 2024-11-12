@@ -6,44 +6,40 @@ using Unity.Netcode;
 
 public class followPlayer : NetworkBehaviour
 {
-    Cinemachine.CinemachineTargetGroup.Target target;
     public CinemachineVirtualCamera vcam;
-
     private CinemachineTargetGroup targetGroup;
-    private GameObject[] players;
-    private int playersConnected;
-
+    public GameObject[] players;
 
     private void Start()
     {
         targetGroup = GameObject.Find("Target Group").GetComponent<CinemachineTargetGroup>();
-        players = GameObject.FindGameObjectsWithTag("Player");
-        playersConnected = players.Length;
-        target.weight = 1;
-        target.radius = 2;
+        UpdatePlayers();
     }
 
-    public void Update()    
+    public void Update()
     {
-        for (int i = 0; i < players.Length; i++)
+        // Update players only if there is a change in the number of players
+        if (players.Length != GameObject.FindGameObjectsWithTag("Player").Length)
         {
-            target.target = players[i].GetComponent<Transform>();
-
-            targetGroup.AddMember(target.target, target.weight, target.radius);
+            UpdatePlayers();
         }
-        if (players.Length <= 0)
-        {
-            Debug.Log("No players found");
-        }
+    }
 
-        if(playersConnected != GameObject.FindGameObjectsWithTag("Player").Length) 
+    private void UpdatePlayers()
+    {
+        // Clear the target group and re-add all active players
+        targetGroup.m_Targets = new CinemachineTargetGroup.Target[0];
+        players = GameObject.FindGameObjectsWithTag("Player");
+
+        foreach (var player in players)
         {
-            players = GameObject.FindGameObjectsWithTag("Player");
-            for (int i = 0; i < players.Length; i++)
+            if (player != null) // Check if the player object is valid
             {
-                target.target = players[i].GetComponent<Transform>();
-
-                targetGroup.AddMember(target.target, target.weight, target.radius);
+                var targetTransform = player.GetComponent<Transform>();
+                if (targetTransform != null)
+                {
+                    targetGroup.AddMember(targetTransform, 1, 2); // Adding with weight=1 and radius=2
+                }
             }
         }
     }

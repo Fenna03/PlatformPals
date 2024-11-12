@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 
 public class fireOnOff : MonoBehaviour
 {
     public Animator anim;
-    public BoxCollider2D boxCollider;
+    public BoxCollider2D boxCol;
 
     public MovingPlayer movingPlayer;
 
@@ -13,7 +14,9 @@ public class fireOnOff : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        boxCollider = GetComponent<BoxCollider2D>();
+        boxCol = GetComponent<BoxCollider2D>();
+        boxCol.size = new Vector3(0.16f, 0.32f);
+        boxCol.offset = new Vector3(0f, 0f);
     }
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -38,9 +41,13 @@ public class fireOnOff : MonoBehaviour
     public void On()
     {
         anim.SetBool("isOff", false);
+        boxCol.size = new Vector3(0.16f, 0.32f);
+        boxCol.offset = new Vector3(0f, 0f);
     }
     public void Off()
     {
         anim.SetBool("isOff", true);
+        boxCol.size = new Vector3(0.16f, 0.16f);
+        boxCol.offset = new Vector3(0f, -0.08f);
     }
 }

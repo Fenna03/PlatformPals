@@ -91,6 +91,7 @@ public class MovingPlayer : NetworkBehaviour
         if (collision.collider.tag == "ground" || collision.collider.tag == "Player" || collision.collider.tag == "button")
         {
             isGrounded = false;
+            anim.SetBool("isFalling", true);
             anim.SetBool("isRunning", false);
         }
     }
