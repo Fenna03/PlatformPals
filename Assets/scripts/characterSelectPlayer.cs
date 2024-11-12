@@ -30,13 +30,13 @@ public class characterSelectPlayer : MonoBehaviour
 
     public void EnableImage()
     {
-        Debug.Log("letsgo");
+       // Debug.Log("letsgo");
         sameCharacter.SetActive(true);
     }
 
     public void DisableImage()
     {
-        Debug.Log("stoppp");
+       // Debug.Log("stoppp");
         sameCharacter.SetActive(false);
     }
 

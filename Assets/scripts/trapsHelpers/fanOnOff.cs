@@ -16,13 +16,6 @@ public class fanOnOff : NetworkBehaviour
         areaEffector2D = GetComponent<AreaEffector2D>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
     public void On()
     {
         anim.SetBool("ifActivated", true);

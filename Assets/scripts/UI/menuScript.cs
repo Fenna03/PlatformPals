@@ -16,14 +16,18 @@ public class menuScript : NetworkBehaviour
 
         if (gameMode == 0)
         {
-            NetworkManager.Singleton.Shutdown();
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("start");
         }
         if(gameMode == 1)
         {
+            NetworkManager.Singleton.Shutdown();
+            SceneManager.LoadScene("Menu");
+        }
+        if(gameMode == 2)
+        {
             SceneManager.LoadScene("characterSelect");
         }
-        if (gameMode == 2)
+        if (gameMode == 3)
         {
             SceneManager.LoadScene("level1");
         }

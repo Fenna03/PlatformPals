@@ -125,6 +125,7 @@ SpriteAtlas:
     - 29e21165cb3ae334d969d4be634eaa9e: 1744004749
     - 29e21165cb3ae334d969d4be634eaa9e: 921424544
     - 29e21165cb3ae334d969d4be634eaa9e: 16514145
+    - 29e21165cb3ae334d969d4be634eaa9e: 390780290
     - 29e21165cb3ae334d969d4be634eaa9e: 791998549
     - 29e21165cb3ae334d969d4be634eaa9e: -371536616
     - 29e21165cb3ae334d969d4be634eaa9e: 2099476356
@@ -214,6 +215,7 @@ SpriteAtlas:
   - {fileID: 1744004749, guid: 29e21165cb3ae334d969d4be634eaa9e, type: 3}
   - {fileID: 921424544, guid: 29e21165cb3ae334d969d4be634eaa9e, type: 3}
   - {fileID: 16514145, guid: 29e21165cb3ae334d969d4be634eaa9e, type: 3}
+  - {fileID: 390780290, guid: 29e21165cb3ae334d969d4be634eaa9e, type: 3}
   - {fileID: 791998549, guid: 29e21165cb3ae334d969d4be634eaa9e, type: 3}
   - {fileID: -371536616, guid: 29e21165cb3ae334d969d4be634eaa9e, type: 3}
   - {fileID: 2099476356, guid: 29e21165cb3ae334d969d4be634eaa9e, type: 3}
@@ -302,6 +304,7 @@ SpriteAtlas:
   - Stump2
   - Stump3
   - TilePlant15
+  - Sprites_0
   - TilePlant14
   - TilePlant17
   - TilePlant16

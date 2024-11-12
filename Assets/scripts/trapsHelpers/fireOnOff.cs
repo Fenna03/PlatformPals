@@ -16,17 +16,6 @@ public class fireOnOff : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(anim.GetBool("isOff") == false)
-        {
-            if (this.gameObject.CompareTag("Player"))
-            {
-                
-            }
-        }
-    }
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (anim.GetBool("isOff") == false)
