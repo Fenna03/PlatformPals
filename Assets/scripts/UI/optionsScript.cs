@@ -13,11 +13,6 @@ public class optionsScript : NetworkBehaviour
 {
     public static optionsScript Instance { get; private set; }
 
-    //[SerializeField] private Button mainMenu;
-
-    //public GameObject optionsMenu;
-    //public bool paused;
-    //[SerializeField] private Transform playerPrefab;
     [SerializeField] private List<GameObject> playerSkinList;
     public List<characterSelectPlayer> playerCSP = new List<characterSelectPlayer>();
 
@@ -139,7 +134,6 @@ public class optionsScript : NetworkBehaviour
         NetworkManager.Singleton.OnClientDisconnectCallback += NetworkManager_Client_onClientDisconnectCallback;
         NetworkManager.Singleton.OnClientConnectedCallback += NetworkManager_Client_OnClientConnectedCallback;
         NetworkManager.NetworkConfig.ConnectionApproval = true;
-        //Debug.Log(NetworkManager.NetworkConfig.ConnectionApproval);
         NetworkManager.Singleton.StartClient();
     }
 

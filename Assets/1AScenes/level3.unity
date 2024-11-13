@@ -1484,6 +1484,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &267006632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 267006633}
+  m_Layer: 0
+  m_Name: Respawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &267006633
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267006632}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.82, y: 6.66, z: 0.02767608}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &273593134
 GameObject:
   m_ObjectHideFlags: 0
@@ -1978,7 +2009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f618bfb5140623d498cb3869cd24f9f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
+  moveSpeed: 5
 --- !u!95 &488776647
 Animator:
   serializedVersion: 5
@@ -2171,6 +2202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ff9f856fa7261469f302822844a44a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dying: []
 --- !u!212 &495556056
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2705,13 +2737,13 @@ GameObject:
   - component: {fileID: 628805486}
   - component: {fileID: 628805485}
   - component: {fileID: 628805484}
-  - component: {fileID: 628805483}
   - component: {fileID: 628805482}
   - component: {fileID: 628805481}
   - component: {fileID: 628805480}
   - component: {fileID: 628805479}
   - component: {fileID: 628805478}
   - component: {fileID: 628805477}
+  - component: {fileID: 628805487}
   m_Layer: 0
   m_Name: Fan
   m_TagString: Untagged
@@ -2787,7 +2819,7 @@ AreaEffector2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_UseGlobalAngle: 1
-  m_ForceAngle: 90
+  m_ForceAngle: -90
   m_ForceMagnitude: 10
   m_ForceVariation: 0
   m_ForceTarget: 1
@@ -2865,21 +2897,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.24, y: 0.56091857}
   m_EdgeRadius: 0
---- !u!114 &628805483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 628805476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38a0fce702f46ab4f8ac3021cc3ce2c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 628805484}
-  boxCollider: {fileID: 0}
-  areaEffector2D: {fileID: 628805480}
 --- !u!95 &628805484
 Animator:
   serializedVersion: 5
@@ -2968,6 +2985,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+--- !u!114 &628805487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628805476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26df3b2a9cba2ed4dbf3e9a1e032cf2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 628805484}
+  boxCollider: {fileID: 628805482}
+  areaEffector2D: {fileID: 628805480}
 --- !u!1 &630483678
 GameObject:
   m_ObjectHideFlags: 0
@@ -3625,6 +3657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ff9f856fa7261469f302822844a44a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dying: []
 --- !u!212 &751915570
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3964,6 +3997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ff9f856fa7261469f302822844a44a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dying: []
 --- !u!212 &803165500
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4135,6 +4169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ff9f856fa7261469f302822844a44a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dying: []
 --- !u!212 &812318124
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6194,13 +6229,13 @@ GameObject:
   - component: {fileID: 1346815765}
   - component: {fileID: 1346815764}
   - component: {fileID: 1346815763}
-  - component: {fileID: 1346815762}
   - component: {fileID: 1346815761}
   - component: {fileID: 1346815760}
   - component: {fileID: 1346815759}
   - component: {fileID: 1346815758}
   - component: {fileID: 1346815757}
   - component: {fileID: 1346815756}
+  - component: {fileID: 1346815766}
   m_Layer: 0
   m_Name: Fan (1)
   m_TagString: Untagged
@@ -6276,7 +6311,7 @@ AreaEffector2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_UseGlobalAngle: 1
-  m_ForceAngle: 90
+  m_ForceAngle: -90
   m_ForceMagnitude: 10
   m_ForceVariation: 0
   m_ForceTarget: 1
@@ -6354,21 +6389,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.24, y: 0.56091857}
   m_EdgeRadius: 0
---- !u!114 &1346815762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1346815755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38a0fce702f46ab4f8ac3021cc3ce2c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 1346815763}
-  boxCollider: {fileID: 0}
-  areaEffector2D: {fileID: 1346815759}
 --- !u!95 &1346815763
 Animator:
   serializedVersion: 5
@@ -6457,6 +6477,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+--- !u!114 &1346815766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346815755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26df3b2a9cba2ed4dbf3e9a1e032cf2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 1346815763}
+  boxCollider: {fileID: 1346815761}
+  areaEffector2D: {fileID: 1346815759}
 --- !u!1 &1413821234
 GameObject:
   m_ObjectHideFlags: 0
@@ -17355,3 +17390,4 @@ SceneRoots:
   - {fileID: 488776649}
   - {fileID: 1716145661}
   - {fileID: 163788989}
+  - {fileID: 267006633}

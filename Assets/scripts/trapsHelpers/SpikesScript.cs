@@ -4,15 +4,31 @@ using UnityEngine;
 
 public class SpikesScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    GameObject respawner;
+
+    public List<MovingPlayer> dying = new List<MovingPlayer>();
+
+    private void Start()
     {
-        
+        respawner = GameObject.Find("Respawner");
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            dying.Add(collision.gameObject.GetComponent<MovingPlayer>());
+            if(dying.Count > 0)
+            {
+                foreach (MovingPlayer player in dying)
+                {
+                    player.transform.position = respawner.transform.position;
+                }
+            }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        
+        dying.Remove(collision.gameObject.GetComponent<MovingPlayer>());
     }
 }

@@ -266,9 +266,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  health: 10
   horizontal: 0
   jumpingPower: 7
   isGrounded: 1
   jumpAmount: 0
-  collider: {fileID: 2725216566980873300}
   anim: {fileID: 6701152514582955002}

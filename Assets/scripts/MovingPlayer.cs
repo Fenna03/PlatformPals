@@ -9,7 +9,7 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class MovingPlayer : NetworkBehaviour
 {
-    public float speed = 3f;
+    private float speed = 4.5f;
     public float health = 10f;
 
     //jumping
