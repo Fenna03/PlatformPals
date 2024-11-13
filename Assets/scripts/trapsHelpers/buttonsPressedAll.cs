@@ -12,13 +12,13 @@ public class buttonsPressedAll : MonoBehaviour
     public Button levelButton;
     public Text MessageText;
 
-    private void Awake()
-    {
-        levelButton.onClick.AddListener(() =>
-        {
-            Loader.loadNetwork(Loader.Scene.levelSelect);
-        });
-    }
+    //private void Awake()
+    //{
+    //    levelButton.onClick.AddListener(() =>
+    //    {
+    //        Loader.loadNetwork(Loader.Scene.levelSelect);
+    //    });
+    //}
 
     private void Start()
     {

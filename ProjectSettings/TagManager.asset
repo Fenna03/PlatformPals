@@ -7,9 +7,10 @@ TagManager:
   - ground
   - button
   - lever
-  - player2
   - wall
   - skin
+  - Danger
+  - STOP
   layers:
   - Default
   - TransparentFX

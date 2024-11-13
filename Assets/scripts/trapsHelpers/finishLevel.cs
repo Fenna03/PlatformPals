@@ -7,10 +7,18 @@ using UnityEngine.UI;
 public class finishLevel : MonoBehaviour
 {
     public List<MovingPlayer> players = new List<MovingPlayer>();
-    public List<GameObject> touchers = new List<GameObject>();
+    public List<MovingPlayer> touchers = new List<MovingPlayer>();
 
     public Button levelButton;
     public Text MessageText;
+    private void Awake()
+    {
+        levelButton.onClick.AddListener(() =>
+        {
+            Loader.loadNetwork(Loader.Scene.levelSelect);
+        });
+    }
+
     private void Start()
     {
         touchers.Clear();
@@ -34,14 +42,19 @@ public class finishLevel : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        touchers.Add(col.gameObject);
+        touchers.Add(col.gameObject.GetComponent<MovingPlayer>());
         Debug.Log("all players: " + players.Count);
         Debug.Log("touching it: "+ touchers.Count);
         if(touchers.Count == players.Count)
         {
-            MessageText.text = "You Finished the level!!";
             MessageText.enabled = true;
+            MessageText.text = "You Finished the level!!";
             levelButton.gameObject.SetActive(NetworkManager.Singleton.IsServer);
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        touchers.Remove(collision.gameObject.GetComponent<MovingPlayer>());
     }
 }
