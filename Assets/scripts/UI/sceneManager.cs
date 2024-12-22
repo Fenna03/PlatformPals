@@ -10,7 +10,7 @@ public class sceneManager : MonoBehaviour
     [SerializeField] private Button level1;
     [SerializeField] private Button level2;
     [SerializeField] private Button level3;
-    //[SerializeField] private Button level4;
+    [SerializeField] private Button level4;
 
     private void Awake()
     {
@@ -33,6 +33,10 @@ public class sceneManager : MonoBehaviour
         level3.onClick.AddListener(() =>
         {
             Loader.loadNetwork(Loader.Scene.level3);
+        });
+        level4.onClick.AddListener(() =>
+        {
+            Loader.loadNetwork(Loader.Scene.level4);
         });
     }
 }

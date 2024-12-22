@@ -17,7 +17,6 @@ public struct playerData :IEquatable<playerData>, INetworkSerializable
             clientId == other.clientId && 
             skinId == other.skinId &&
             playerId == other.playerId;
-        
     }
 
     public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
