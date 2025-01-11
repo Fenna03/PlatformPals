@@ -17,12 +17,14 @@ public class optionsScript : NetworkBehaviour
     public List<characterSelectPlayer> playerCSP = new List<characterSelectPlayer>();
 
     public const int MAX_PLAYER_AMOUNT = 4;
+    public int TotalPlayers;
 
     public event EventHandler OnTryingToJoinGame;
     public event EventHandler OnFailedToJoinGame;
     public event EventHandler OnPlayerDataNetworkListChanged;
 
     private NetworkList<playerData> playerDataNetworkList;
+
 
     private void Awake()
     {
@@ -44,6 +46,7 @@ public class optionsScript : NetworkBehaviour
             {
                 // If not, add it to the list
                 playerCSP.Add(component);
+                TotalPlayers++;
             }
         }
     }

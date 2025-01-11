@@ -16,6 +16,7 @@ public class SpikesScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            Debug.Log("test");
             dying.Add(collision.gameObject.GetComponent<MovingPlayer>());
             if(dying.Count > 0)
             {

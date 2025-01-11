@@ -22,6 +22,11 @@ public class Loader : MonoBehaviour
         level8,
         level9,
         level10,
+        level11,
+        level12,
+        level13,
+        level14,
+        level15,
     }
 
     private static Scene targetScene;

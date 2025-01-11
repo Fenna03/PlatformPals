@@ -75,7 +75,7 @@ public class MovingPlayer : NetworkBehaviour
         }
     }
 
-    void OnCollisionEnter2D(UnityEngine.Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.tag == "ground" || collision.collider.tag == "Player" || collision.collider.tag == "button")
         {
@@ -86,7 +86,7 @@ public class MovingPlayer : NetworkBehaviour
         }
     }
 
-    void OnCollisionExit2D(UnityEngine.Collision2D collision)
+    void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.collider.tag == "ground" || collision.collider.tag == "Player" || collision.collider.tag == "button")
         {
@@ -110,13 +110,5 @@ public class MovingPlayer : NetworkBehaviour
     public void Die()
     {
         Debug.Log("You died");
-        //if(isOwner)
-        //{
-            //deadscreen.GameObject.SetActive(true);
-        //}
-        //if(!isOwner)
-        //{
-            //otherDiedScreen.GameObject.SetActive(true);
-        //}
     }
 }
