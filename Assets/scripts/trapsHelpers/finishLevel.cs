@@ -55,6 +55,12 @@ public class finishLevel : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        touchers.Remove(collision.gameObject.GetComponent<MovingPlayer>());
+        touchers.Remove(collision.gameObject.GetComponent<MovingPlayer>()); 
+        if (touchers.Count != players.Count)
+        {
+            Debug.Log("test");
+            MessageText.enabled = false;
+            levelButton.gameObject.SetActive(false);
+        }
     }
 }

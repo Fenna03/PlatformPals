@@ -11,6 +11,9 @@ public class platformMovers : MonoBehaviour
     private bool facingRight = false;
     private Vector3 localScale;
 
+    public List<ButtonsActivate> ButtonsActivate;
+    //public ButtonsActivate buttons;
+
     public List<MovingPlayer> players = new List<MovingPlayer>();
 
     // Start is called before the first frame update
@@ -37,17 +40,36 @@ public class platformMovers : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
-    {
+    {  
         if (collision.gameObject.CompareTag("STOP"))
         {
             dirX *= -1f;
-        }
+        } 
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
+        bool shouldMove = false;
+
+        foreach (ButtonsActivate buttons in ButtonsActivate)
+        {
+            if (buttons.youGoGirl)
+            {
+                shouldMove = true;
+                break;  // No need to check further; movement condition met.
+            }
+        }
+
+        if (shouldMove)
+        {
+            rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
+        }
+        else
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);  // Stop horizontal movement.
+        }
     }
+
 
     private void LateUpdate()
     {
