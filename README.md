@@ -1,1 +1,1 @@
-https://cl0udss.itch.io/multiplayer <-- where you can download
+[https://cl0udss.itch.io/platform-pals](https://cl0udss.itch.io/platform-pals) <-- where you can download
