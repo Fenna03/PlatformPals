@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 public class lobbyUI : MonoBehaviour
 {
+    [SerializeField] private Button LocalLobbyButton;
     [SerializeField] private Button createLobbyButton;
     [SerializeField] private Button quickJoinButton;
     [SerializeField] private Button codeJoinButton;
@@ -21,6 +22,10 @@ public class lobbyUI : MonoBehaviour
 
     private void Awake()
     {
+        LocalLobbyButton.onClick.AddListener(() =>
+        {
+            Loader.loadNetwork(Loader.Scene.LocalCharSelect);
+        });
         createLobbyButton.onClick.AddListener(() =>
         {
             createLobbyUI.show();

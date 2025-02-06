@@ -4,16 +4,18 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class MovingPlayer : NetworkBehaviour
 {
+    private Vector2 moveInput;
+
     private float speed = 4.5f;
     public float health = 10f;
 
     //jumping
-    public float horizontal;
     public float jumpingPower = 7f;
     public bool isGrounded = true;
     public int jumpAmount = 0;
@@ -30,6 +32,10 @@ public class MovingPlayer : NetworkBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
+        anim.SetBool("isRunning", false);
+        anim.SetBool("isJumping", false);
+        anim.SetBool("isFalling", false);
     }
 
     // Update is called once per frame
@@ -40,29 +46,35 @@ public class MovingPlayer : NetworkBehaviour
             return;
         }
 
-        Moving();
+        //Moving();
         Flip();
     }
 
-    void Moving()
+    private void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.A))
+        // Apply the movement in FixedUpdate for consistent physics updates
+        MovePlayer();
+    }
+    // Called by Unity Input System when "Move" action is triggered
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        moveInput = context.ReadValue<Vector2>();
+
+        
+    }
+
+    // Called by Unity Input System when "Jump" action is triggered
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.performed && isGrounded)
         {
-            transform.Translate(Vector3.left * speed * Time.deltaTime);
-            horizontal = -1f;
-            anim.SetBool("isRunning", true);
+            JumpPlayer();
         }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            transform.Translate(Vector3.right * speed * Time.deltaTime);
-            horizontal = 1f;
-            anim.SetBool("isRunning", true);
-        }
-        else
-        {
-            anim.SetBool("isRunning", false);
-        }
-        if (Input.GetKey(KeyCode.W) && jumpAmount < 1 || Input.GetKey(KeyCode.Space) && jumpAmount < 1)
+    }
+
+    private void JumpPlayer()
+    {
+        if (rb != null)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
             jumpAmount++;
@@ -74,6 +86,15 @@ public class MovingPlayer : NetworkBehaviour
             }
         }
     }
+
+    private void MovePlayer()
+    {
+        if (rb != null)
+        {
+            rb.velocity = new Vector2(moveInput.x * speed, rb.velocity.y);
+        }
+    }
+
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -98,17 +119,50 @@ public class MovingPlayer : NetworkBehaviour
 
     void Flip()
     {
-        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
+        if (isFacingRight && moveInput.x < 0f || !isFacingRight && moveInput.x > 0f)
         {
             isFacingRight = !isFacingRight;
             Vector3 localScale = transform.localScale;
             localScale.x *= -1f;
             transform.localScale = localScale;
+            anim.SetBool("isRunning", true);
+        }
+        else if(moveInput.x == 0f)
+        {
+            anim.SetBool("isRunning", false);
         }
     }
-
-    public void Die()
-    {
-        Debug.Log("You died");
-    }
 }
+
+
+
+//void Moving()
+//{
+//    if (Input.GetKey(KeyCode.A))
+//    {
+//        transform.Translate(Vector3.left * speed * Time.deltaTime);
+//        horizontal = -1f;
+//        anim.SetBool("isRunning", true);
+//    }
+//    else if (Input.GetKey(KeyCode.D))
+//    {
+//        transform.Translate(Vector3.right * speed * Time.deltaTime);
+//        horizontal = 1f;
+//        anim.SetBool("isRunning", true);
+//    }
+//    else
+//    {
+//        anim.SetBool("isRunning", false);
+//    }
+//    if (Input.GetKey(KeyCode.W) && jumpAmount < 1 || Input.GetKey(KeyCode.Space) && jumpAmount < 1)
+//    {
+//        rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+//        jumpAmount++;
+//        isGrounded = false;
+//        anim.SetBool("isJumping", true);
+//        if (jumpAmount >= 1)
+//        {
+//            anim.SetBool("isFalling", true);
+//        }
+//    }
+//}

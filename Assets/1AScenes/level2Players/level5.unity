@@ -26186,7 +26186,7 @@ GameObject:
   - component: {fileID: 1054627364}
   m_Layer: 0
   m_Name: Brown Off (1)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28658,7 +28658,7 @@ GameObject:
   - component: {fileID: 1292151148}
   m_Layer: 0
   m_Name: Brown Off (2)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42307,7 +42307,7 @@ GameObject:
   - component: {fileID: 1795399851}
   m_Layer: 0
   m_Name: Brown Off
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

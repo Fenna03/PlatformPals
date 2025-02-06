@@ -30,10 +30,6 @@ public class fireOnOff : MonoBehaviour
                     movingPlayer.health -= 1;
                     Debug.Log(movingPlayer.health);
                 }
-                else if (movingPlayer.health <= 0)
-                {
-                    movingPlayer.Die();
-                }
             }
         }     
     }

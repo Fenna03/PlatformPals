@@ -12,6 +12,7 @@ public class Loader : MonoBehaviour
         Menu,
         characterSelect,
         levelSelect,
+        LocalCharSelect,
         level1,
         level2,
         level3,
