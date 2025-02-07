@@ -2639,7 +2639,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Local lobby
+  m_Text: Local Lobby
 --- !u!222 &908842609
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4730,7 +4730,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 118c625870026864d932a4360c88e573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LocalLobbyButton: {fileID: 0}
+  LocalLobbyButton: {fileID: 1307122303}
   createLobbyButton: {fileID: 1397068041}
   quickJoinButton: {fileID: 1160783575}
   codeJoinButton: {fileID: 258230480}

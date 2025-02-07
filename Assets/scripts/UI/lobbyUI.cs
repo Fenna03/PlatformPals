@@ -5,6 +5,7 @@ using TMPro;
 using Unity.Services.Lobbies.Models;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class lobbyUI : MonoBehaviour
@@ -24,7 +25,7 @@ public class lobbyUI : MonoBehaviour
     {
         LocalLobbyButton.onClick.AddListener(() =>
         {
-            Loader.loadNetwork(Loader.Scene.LocalCharSelect);
+            SceneManager.LoadScene("LocalCharSelect");
         });
         createLobbyButton.onClick.AddListener(() =>
         {

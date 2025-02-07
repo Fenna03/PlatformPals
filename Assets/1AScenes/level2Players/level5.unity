@@ -26184,6 +26184,7 @@ GameObject:
   - component: {fileID: 1054627362}
   - component: {fileID: 1054627361}
   - component: {fileID: 1054627364}
+  - component: {fileID: 1054627365}
   m_Layer: 0
   m_Name: Brown Off (1)
   m_TagString: ground
@@ -26324,6 +26325,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.08}
   m_EdgeRadius: 0
+--- !u!114 &1054627365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054627360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff334a9820644c44781a099d46986a74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 100
 --- !u!1 &1070835489
 GameObject:
   m_ObjectHideFlags: 0
@@ -28656,6 +28670,7 @@ GameObject:
   - component: {fileID: 1292151146}
   - component: {fileID: 1292151145}
   - component: {fileID: 1292151148}
+  - component: {fileID: 1292151149}
   m_Layer: 0
   m_Name: Brown Off (2)
   m_TagString: ground
@@ -28745,7 +28760,7 @@ Transform:
   m_GameObject: {fileID: 1292151144}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 32.53, y: -3.29, z: 0}
+  m_LocalPosition: {x: 33.46, y: -3.29, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -28796,6 +28811,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.08}
   m_EdgeRadius: 0
+--- !u!114 &1292151149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292151144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff334a9820644c44781a099d46986a74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 100
 --- !u!1 &1314341031
 GameObject:
   m_ObjectHideFlags: 0
@@ -42305,6 +42333,7 @@ GameObject:
   - component: {fileID: 1795399850}
   - component: {fileID: 1795399849}
   - component: {fileID: 1795399851}
+  - component: {fileID: 1795399852}
   m_Layer: 0
   m_Name: Brown Off
   m_TagString: ground
@@ -42424,6 +42453,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.08}
   m_EdgeRadius: 0
+--- !u!114 &1795399852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795399848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff334a9820644c44781a099d46986a74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 100
 --- !u!1 &1810746814
 GameObject:
   m_ObjectHideFlags: 0
