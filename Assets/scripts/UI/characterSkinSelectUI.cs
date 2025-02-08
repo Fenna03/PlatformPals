@@ -1,24 +1,19 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Drawing;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class characterSkinSelectUI : MonoBehaviour
+public class CharacterSkinSelectUI : MonoBehaviour
 {
     [SerializeField] private int skinId;
     [SerializeField] private Image image;
-    [SerializeField] private GameObject selectedGameObject;
-
 
     private void Awake()
     {
         GetComponent<Button>().onClick.RemoveAllListeners();
-
         GetComponent<Button>().onClick.AddListener(() =>
         {
             optionsScript.Instance.ChangePlayerSkin(skinId);
+            UpdateButtonState();
         });
     }
 
@@ -33,13 +28,16 @@ public class characterSkinSelectUI : MonoBehaviour
         UpdateIsSelected();
     }
 
-    //this is unused
     private void UpdateIsSelected()
     {
-        if (optionsScript.Instance.GetPlayerData().skinId == skinId)
-        {
-            //selectedGameObject is the sprite of the player itself, don't want to not show that so maybe something else but now unused
-            selectedGameObject.SetActive(true);
-        }
+        bool isSelected = optionsScript.Instance.GetPlayerData().skinId == skinId;
+
+        UpdateButtonState();
+    }
+
+    private void UpdateButtonState()
+    {
+        // Disable button if this skin is already selected
+        this.gameObject.GetComponent<Button>().interactable = optionsScript.Instance.GetPlayerData().skinId != skinId;
     }
 }
