@@ -14,29 +14,38 @@ public class characterSelectPlayer : MonoBehaviour
 
     private void Awake()
     {
-        DisableImage();
+        Debug.LogError("Ready text assigned");
+        ReadyGameObject = GetComponentInChildren<Text>().gameObject;
+        playerVisual = gameObject.GetComponent<playerVisual>();
+        kickButton = GameObject.Find("kickButton").GetComponent<Button>();
+        sameCharacter = GameObject.Find("exlamation");
 
-        kickButton.onClick.RemoveAllListeners();
-        kickButton.onClick.AddListener(() =>
+        DisableImage();
+        if (kickButton != null)
         {
-            if (NetworkManager.Singleton.IsServer)
+            kickButton.onClick.RemoveAllListeners();
+            kickButton.onClick.AddListener(() =>
             {
-                playerData playerData = optionsScript.Instance.GetPlayerDataFromPlayerIndex(playerIndex);
-                multiplayerGameLobby.Instance.KickPlayer(playerData.playerId.ToString());
-                optionsScript.Instance.kickPlayer(playerData.clientId);
-            }
-        });
+                if (NetworkManager.Singleton.IsServer)
+                {
+                    playerData playerData = optionsScript.Instance.GetPlayerDataFromPlayerIndex(playerIndex);
+                    multiplayerGameLobby.Instance.KickPlayer(playerData.playerId.ToString());
+                    optionsScript.Instance.kickPlayer(playerData.clientId);
+                }
+            });
+        }
+
     }
 
     public void EnableImage()
     {
-       // Debug.Log("letsgo");
+        // Debug.Log("letsgo");
         sameCharacter.SetActive(true);
     }
 
     public void DisableImage()
     {
-       // Debug.Log("stoppp");
+        // Debug.Log("stoppp");
         sameCharacter.SetActive(false);
     }
 
@@ -45,8 +54,6 @@ public class characterSelectPlayer : MonoBehaviour
         optionsScript.Instance.OnPlayerDataNetworkListChanged += optionsScript_OnPlayerDataNetworkListChanged;
         characterSelectReady.Instance.onReadyChanged += characterSelectReady_OnreadyChanged;
 
-        
-        //Debug.Log(NetworkManager.Singleton.IsServer);
         kickButton.gameObject.SetActive(NetworkManager.Singleton.IsServer);
         UpdatePlayer();
     }
@@ -63,13 +70,26 @@ public class characterSelectPlayer : MonoBehaviour
 
     private void UpdatePlayer()
     {
+        // Check if the object is still valid
+        if (this == null || gameObject == null)
+        {
+            Debug.LogError("i am null: " + playerIndex);
+            return;
+        }
+
         if (optionsScript.Instance.isPlayerIndexConnected(playerIndex))
         {
             Show();
 
             playerData playerData = optionsScript.Instance.GetPlayerDataFromPlayerIndex(playerIndex);
-            ReadyGameObject.SetActive(characterSelectReady.Instance.isPlayerReady(playerData.clientId));
-            playerVisual.SetPlayerSkin(optionsScript.Instance.GetPlayerSkin(playerData.skinId));
+            if (ReadyGameObject != null)
+            {
+                ReadyGameObject.SetActive(characterSelectReady.Instance.isPlayerReady(playerData.clientId)); //error
+            }
+            if (playerVisual != null)
+            {
+                playerVisual.SetPlayerSkin(optionsScript.Instance.GetPlayerSkin(playerData.skinId));//error
+            }
         }
         else
         {
@@ -79,11 +99,12 @@ public class characterSelectPlayer : MonoBehaviour
 
     private void Show()
     {
+        //error
         gameObject.SetActive(true);
     }
 
     private void Hide()
     {
-        gameObject.SetActive(false);
+        gameObject.SetActive(false);//error
     }
 }
