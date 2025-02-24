@@ -9,6 +9,11 @@ public class CharacterSkinSelectUI : MonoBehaviour
 
     private void Awake()
     {
+        if (this == null || gameObject == null)
+        {
+            Debug.LogError("i am null BUTTONCHOOSE");
+            return;
+        }
         GetComponent<Button>().onClick.RemoveAllListeners();
         GetComponent<Button>().onClick.AddListener(() =>
         {

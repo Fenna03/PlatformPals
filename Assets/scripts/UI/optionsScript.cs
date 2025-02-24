@@ -149,9 +149,17 @@ public class optionsScript : NetworkBehaviour
 
     private void NetworkManager_ConnectionApprovalCallback(NetworkManager.ConnectionApprovalRequest connectionApprovalRequest, NetworkManager.ConnectionApprovalResponse connectionApprovalResponse)
     {
+        // Prevent rejecting the host connection
+        if (connectionApprovalRequest.ClientNetworkId == NetworkManager.Singleton.LocalClientId)
+        {
+            connectionApprovalResponse.Approved = true;
+            return;
+        }
+
         // Reject connection if the game has already started
         if (SceneManager.GetActiveScene().name != Loader.Scene.characterSelect.ToString())
         {
+            Debug.LogError("Game has already started, rejecting connection.");
             connectionApprovalResponse.Approved = false;
             connectionApprovalResponse.Reason = "Game has already started";
             return;

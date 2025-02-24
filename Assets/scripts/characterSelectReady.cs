@@ -16,6 +16,11 @@ public class characterSelectReady : NetworkBehaviour
 
     private void Awake()
     {
+        if (this == null || gameObject == null)
+        {
+            Debug.LogError("i am null READY");
+            return;
+        }
         Instance = this;
         playerReadyDictionary = new Dictionary<ulong, bool>();
     }

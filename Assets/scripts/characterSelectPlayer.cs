@@ -14,12 +14,6 @@ public class characterSelectPlayer : MonoBehaviour
 
     private void Awake()
     {
-        Debug.LogError("Ready text assigned");
-        ReadyGameObject = GetComponentInChildren<Text>().gameObject;
-        playerVisual = gameObject.GetComponent<playerVisual>();
-        kickButton = GameObject.Find("kickButton").GetComponent<Button>();
-        sameCharacter = GameObject.Find("exlamation");
-
         DisableImage();
         if (kickButton != null)
         {
@@ -73,7 +67,7 @@ public class characterSelectPlayer : MonoBehaviour
         // Check if the object is still valid
         if (this == null || gameObject == null)
         {
-            Debug.LogError("i am null: " + playerIndex);
+            //Debug.LogError("i am null: " + playerIndex);
             return;
         }
 
