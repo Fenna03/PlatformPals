@@ -9,14 +9,15 @@ using UnityEngine.UI;
 using Unity.Services.Authentication;
 using UnityEngine.TextCore.Text;
 using System.Linq;
+using UnityEngine.InputSystem;
 
 public class optionsScript : NetworkBehaviour
 {
     public static optionsScript Instance { get; private set; }
-
     //lists
     [SerializeField] private List<GameObject> playerSkinList;
     public List<characterSelectPlayer> playerCSP = new List<characterSelectPlayer>();
+    public List<LocalPlayerData> localData;
     private NetworkList<playerData> playerDataNetworkList;
 
     //playerAmount things
@@ -28,8 +29,6 @@ public class optionsScript : NetworkBehaviour
     public event EventHandler OnTryingToJoinGame;
     public event EventHandler OnFailedToJoinGame;
     public event EventHandler OnPlayerDataNetworkListChanged;
-
-
 
     private void Awake()
     {
@@ -72,6 +71,10 @@ public class optionsScript : NetworkBehaviour
         playerCSP.RemoveAll(player => player == null || player.gameObject == null); // Remove invalid references
         playerCSP.Clear(); // Now clear the list properly
         TotalPlayers = playerCSP.Count; // This should now be 0
+    }
+    public void OnPlayerJoined(PlayerInput playerInput)
+    {
+        localData.Add(playerInput.gameObject.GetComponent<LocalPlayerData>());
     }
 
 
