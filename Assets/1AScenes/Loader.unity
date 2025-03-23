@@ -576,6 +576,7 @@ MonoBehaviour:
   - {fileID: 3808902763708336337, guid: ccb014a6acdcfe249916a72a223b4f59, type: 3}
   - {fileID: 1187464962888537031, guid: 06533f8dc28231c49994202dff475568, type: 3}
   playerCSP: []
+  localData: []
   TotalPlayers: 0
   samePlayer: 0
 --- !u!4 &1285543315
