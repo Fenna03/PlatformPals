@@ -13,7 +13,21 @@ public class LocalHandler : MonoBehaviour
             return;
         }
 
-        LocalGameManager.Instance.localPlayerData.Add(new LocalPlayerData(input));
-        LocalGameManager.Instance.Players.Add(input);
+        // Create new player data
+        LocalPlayerData newPlayer = new LocalPlayerData(input);
+
+        // Assign a unique skin using LocalGameManager
+        newPlayer.skinId = LocalGameManager.Instance.GetNextAvailableSkin();
+
+        // Add the player to lists
+        LocalGameManager.Instance.localPlayerData.Add(newPlayer);
+        LocalManagerScript newPlayerManager = input.gameObject.GetComponent<LocalManagerScript>();
+        LocalGameManager.Instance.Players.Add(newPlayerManager);
+
+        // Apply the assigned skin
+        newPlayerManager.SetPlayerSkin(newPlayerManager.playerSkinList[newPlayer.skinId]);
+
+        // Check for duplicate skins
+        LocalGameManager.Instance.CheckForDuplicateSkins();
     }
 }
