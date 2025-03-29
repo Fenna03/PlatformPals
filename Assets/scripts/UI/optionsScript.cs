@@ -30,6 +30,9 @@ public class optionsScript : NetworkBehaviour
     public event EventHandler OnFailedToJoinGame;
     public event EventHandler OnPlayerDataNetworkListChanged;
 
+    public bool isOnline = false;
+    public bool isLocal = false;
+
     private void Awake()
     {
         // Set this instance as the singleton instance
@@ -122,6 +125,8 @@ public class optionsScript : NetworkBehaviour
 
         // Start hosting the game
         NetworkManager.Singleton.StartHost();
+        isOnline = true;
+        isLocal = false;
     }
 
     private void NetworkManager_Server_onClientDisconnectCallback(ulong clientId)

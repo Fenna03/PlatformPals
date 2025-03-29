@@ -579,6 +579,8 @@ MonoBehaviour:
   localData: []
   TotalPlayers: 0
   samePlayer: 0
+  isOnline: 0
+  isLocal: 0
 --- !u!4 &1285543315
 Transform:
   m_ObjectHideFlags: 0

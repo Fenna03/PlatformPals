@@ -21,5 +21,7 @@ public class readyButton : MonoBehaviour
     public void LoadNextScene()
     {
         SceneManager.LoadScene(5);
+        optionsScript.Instance.isLocal = true;
+        optionsScript.Instance.isOnline = false;
     }
 }
