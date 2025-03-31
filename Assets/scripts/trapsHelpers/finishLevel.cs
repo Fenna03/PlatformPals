@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class finishLevel : MonoBehaviour
@@ -11,11 +12,19 @@ public class finishLevel : MonoBehaviour
 
     public Button levelButton;
     public Text MessageText;
+
     private void Awake()
     {
         levelButton.onClick.AddListener(() =>
         {
-            Loader.loadNetwork(Loader.Scene.levelSelect);
+            if(optionsScript.Instance.isOnline == true)
+            {
+                Loader.loadNetwork(Loader.Scene.levelSelect);
+            }
+            else
+            {
+                SceneManager.LoadScene(5);
+            }
         });
     }
 
@@ -49,7 +58,14 @@ public class finishLevel : MonoBehaviour
         {
             MessageText.enabled = true;
             MessageText.text = "You Finished the level!!";
-            levelButton.gameObject.SetActive(NetworkManager.Singleton.IsServer);
+            if(optionsScript.Instance.isOnline == true)
+            {
+                levelButton.gameObject.SetActive(NetworkManager.Singleton.IsServer);
+            }
+            else
+            {
+                levelButton.gameObject.SetActive(true);
+            }
         }
     }
 

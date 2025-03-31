@@ -20,7 +20,6 @@ public class PlayerSpawner : MonoBehaviour
         // Loop through each player in LocalGameManager
         if (optionsScript.Instance.isLocal == true)
         {
-            optionsScript.Instance.startHost();
             for (int i = 0; i < LocalGameManager.Instance.localPlayerData.Count; i++)
             {
                 LocalPlayerData data = LocalGameManager.Instance.localPlayerData[i];

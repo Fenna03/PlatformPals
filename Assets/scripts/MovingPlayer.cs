@@ -41,10 +41,13 @@ public class MovingPlayer : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!IsOwner)
+        if(optionsScript.Instance.isOnline == true)
         {
-            return;
-        }
+            if (!IsOwner)
+            {
+                return;
+            }
+        }        
 
         //Moving();
         Flip();
@@ -58,9 +61,7 @@ public class MovingPlayer : NetworkBehaviour
     // Called by Unity Input System when "Move" action is triggered
     public void OnMove(InputAction.CallbackContext context)
     {
-        moveInput = context.ReadValue<Vector2>();
-
-        
+        moveInput = context.ReadValue<Vector2>();        
     }
 
     // Called by Unity Input System when "Jump" action is triggered

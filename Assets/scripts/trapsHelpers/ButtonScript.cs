@@ -75,16 +75,70 @@ public class ButtonScript : NetworkBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
-           // Debug.Log("player touches");
-            OnButtonPressServerRpc();
+            if(optionsScript.Instance.isOnline == true)
+            {
+                Debug.Log("player touches");
+                OnButtonPressServerRpc();
+            }
+            else
+            {
+                Debug.Log("player touches but local");
+                PressLocal();
+            }
         }
     }
     private void OnCollisionExit2D(Collision2D col)
     {
         if (col.gameObject.CompareTag("Player"))
         {
-           // Debug.Log("player stop touches");
-            OnButtonReleaseServerRpc();
+            if (optionsScript.Instance.isOnline == true)
+            {
+                 Debug.Log("player stop touches");
+                OnButtonReleaseServerRpc();
+            }
+            else
+            {
+                Debug.Log("player stop touches but local");
+                ReleaseLocal();
+            }
         }
     }
+
+    private void PressLocal()
+    {
+        anim.SetBool("isPressed", true);
+        anim.SetBool("isReleased", false);
+
+        if (fanScript != null)
+        {
+            fanScript.On();
+        }
+        if (fireScript != null)
+        {
+            fireScript.Off();
+        }
+        if (trampolineScript != null)
+        {
+            trampolineScript.On();
+        }
+    }
+    private void ReleaseLocal()
+    {
+        anim.SetBool("isPressed", false);
+        anim.SetBool("isReleased", true);
+
+        if (fanScript != null)
+        {
+            fanScript.Off();
+        }
+        if (fireScript != null)
+        {
+            fireScript.On();
+        }
+        if (trampolineScript != null)
+        {
+            trampolineScript.Off();
+        }
+    }
+
 }
