@@ -34,15 +34,6 @@ public class SpawnManager : MonoBehaviour
         PlayerInputManager.instance.onPlayerJoined += OnPlayerJoined;
     }
 
-    private void Update()
-    {
-        //if (localPlayerData.Count > 0 && readyButton != null)
-        //{
-        //    readyButton.gameObject.SetActive(true);
-        //}
-    }
-
-
     public void LoadNextScene()
     {
         SceneManager.LoadScene(3);
