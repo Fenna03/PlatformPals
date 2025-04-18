@@ -68,10 +68,12 @@ public class characterSelectPlayer : MonoBehaviour
         if (this == null || gameObject == null)
         {
             //Debug.LogError("i am null: " + playerIndex);
-            return;
+            //Instantiate(optionsScript.Instance.playerSkins[playerIndex]);
+            //return;
         }
 
-        if (optionsScript.Instance.isPlayerIndexConnected(playerIndex))
+        if (optionsScript.Instance != null &&
+    optionsScript.Instance.isPlayerIndexConnected(playerIndex))
         {
             Show();
 
@@ -93,12 +95,22 @@ public class characterSelectPlayer : MonoBehaviour
 
     private void Show()
     {
-        //error
-        gameObject.SetActive(true);
+        gameObject.SetActive(true); //error
+
     }
 
     private void Hide()
     {
-        gameObject.SetActive(false);//error
+        gameObject.SetActive(false); //error
     }
+
+    private void OnDestroy()
+    {
+        if (optionsScript.Instance != null)
+            optionsScript.Instance.OnPlayerDataNetworkListChanged -= optionsScript_OnPlayerDataNetworkListChanged;
+
+        if (characterSelectReady.Instance != null)
+            characterSelectReady.Instance.onReadyChanged -= characterSelectReady_OnreadyChanged;
+    }
+
 }

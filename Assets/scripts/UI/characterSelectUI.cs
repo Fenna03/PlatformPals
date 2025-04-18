@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using Unity.Services.Lobbies.Models;
@@ -20,22 +20,22 @@ public class characterSelectUI : MonoBehaviour
             // Leave the lobby
             multiplayerGameLobby.Instance.leaveLobby();
 
-            // Clean up playerCSP before shutting down
-            optionsScript.Instance.CleanupPlayerCSP();
-
-            // Destroy all characterSelectPlayer objects in scene before leaving
-            foreach (var player in FindObjectsOfType<characterSelectPlayer>())
+            // Reset the player data list
+            if (optionsScript.Instance.playerDataNetworkList != null && NetworkManager.Singleton.IsServer)
             {
-                Destroy(player.gameObject);
+                optionsScript.Instance.playerDataNetworkList.Clear();
             }
 
-            // If NetworkManager exists, shut it down
+            // Clean up visuals and reset other state
+            optionsScript.Instance.CleanupPlayerCSP();
+            optionsScript.Instance.ResetOptionsState();
+
+            // Shutdown NetworkManager
             if (NetworkManager.Singleton != null && (NetworkManager.Singleton.IsClient || NetworkManager.Singleton.IsServer))
             {
                 NetworkManager.Singleton.Shutdown();
             }
 
-            // Load the main menu scene after a short delay
             StartCoroutine(DelayedSceneLoad());
         });
 

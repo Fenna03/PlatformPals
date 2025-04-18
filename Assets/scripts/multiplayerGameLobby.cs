@@ -23,7 +23,7 @@ public class multiplayerGameLobby : MonoBehaviour
 
     private const string KEY_RELAY_JOIN_CODE = "RelayJoinCode";
 
-    private Lobby joinedLobby;
+    public Lobby joinedLobby;
 
     private float heartbeatTimer;
     private float listLobbiesTimer;
@@ -274,7 +274,8 @@ public class multiplayerGameLobby : MonoBehaviour
             {
                 await LobbyService.Instance.DeleteLobbyAsync(joinedLobby.Id);
                 joinedLobby = null;
-            } catch(LobbyServiceException e)
+            }
+            catch (LobbyServiceException e)
             {
                 Debug.Log(e);
             }

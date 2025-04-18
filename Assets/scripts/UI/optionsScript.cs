@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
@@ -17,8 +17,8 @@ public class optionsScript : NetworkBehaviour
     //lists
     [SerializeField] private List<GameObject> playerSkinList;
     public List<characterSelectPlayer> playerCSP = new List<characterSelectPlayer>();
-    public List<LocalPlayerData> localData;
-    private NetworkList<playerData> playerDataNetworkList;
+    public List<LocalPlayerData> localData; 
+    public NetworkList<playerData> playerDataNetworkList;
 
     //playerAmount things
     public const int MAX_PLAYER_AMOUNT = 4;
@@ -45,6 +45,8 @@ public class optionsScript : NetworkBehaviour
         playerDataNetworkList = new NetworkList<playerData>();
         // Subscribe to the event triggered when the list changes
         playerDataNetworkList.OnListChanged += playerDataNetworkList_onListChanged;
+        RefreshPlayerList();
+        
     }
 
     private void Update()
@@ -67,6 +69,34 @@ public class optionsScript : NetworkBehaviour
         {
             CleanupPlayerCSP();
         }
+
+        Debug.LogError(playerDataNetworkList.Count);
+    }
+    public void ResetOptionsState()
+    {
+        Debug.Log("Resetting options state...");
+
+        // Unsubscribe from the event
+        if (playerDataNetworkList != null)
+        {
+            Debug.Log("Unsubscribing from OnListChanged...");
+            playerDataNetworkList.OnListChanged -= playerDataNetworkList_onListChanged;
+        }
+
+        // Recreate the NetworkList
+        //playerDataNetworkList = new NetworkList<playerData>();
+
+        // Subscribe again
+        Debug.Log("Subscribing to OnListChanged...");
+        playerDataNetworkList.OnListChanged += playerDataNetworkList_onListChanged;
+
+        // Clear other lists and reset values
+        playerCSP.Clear();
+        localData.Clear();
+        TotalPlayers = 0;
+        samePlayer = false;
+
+        Debug.Log("Reset complete.");
     }
 
     public void CleanupPlayerCSP()
@@ -75,11 +105,21 @@ public class optionsScript : NetworkBehaviour
         playerCSP.Clear(); // Now clear the list properly
         TotalPlayers = playerCSP.Count; // This should now be 0
     }
+    private void RefreshPlayerList()
+    {
+        playerCSP.Clear();
+        characterSelectPlayer[] foundPlayers = FindObjectsOfType<characterSelectPlayer>();
+        foreach (var player in foundPlayers)
+        {
+            playerCSP.Add(player);
+        }
+        TotalPlayers = playerCSP.Count;
+    }
+
     public void OnPlayerJoined(PlayerInput playerInput)
     {
         localData.Add(playerInput.gameObject.GetComponent<LocalPlayerData>());
     }
-
 
     private void playerDataNetworkList_onListChanged(NetworkListEvent<playerData> changeEvent)
     {
@@ -93,8 +133,10 @@ public class optionsScript : NetworkBehaviour
         if (IsServer)
         {
             NetworkManager.Singleton.SceneManager.OnLoadEventCompleted += SceneManager_OnLoadEventCompleted;
+            playerDataNetworkList.Clear(); // 👈 Safe to call here
         }
     }
+
 
     private void SceneManager_OnLoadEventCompleted(string sceneName, UnityEngine.SceneManagement.LoadSceneMode loadSceneMode, List<ulong> clientsCompleted, List<ulong> clientsTimedOut)
     {
