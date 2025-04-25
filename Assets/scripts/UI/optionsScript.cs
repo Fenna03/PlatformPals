@@ -70,7 +70,7 @@ public class optionsScript : NetworkBehaviour
             CleanupPlayerCSP();
         }
 
-        Debug.LogError(playerDataNetworkList.Count);
+       // Debug.LogError(playerDataNetworkList.Count);
     }
     public void ResetOptionsState()
     {

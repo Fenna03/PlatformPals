@@ -12,6 +12,8 @@ public class SpawnManager : MonoBehaviour
     private int nextSpawnIndex = 0;
     private bool nextScene = false;
 
+    public GameObject virtualMouse;
+
     public int totalPlayers;
 
     private void Awake()
@@ -70,6 +72,11 @@ public class SpawnManager : MonoBehaviour
                 playerInput.gameObject.transform.rotation = spawnPoint.rotation;
             }
             totalPlayers++;
+            LocalPlayerData data = LocalGameManager.Instance.localPlayerData[playerInput.playerIndex];
+            if (data.device == Gamepad.current)
+            {
+                Instantiate(virtualMouse);
+            }
         }
     }
 

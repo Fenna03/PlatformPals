@@ -77,12 +77,10 @@ public class ButtonScript : NetworkBehaviour
         {
             if(optionsScript.Instance.isOnline == true)
             {
-                Debug.Log("player touches");
                 OnButtonPressServerRpc();
             }
             else
             {
-                Debug.Log("player touches but local");
                 PressLocal();
             }
         }
@@ -93,12 +91,10 @@ public class ButtonScript : NetworkBehaviour
         {
             if (optionsScript.Instance.isOnline == true)
             {
-                 Debug.Log("player stop touches");
                 OnButtonReleaseServerRpc();
             }
             else
             {
-                Debug.Log("player stop touches but local");
                 ReleaseLocal();
             }
         }
