@@ -642,7 +642,7 @@ Transform:
   m_GameObject: {fileID: 187051049}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 481.0943, y: 223.74179, z: -1.9222987}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3935,6 +3935,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualMouse: {fileID: 1851563704884711033, guid: 344abee29f22a4643a7a8a9df43da711, type: 3}
+  isInstantiated: 0
 --- !u!4 &1343704154
 Transform:
   m_ObjectHideFlags: 0
