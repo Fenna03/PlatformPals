@@ -138,7 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.5
   resetX: 0
-  prefab: {fileID: 0}
+  prefab: {fileID: 1782548955451354111}
 --- !u!1 &3280417766851366771
 GameObject:
   m_ObjectHideFlags: 0

@@ -35,7 +35,6 @@ public class MoveSlowly : MonoBehaviour
 
         if (transform.position.x > resetX && !hasSpawned)
         {
-            Debug.Log("test");
             hasSpawned = true;
 
             // Spawn the clone just to the left of this object
@@ -48,26 +47,3 @@ public class MoveSlowly : MonoBehaviour
         }
     }
 }
-
-//{
-//    public Vector3 startPos;
-//    public Vector3 endPos;
-//    public float speed;
-
-//    // Start is called before the first frame update
-//    void Start()
-//    {
-//        startPos = new Vector3(0, 0, 0);
-//        endPos = new Vector3(100, 0, 0);
-//    }
-
-//    // Update is called once per frame
-//    void Update()
-//    {
-//        transform.position = Vector3.MoveTowards(transform.position, endPos, Time.deltaTime * speed);
-//        if (transform.position.x >= 100)
-//        {
-//            Debug.Log("test");
-//        }
-//    }
-//}
