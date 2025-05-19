@@ -9,26 +9,29 @@ public class loadScene : MonoBehaviour
     public void PlayGame(int gameMode)
     {
         PlayerPrefs.SetInt("mode", gameMode);
-
+        if(gameMode == 0)
+        {
+            SceneManager.LoadScene("Menu");
+        }
         if (gameMode == 1)
         {
-            SceneManager.LoadScene(6);
+            SceneManager.LoadScene("level1");
         }
         if (gameMode == 2)
         {
-            SceneManager.LoadScene(7);
+            SceneManager.LoadScene("level2");
         }
         if (gameMode == 3)
         {
-            SceneManager.LoadScene(8);
+            SceneManager.LoadScene("level3");
         }
         if (gameMode == 4)
         {
-            SceneManager.LoadScene(9);
+            SceneManager.LoadScene("level4");
         }
         if (gameMode == 5)
         {
-            SceneManager.LoadScene(10);
+            SceneManager.LoadScene("level5");
         }
     }
 }

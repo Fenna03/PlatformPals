@@ -22,12 +22,12 @@ public class RunAcross : MonoBehaviour
     void Update()
     {
         transform.position += Vector3.right * speed * Time.deltaTime;
-        if (transform.position.x >= 0f && isStopped == false)
+        if (transform.position.x >= 0f && transform.position.x <= 0.05f && isStopped == false)
         {
-            if (Random.value < 0.1f)
+            if (Random.value < 0.05f)
             {
-                Debug.Log("Stopping at center...");
                 isStopped = true; // PREVENT multiple coroutines
+                Debug.Log("test");
                 StartCoroutine(StopAtZero());
             }
         }
@@ -50,7 +50,6 @@ public class RunAcross : MonoBehaviour
 
     private IEnumerator StopAtZero()
     {
-        isStopped = true;
         speed = 0f;
         anim.SetBool("isIdle", true);
 
@@ -58,14 +57,14 @@ public class RunAcross : MonoBehaviour
         int number = Random.Range(0, randomPlayer.Count);
         objectToSpawn = randomPlayer[number];
 
-        // Spawn something at current position
+        // Spawn object at start position
         if (objectToSpawn != null)
         {
             Instantiate(objectToSpawn, new Vector3(-10, -3.32f, 0), Quaternion.identity);
         }
 
         // Wait a random time
-        yield return new WaitForSeconds(Random.Range(1f, 3f));
+        yield return new WaitForSeconds(Random.Range(2.3f, 2.5f));
 
         anim.SetBool("isIdle", false);
         speed = 5f;
