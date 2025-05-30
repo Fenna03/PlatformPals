@@ -15,14 +15,14 @@ public class RunAcross : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(WaitforRandomAmount());
+        StartCoroutine(WaitForFirstTime());
         anim = GetComponent<Animator>();
     }
 
     void Update()
     {
         transform.position += Vector3.right * speed * Time.deltaTime;
-        if (transform.position.x >= 0f && transform.position.x <= 0.05f && isStopped == false)
+        if (transform.position.x >= -1.45f && transform.position.x <= -1.4f && isStopped == false)
         {
             if (Random.value < 0.05f)
             {
@@ -37,6 +37,14 @@ public class RunAcross : MonoBehaviour
             transform.position = startPos;
             StartCoroutine(WaitforRandomAmount());
         }
+    }
+    private IEnumerator WaitForFirstTime()
+    {
+        speed = 0;
+        float value = Random.Range(0, 3);
+        Debug.Log(value);
+        yield return new WaitForSeconds(value);
+        speed = 5;
     }
 
     private IEnumerator WaitforRandomAmount()

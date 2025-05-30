@@ -1,0 +1,4588 @@
+fileFormatVersion: 2
+guid: 3afed718623d0f84d9ba7f96ed749996
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Green Inventory Book_Frame_0
+    originalName: 
+    pivot: {x: 0.5386905, y: -0.30403802}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2412
+      y: 5747
+      width: 336
+      height: 421
+    spriteID: 8e4c1ffdfe8187b4ba630f98d927cc3e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2412, y: 5747}
+  - name: Green Inventory Book_Frame_1
+    originalName: 
+    pivot: {x: 0.49107146, y: -0.29024944}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7548
+      y: 528
+      width: 336
+      height: 441
+    spriteID: 58d26e343c83f9b45814deb1c41524f8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 7548, y: 528}
+  - name: Green Inventory Book_Frame_2
+    originalName: 
+    pivot: {x: 0.44345236, y: -0.2524655}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 5747
+      width: 336
+      height: 507
+    spriteID: 51c5c15ef0159ac40abc0ab0b4250c48
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 5747}
+  - name: Green Inventory Book_Frame_3
+    originalName: 
+    pivot: {x: 0.542811, y: -0.23837209}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 619
+      height: 516
+    spriteID: 0db632d6912578a40969b8976067ec9c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Green Inventory Book_Frame_4
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7363
+      y: 3970
+      width: 661
+      height: 416
+    spriteID: 5b1ed0055b0531543a5292b0304aac47
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 7363, y: 3970}
+  - name: Green Inventory Book_Frame_6
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1182
+      y: 4407
+      width: 661
+      height: 416
+    spriteID: 9fd6058087317f44b886bb862b752b87
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1182, y: 4407}
+  - name: Green Inventory Book_Frame_7
+    originalName: 
+    pivot: {x: 0.542811, y: -0.23837209}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 631
+      y: 4
+      width: 619
+      height: 516
+    spriteID: 837ac6cdac2e912449bf1d5c56ff47fe
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 631, y: 4}
+  - name: Green Inventory Book_Frame_8
+    originalName: 
+    pivot: {x: 0.44345236, y: -0.2524655}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 348
+      y: 5747
+      width: 336
+      height: 507
+    spriteID: 4de1c05ab05d3694081884ad9c934bd7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 348, y: 5747}
+  - name: Green Inventory Book_Frame_9
+    originalName: 
+    pivot: {x: 0.49107146, y: -0.29024944}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1380
+      y: 5747
+      width: 336
+      height: 441
+    spriteID: 2340ea938d2a1664daea09e45f444b80
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1380, y: 5747}
+  - name: Green Inventory Book_Frame_10
+    originalName: 
+    pivot: {x: 0.5386905, y: -0.30403802}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2756
+      y: 5747
+      width: 336
+      height: 421
+    spriteID: 58a5dcd962d2d5347b0e7d88751e1372
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2756, y: 5747}
+  - name: Green Inventory Book_Frame_12
+    originalName: 
+    pivot: {x: 0.5386905, y: -0.30403802}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3100
+      y: 5747
+      width: 336
+      height: 421
+    spriteID: 9b2fd4b305bd9c04480233706707e48d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3100, y: 5747}
+  - name: Green Inventory Book_Frame_13
+    originalName: 
+    pivot: {x: 0.49107146, y: -0.29024944}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1724
+      y: 5747
+      width: 336
+      height: 441
+    spriteID: c9535d17f1365bc4fbd8c439e25a9768
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1724, y: 5747}
+  - name: Green Inventory Book_Frame_14
+    originalName: 
+    pivot: {x: 0.44345236, y: -0.2524655}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 692
+      y: 5747
+      width: 336
+      height: 507
+    spriteID: 01e378b9f7a0f4f4d921c1c2f1b23e80
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 692, y: 5747}
+  - name: Green Inventory Book_Frame_15
+    originalName: 
+    pivot: {x: 0.542811, y: -0.23837209}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1258
+      y: 4
+      width: 619
+      height: 516
+    spriteID: 39968d92fe8070948a8c6bc566d14b95
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1258, y: 4}
+  - name: Green Inventory Book_Frame_16
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1851
+      y: 4407
+      width: 661
+      height: 416
+    spriteID: 7df62cb770d91684eae1a98958eb82c1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1851, y: 4407}
+  - name: Green Inventory Book_Frame_18
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2520
+      y: 4407
+      width: 661
+      height: 416
+    spriteID: 92b1983ba385e8546a14e0866e190c13
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2520, y: 4407}
+  - name: Green Inventory Book_Frame_19
+    originalName: 
+    pivot: {x: 0.542811, y: -0.23837209}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1885
+      y: 4
+      width: 619
+      height: 516
+    spriteID: 34a151fd586be4c479d6aee5c3f874ef
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1885, y: 4}
+  - name: Green Inventory Book_Frame_20
+    originalName: 
+    pivot: {x: 0.44345236, y: -0.2524655}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1036
+      y: 5747
+      width: 336
+      height: 507
+    spriteID: 732ce7697b79f7e48a48af4680b324a6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1036, y: 5747}
+  - name: Green Inventory Book_Frame_21
+    originalName: 
+    pivot: {x: 0.49107146, y: -0.29024944}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2068
+      y: 5747
+      width: 336
+      height: 441
+    spriteID: fe9d165eee2817f4ea15149f0a22b8e0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2068, y: 5747}
+  - name: Green Inventory Book_Frame_22
+    originalName: 
+    pivot: {x: 0.5386905, y: -0.30403802}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3444
+      y: 5747
+      width: 336
+      height: 421
+    spriteID: 0b882fd4120e2c44ebe5a7919b4d06ec
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3444, y: 5747}
+  - name: Green Inventory Book_Frame_24
+    originalName: 
+    pivot: {x: 0.48648682, y: -0.2942584}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 8105
+      y: 4407
+      width: 37
+      height: 418
+    spriteID: e04ddbf077fb1b54088f471431e3a036
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 8105, y: 4407}
+  - name: Green Inventory Book_Frame_25
+    originalName: 
+    pivot: {x: 0.4977778, y: -0.26973686}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7872
+      y: 4407
+      width: 225
+      height: 456
+    spriteID: 85186b6039864f841998b9a0796eefa8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 7872, y: 4407}
+  - name: Green Inventory Book_Frame_26
+    originalName: 
+    pivot: {x: 0.49913943, y: -0.25413224}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4407
+      width: 581
+      height: 484
+    spriteID: af485cc05e9f5ea429091ed6c58f42fe
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4407}
+  - name: Green Inventory Book_Frame_27
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3189
+      y: 4407
+      width: 661
+      height: 416
+    spriteID: aae203ceef31fd548876a5585f56cdd0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3189, y: 4407}
+  - name: Green Inventory Book_Frame_29
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3858
+      y: 4407
+      width: 661
+      height: 416
+    spriteID: 4834cf369b95f9d4a9d5bfb37d9fbdcc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3858, y: 4407}
+  - name: Green Inventory Book_Frame_30
+    originalName: 
+    pivot: {x: 0.49913943, y: -0.25413224}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 593
+      y: 4407
+      width: 581
+      height: 484
+    spriteID: bb503e6d3df0c734eb9fb6e820a70416
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 593, y: 4407}
+  - name: Green Inventory Book_Frame_31
+    originalName: 
+    pivot: {x: 0.4977778, y: -0.26973686}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7864
+      y: 4
+      width: 225
+      height: 456
+    spriteID: 4bc99f2f9af815f43a050edbeea78e87
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 7864, y: 4}
+  - name: Green Inventory Book_Frame_32
+    originalName: 
+    pivot: {x: 0.48648682, y: -0.2942584}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 8150
+      y: 4407
+      width: 37
+      height: 418
+    spriteID: ef7a8ad87c8663d4897f29420ce1acf2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 8150, y: 4407}
+  - name: Green Inventory Book_Frame_34
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4527
+      y: 4407
+      width: 661
+      height: 416
+    spriteID: d3b7563df926add43872efe96070604a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4527, y: 4407}
+  - name: Green Inventory Book_Frame_44
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 5196
+      y: 4407
+      width: 661
+      height: 416
+    spriteID: 152f5b865d8500c4d98e8d4496427ffe
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 5196, y: 4407}
+  - name: Green Inventory Book_Frame_54
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 5865
+      y: 4407
+      width: 661
+      height: 416
+    spriteID: 3e1ea5c71bf9db942a063d7775022a23
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 5865, y: 4407}
+  - name: Green Inventory Book_Frame_63
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 6534
+      y: 4407
+      width: 661
+      height: 416
+    spriteID: b4155b45b73418345991d9ee6ba6682c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 6534, y: 4407}
+  - name: Green Inventory Book_Frame_72
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7203
+      y: 4407
+      width: 661
+      height: 416
+    spriteID: 31f7899adc3275d4699356419cbffcf0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 7203, y: 4407}
+  - name: Green Inventory Book_Frame_81
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4899
+      width: 661
+      height: 416
+    spriteID: 803f0c22cf7f7a5439cbb3889393de6e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4899}
+  - name: Green Inventory Book_Frame_35
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.29216152}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3349
+      y: 3970
+      width: 661
+      height: 421
+    spriteID: 952a18747f81b1c4eb4328b511f373d3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3349, y: 3970}
+  - name: Green Inventory Book_Frame_36
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.2789116}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2680
+      y: 528
+      width: 661
+      height: 441
+    spriteID: 0ec36a918228ed94bae3c3c451be323a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2680, y: 528}
+  - name: Green Inventory Book_Frame_37
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.2847222}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 3530
+      width: 661
+      height: 432
+    spriteID: 6a4f98d2413244d46875acba4080e9e9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 3530}
+  - name: Green Inventory Book_Frame_38
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.2867133}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4812
+      y: 3530
+      width: 661
+      height: 429
+    spriteID: 1a58a24b879b34c49a619ce9e86c8aba
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4812, y: 3530}
+  - name: Green Inventory Book_Frame_39
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 673
+      y: 4899
+      width: 661
+      height: 416
+    spriteID: d03e0e6f6d6322d4bb3a5185d7c439a8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 673, y: 4899}
+  - name: Green Inventory Book_Frame_40
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1342
+      y: 4899
+      width: 661
+      height: 416
+    spriteID: 13863b6480d8f3a4ab5ac380af57541f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1342, y: 4899}
+  - name: Green Inventory Book_Frame_41
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2011
+      y: 4899
+      width: 661
+      height: 416
+    spriteID: 5da3d8ead41863949a28e52d211eb9d4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2011, y: 4899}
+  - name: Green Inventory Book_Frame_42
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2680
+      y: 4899
+      width: 661
+      height: 416
+    spriteID: e20fc9c9d00f15249a5cf16b04318fae
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2680, y: 4899}
+  - name: Green Inventory Book_Frame_45
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.29216152}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4018
+      y: 3970
+      width: 661
+      height: 421
+    spriteID: d2c9f17b88fce25479f6773b6e27f8ee
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4018, y: 3970}
+  - name: Green Inventory Book_Frame_46
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.2789116}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3349
+      y: 528
+      width: 661
+      height: 441
+    spriteID: 6add0aebf8afe4541b1c223fa74246dc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3349, y: 528}
+  - name: Green Inventory Book_Frame_47
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.2847222}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 673
+      y: 3530
+      width: 661
+      height: 432
+    spriteID: 3bd38f2494218bc45bc1bfb947f74185
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 673, y: 3530}
+  - name: Green Inventory Book_Frame_48
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.2867133}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 5481
+      y: 3530
+      width: 661
+      height: 429
+    spriteID: 6ba895d4ad9631e47a8da46ce8aa9f40
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 5481, y: 3530}
+  - name: Green Inventory Book_Frame_49
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3349
+      y: 4899
+      width: 661
+      height: 416
+    spriteID: ea12affddf83b4440a2e2ccf540955c6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3349, y: 4899}
+  - name: Green Inventory Book_Frame_50
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4018
+      y: 4899
+      width: 661
+      height: 416
+    spriteID: c2cf034a93ea58a499c9f38179cf598e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4018, y: 4899}
+  - name: Green Inventory Book_Frame_51
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4687
+      y: 4899
+      width: 661
+      height: 416
+    spriteID: 59f0d499585649b4795d7ba6b72f43ee
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4687, y: 4899}
+  - name: Green Inventory Book_Frame_52
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 5356
+      y: 4899
+      width: 661
+      height: 416
+    spriteID: 98684f3c5bbb6744d9d06c3de8d2b10f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 5356, y: 4899}
+  - name: Green Inventory Book_Frame_55
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.28738317}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 673
+      y: 3970
+      width: 661
+      height: 428
+    spriteID: 8c61f39b70af4da44a535941e19fa0e2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 673, y: 3970}
+  - name: Green Inventory Book_Frame_56
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.27152318}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 5188
+      y: 4
+      width: 661
+      height: 453
+    spriteID: d835f83d9c6a1144080f4f1067b6350c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 5188, y: 4}
+  - name: Green Inventory Book_Frame_57
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.26914662}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2512
+      y: 4
+      width: 661
+      height: 457
+    spriteID: c9acda46a8b510e48a7519e7a3ffb890
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2512, y: 4}
+  - name: Green Inventory Book_Frame_58
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.27333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 528
+      width: 661
+      height: 450
+    spriteID: 8b6ab4041d1684446befa52d3c7c0425
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 528}
+  - name: Green Inventory Book_Frame_59
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.2867133}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 6150
+      y: 3530
+      width: 661
+      height: 429
+    spriteID: fcc1035ea743d09498d717fa7c68930e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 6150, y: 3530}
+  - name: Green Inventory Book_Frame_60
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.2935561}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4687
+      y: 3970
+      width: 661
+      height: 419
+    spriteID: d4a39f7a85eba9b4ca3ace4cc053b780
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4687, y: 3970}
+  - name: Green Inventory Book_Frame_61
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 6025
+      y: 4899
+      width: 661
+      height: 416
+    spriteID: 315a3c3c2a71c0f43a260eb1244843af
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 6025, y: 4899}
+  - name: Green Inventory Book_Frame_64
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.28738317}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1342
+      y: 3970
+      width: 661
+      height: 428
+    spriteID: 75cdb641d4a137748b6570460d242b9a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1342, y: 3970}
+  - name: Green Inventory Book_Frame_65
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.27152318}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 5857
+      y: 4
+      width: 661
+      height: 453
+    spriteID: d34ac14763f49064183e977f73961eb7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 5857, y: 4}
+  - name: Green Inventory Book_Frame_66
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.26914662}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3181
+      y: 4
+      width: 661
+      height: 457
+    spriteID: 4a877d8eb38fcd940b6e4cb99ff51e7a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3181, y: 4}
+  - name: Green Inventory Book_Frame_67
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.27333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 673
+      y: 528
+      width: 661
+      height: 450
+    spriteID: e69974bcc84918a4fa1b6cd4979e1fe6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 673, y: 528}
+  - name: Green Inventory Book_Frame_68
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.2867133}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 6819
+      y: 3530
+      width: 661
+      height: 429
+    spriteID: ef7ddef5ba43c9747b024234a84028d8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 6819, y: 3530}
+  - name: Green Inventory Book_Frame_69
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.2935561}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 5356
+      y: 3970
+      width: 661
+      height: 419
+    spriteID: aa7271697662a6a4d84febade91bf576
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 5356, y: 3970}
+  - name: Green Inventory Book_Frame_70
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 6694
+      y: 4899
+      width: 661
+      height: 416
+    spriteID: 12b5052f10ac1cd43bec15476866efce
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 6694, y: 4899}
+  - name: Green Inventory Book_Frame_73
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.2935561}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 6025
+      y: 3970
+      width: 661
+      height: 419
+    spriteID: ce73f92db657758489797144f5405dad
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 6025, y: 3970}
+  - name: Green Inventory Book_Frame_74
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.2867133}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7488
+      y: 3530
+      width: 661
+      height: 429
+    spriteID: 68194bc2d67772b4f9ded35e43db392e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 7488, y: 3530}
+  - name: Green Inventory Book_Frame_75
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.27333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1342
+      y: 528
+      width: 661
+      height: 450
+    spriteID: b9eddcadd969afe4a9a86e335d633fa3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1342, y: 528}
+  - name: Green Inventory Book_Frame_76
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.26914662}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3850
+      y: 4
+      width: 661
+      height: 457
+    spriteID: fdf8e71d905ba834fb45ea7413efb274
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3850, y: 4}
+  - name: Green Inventory Book_Frame_77
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.27152318}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 6526
+      y: 4
+      width: 661
+      height: 453
+    spriteID: bb6c9ffddea15b44fafbf19da5512d21
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 6526, y: 4}
+  - name: Green Inventory Book_Frame_78
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.28738317}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2011
+      y: 3970
+      width: 661
+      height: 428
+    spriteID: c7e83e0e42ae85d45b5db8d7eccdd80e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2011, y: 3970}
+  - name: Green Inventory Book_Frame_79
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7363
+      y: 4899
+      width: 661
+      height: 416
+    spriteID: 97945aac8606c2c499f64492536e5034
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 7363, y: 4899}
+  - name: Green Inventory Book_Frame_82
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.2935561}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 6694
+      y: 3970
+      width: 661
+      height: 419
+    spriteID: bfd3e562dfcd3e04a854a6e6280f74ed
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 6694, y: 3970}
+  - name: Green Inventory Book_Frame_83
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.2867133}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 3970
+      width: 661
+      height: 429
+    spriteID: 83f3617327e33df4c9adabe7d947d785
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 3970}
+  - name: Green Inventory Book_Frame_84
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.27333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2011
+      y: 528
+      width: 661
+      height: 450
+    spriteID: d108047bebba96e4d90cbd74af11dfc6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2011, y: 528}
+  - name: Green Inventory Book_Frame_85
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.26914662}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4519
+      y: 4
+      width: 661
+      height: 457
+    spriteID: 0b5a9cc4885ef36458e50d6d017e8d78
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4519, y: 4}
+  - name: Green Inventory Book_Frame_86
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.27152318}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7195
+      y: 4
+      width: 661
+      height: 453
+    spriteID: c2979b6d1b81695459bb9f06e1a07ca5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 7195, y: 4}
+  - name: Green Inventory Book_Frame_87
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.28738317}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2680
+      y: 3970
+      width: 661
+      height: 428
+    spriteID: e7884d123a4798b4ba40b3cf056d911d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2680, y: 3970}
+  - name: Green Inventory Book_Frame_88
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 5323
+      width: 661
+      height: 416
+    spriteID: c34941f343e42794a806b38a0b8caac7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 5323}
+  - name: Green Inventory Book_Frame_90
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 6358
+      y: 986
+      width: 695
+      height: 416
+    spriteID: 0f634aa428e42c647bc720b5726e1b40
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 6358, y: 986}
+  - name: Green Inventory Book_Frame_91
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7061
+      y: 986
+      width: 695
+      height: 416
+    spriteID: 077fa6e18913f6d40b0d3b81a95ee726
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 7061, y: 986}
+  - name: Green Inventory Book_Frame_92
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1410
+      width: 695
+      height: 416
+    spriteID: 49acddfb1b5551a4ca8de72d757357a3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1410}
+  - name: Green Inventory Book_Frame_93
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 707
+      y: 1410
+      width: 695
+      height: 416
+    spriteID: 01de1c77bb2f27e48904903dfd85f537
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 707, y: 1410}
+  - name: Green Inventory Book_Frame_94
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1410
+      y: 1410
+      width: 695
+      height: 416
+    spriteID: 3dda3d779cc26a449b07293b9b11aeac
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1410, y: 1410}
+  - name: Green Inventory Book_Frame_95
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2113
+      y: 1410
+      width: 695
+      height: 416
+    spriteID: 7d041d2c2b6038342bb72274fa3a0beb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2113, y: 1410}
+  - name: Green Inventory Book_Frame_96
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2816
+      y: 1410
+      width: 695
+      height: 416
+    spriteID: 6d10c102e667f4c42917d8ae576f984e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2816, y: 1410}
+  - name: Green Inventory Book_Frame_97
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3519
+      y: 1410
+      width: 695
+      height: 416
+    spriteID: b74b915288e024b44a391ae2b093cb49
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3519, y: 1410}
+  - name: Green Inventory Book_Frame_98
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4222
+      y: 1410
+      width: 695
+      height: 416
+    spriteID: 936c1c408af3ce243bd41eccf8970c7f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4222, y: 1410}
+  - name: Green Inventory Book_Frame_99
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4925
+      y: 1410
+      width: 695
+      height: 416
+    spriteID: 8d05269a6ea30f143996cae2ad8cab72
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4925, y: 1410}
+  - name: Green Inventory Book_Frame_100
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 5628
+      y: 1410
+      width: 695
+      height: 416
+    spriteID: 39b7cd331cdceed47845ccda36b6a811
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 5628, y: 1410}
+  - name: Green Inventory Book_Frame_101
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 6331
+      y: 1410
+      width: 695
+      height: 416
+    spriteID: 33481f5d7e7f1bf4fad283a59dc3c07f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 6331, y: 1410}
+  - name: Green Inventory Book_Frame_102
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7034
+      y: 1410
+      width: 695
+      height: 416
+    spriteID: 499bce0e4910113458d01136f71c2087
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 7034, y: 1410}
+  - name: Green Inventory Book_Frame_103
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1834
+      width: 695
+      height: 416
+    spriteID: 562353a1db3a0a74b9235e750e3609a6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1834}
+  - name: Green Inventory Book_Frame_104
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 707
+      y: 1834
+      width: 695
+      height: 416
+    spriteID: 8e4e6654f655083449bd1b8f4106eb1b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 707, y: 1834}
+  - name: Green Inventory Book_Frame_105
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1410
+      y: 1834
+      width: 695
+      height: 416
+    spriteID: 8b02e05d10a24ef4189e1af32235e3b6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1410, y: 1834}
+  - name: Green Inventory Book_Frame_106
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2113
+      y: 1834
+      width: 695
+      height: 416
+    spriteID: 3dce355fc61d8744eac39145139a3979
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2113, y: 1834}
+  - name: Green Inventory Book_Frame_107
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2816
+      y: 1834
+      width: 695
+      height: 416
+    spriteID: 0fc04149f7542f743816aa4a8b3bbcc5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2816, y: 1834}
+  - name: Green Inventory Book_Frame_108
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3519
+      y: 1834
+      width: 695
+      height: 416
+    spriteID: 43f5a378e6f61574e9ec6f69958b1e15
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3519, y: 1834}
+  - name: Green Inventory Book_Frame_109
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4222
+      y: 1834
+      width: 695
+      height: 416
+    spriteID: 5959e636eb54d794c8152038e3342cfe
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4222, y: 1834}
+  - name: Green Inventory Book_Frame_110
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4925
+      y: 1834
+      width: 695
+      height: 416
+    spriteID: 3e70d924db25b974ea8192aa0b56e33d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4925, y: 1834}
+  - name: Green Inventory Book_Frame_111
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 5628
+      y: 1834
+      width: 695
+      height: 416
+    spriteID: 32085003a7f3c1e42be23b8deb1b7320
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 5628, y: 1834}
+  - name: Green Inventory Book_Frame_112
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 6331
+      y: 1834
+      width: 695
+      height: 416
+    spriteID: 19790f4b77798b54da46163c14225fc9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 6331, y: 1834}
+  - name: Green Inventory Book_Frame_113
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7034
+      y: 1834
+      width: 695
+      height: 416
+    spriteID: 441d6480d892c9d44ad67eaec9d0cdee
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 7034, y: 1834}
+  - name: Green Inventory Book_Frame_114
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2258
+      width: 695
+      height: 416
+    spriteID: 29334f2b0fd2f2c4093a1ba836637e9c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 2258}
+  - name: Green Inventory Book_Frame_115
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 707
+      y: 2258
+      width: 695
+      height: 416
+    spriteID: ba3f33c2dc657d54b8434669cdf7b128
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 707, y: 2258}
+  - name: Green Inventory Book_Frame_116
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1410
+      y: 2258
+      width: 695
+      height: 416
+    spriteID: e740719b3cacb2747a55d555029ac5ed
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1410, y: 2258}
+  - name: Green Inventory Book_Frame_117
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2113
+      y: 2258
+      width: 695
+      height: 416
+    spriteID: fa790724460ca934b8c986b984ff695d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2113, y: 2258}
+  - name: Green Inventory Book_Frame_118
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2816
+      y: 2258
+      width: 695
+      height: 416
+    spriteID: 5061879a34671064b9a1fe68b09e56ff
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2816, y: 2258}
+  - name: Green Inventory Book_Frame_119
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3519
+      y: 2258
+      width: 695
+      height: 416
+    spriteID: b8bdca7c31c08714d827312a37934f28
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3519, y: 2258}
+  - name: Green Inventory Book_Frame_120
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4222
+      y: 2258
+      width: 695
+      height: 416
+    spriteID: 69f51d75499943347abf66431c9dc366
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4222, y: 2258}
+  - name: Green Inventory Book_Frame_121
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4925
+      y: 2258
+      width: 695
+      height: 416
+    spriteID: 65270c206fccc114c8d9c40bd44aeb53
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4925, y: 2258}
+  - name: Green Inventory Book_Frame_122
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 5628
+      y: 2258
+      width: 695
+      height: 416
+    spriteID: deaaaf5ab8fe40b4da6a3014606faba5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 5628, y: 2258}
+  - name: Green Inventory Book_Frame_123
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 6331
+      y: 2258
+      width: 695
+      height: 416
+    spriteID: d543eadefd24a814daad564db00390ea
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 6331, y: 2258}
+  - name: Green Inventory Book_Frame_124
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7034
+      y: 2258
+      width: 695
+      height: 416
+    spriteID: 8cbce6cbce8942b48963c82d49066165
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 7034, y: 2258}
+  - name: Green Inventory Book_Frame_125
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2682
+      width: 695
+      height: 416
+    spriteID: f19507c73d3ec5d4e939b26fbb8be6d3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 2682}
+  - name: Green Inventory Book_Frame_127
+    originalName: 
+    pivot: {x: 0.48104954, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2098
+      y: 3106
+      width: 686
+      height: 416
+    spriteID: d5ccc4bcc63625449b13ad13aade81e5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2098, y: 3106}
+  - name: Green Inventory Book_Frame_128
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 707
+      y: 2682
+      width: 695
+      height: 416
+    spriteID: 78e706b4e9e0d98489c7a66a7b5e56d9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 707, y: 2682}
+  - name: Green Inventory Book_Frame_129
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1410
+      y: 2682
+      width: 695
+      height: 416
+    spriteID: 7133e3863bbb65f429681bdd5c286d2a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1410, y: 2682}
+  - name: Green Inventory Book_Frame_130
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2113
+      y: 2682
+      width: 695
+      height: 416
+    spriteID: 343bd270e5696574bab382d3dadb9c88
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2113, y: 2682}
+  - name: Green Inventory Book_Frame_131
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2816
+      y: 2682
+      width: 695
+      height: 416
+    spriteID: fc4fe35f724af7543a27903dade6ab1e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2816, y: 2682}
+  - name: Green Inventory Book_Frame_132
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3519
+      y: 2682
+      width: 695
+      height: 416
+    spriteID: 3710203ce76feed4d955394b0cb8f1b5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3519, y: 2682}
+  - name: Green Inventory Book_Frame_133
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4222
+      y: 2682
+      width: 695
+      height: 416
+    spriteID: 3e1f46cd73f34234e894b50e7b5d4038
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4222, y: 2682}
+  - name: Green Inventory Book_Frame_134
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4925
+      y: 2682
+      width: 695
+      height: 416
+    spriteID: 816196077f8d8114d90c7cf179074e59
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4925, y: 2682}
+  - name: Green Inventory Book_Frame_135
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 5628
+      y: 2682
+      width: 695
+      height: 416
+    spriteID: 4c443a816f1e7344fb2b27f65a32cf2f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 5628, y: 2682}
+  - name: Green Inventory Book_Frame_136
+    originalName: 
+    pivot: {x: 0.47482014, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 6331
+      y: 2682
+      width: 695
+      height: 416
+    spriteID: cd15f8aa30f6c29488eaaed1c9565275
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 6331, y: 2682}
+  - name: Green Inventory Book_Frame_138
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 673
+      y: 5323
+      width: 661
+      height: 416
+    spriteID: acb660ab5f0b218489fb6eaa607e2c15
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 673, y: 5323}
+  - name: Green Inventory Book_Frame_139
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1342
+      y: 5323
+      width: 661
+      height: 416
+    spriteID: be4251d73d3ba554aa8546aff7a3e714
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1342, y: 5323}
+  - name: Green Inventory Book_Frame_140
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2011
+      y: 5323
+      width: 661
+      height: 416
+    spriteID: 8422d5c632e708f47a5c35c68597c98f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2011, y: 5323}
+  - name: Green Inventory Book_Frame_141
+    originalName: 
+    pivot: {x: 0.47277933, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4018
+      y: 528
+      width: 698
+      height: 416
+    spriteID: adcafa45c53f4144f841a041fd039754
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4018, y: 528}
+  - name: Green Inventory Book_Frame_142
+    originalName: 
+    pivot: {x: 0.47826087, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7034
+      y: 2682
+      width: 690
+      height: 416
+    spriteID: 0490a30335dd0844db4e5accec8b300a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 7034, y: 2682}
+  - name: Green Inventory Book_Frame_143
+    originalName: 
+    pivot: {x: 0.47277933, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4724
+      y: 528
+      width: 698
+      height: 416
+    spriteID: bec177870f344ca4f97296bd1833fd2f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4724, y: 528}
+  - name: Green Inventory Book_Frame_144
+    originalName: 
+    pivot: {x: 0.47277933, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 5430
+      y: 528
+      width: 698
+      height: 416
+    spriteID: 988404762cb974b4f8f29535bcca6c21
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 5430, y: 528}
+  - name: Green Inventory Book_Frame_145
+    originalName: 
+    pivot: {x: 0.47277933, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 6136
+      y: 528
+      width: 698
+      height: 416
+    spriteID: bc13f9031ac4ad24da8f3f30caec7689
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 6136, y: 528}
+  - name: Green Inventory Book_Frame_146
+    originalName: 
+    pivot: {x: 0.47277933, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 6842
+      y: 528
+      width: 698
+      height: 416
+    spriteID: a238604c4aa65e944ba6e84808cd2e7f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 6842, y: 528}
+  - name: Green Inventory Book_Frame_147
+    originalName: 
+    pivot: {x: 0.47277933, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 986
+      width: 698
+      height: 416
+    spriteID: 0c56f012cbb3a2945bfea87c23856819
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 986}
+  - name: Green Inventory Book_Frame_148
+    originalName: 
+    pivot: {x: 0.47277933, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 710
+      y: 986
+      width: 698
+      height: 416
+    spriteID: 7519ca8bebc73ff4dad9e6b8272a0abb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 710, y: 986}
+  - name: Green Inventory Book_Frame_149
+    originalName: 
+    pivot: {x: 0.47826087, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 3106
+      width: 690
+      height: 416
+    spriteID: 9af742ccb86f1534ab162fb0a3e7f6d2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 3106}
+  - name: Green Inventory Book_Frame_150
+    originalName: 
+    pivot: {x: 0.48104954, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2792
+      y: 3106
+      width: 686
+      height: 416
+    spriteID: 3685560b2f0372f45abf7c3cc6de7420
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2792, y: 3106}
+  - name: Green Inventory Book_Frame_151
+    originalName: 
+    pivot: {x: 0.48104954, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3486
+      y: 3106
+      width: 686
+      height: 416
+    spriteID: d86dd4ebb600ecd439230a103d257c7b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3486, y: 3106}
+  - name: Green Inventory Book_Frame_152
+    originalName: 
+    pivot: {x: 0.48104954, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4180
+      y: 3106
+      width: 686
+      height: 416
+    spriteID: 2a2b241312f4a3e45b3255f2a4a220ba
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4180, y: 3106}
+  - name: Green Inventory Book_Frame_153
+    originalName: 
+    pivot: {x: 0.48104954, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4874
+      y: 3106
+      width: 686
+      height: 416
+    spriteID: 2523ac46447ed6b4e984b86fb2f3ed6f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4874, y: 3106}
+  - name: Green Inventory Book_Frame_154
+    originalName: 
+    pivot: {x: 0.48104954, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 5568
+      y: 3106
+      width: 686
+      height: 416
+    spriteID: 8f8a0451116d9044fb6ef8bd28c23c95
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 5568, y: 3106}
+  - name: Green Inventory Book_Frame_155
+    originalName: 
+    pivot: {x: 0.48104954, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 6262
+      y: 3106
+      width: 686
+      height: 416
+    spriteID: ff4db35f7eefc354b8ad9b1193b3735b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 6262, y: 3106}
+  - name: Green Inventory Book_Frame_157
+    originalName: 
+    pivot: {x: 0.48104954, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 6956
+      y: 3106
+      width: 686
+      height: 416
+    spriteID: 1bfb96ae4e735f342a55fb0c1714b437
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 6956, y: 3106}
+  - name: Green Inventory Book_Frame_158
+    originalName: 
+    pivot: {x: 0.48104954, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1342
+      y: 3530
+      width: 686
+      height: 416
+    spriteID: dad74f4e5d89f03488885bd965efb917
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1342, y: 3530}
+  - name: Green Inventory Book_Frame_159
+    originalName: 
+    pivot: {x: 0.48104954, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2036
+      y: 3530
+      width: 686
+      height: 416
+    spriteID: 9c0856682fef2ec43967bc433dd09ff5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2036, y: 3530}
+  - name: Green Inventory Book_Frame_160
+    originalName: 
+    pivot: {x: 0.48104954, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2730
+      y: 3530
+      width: 686
+      height: 416
+    spriteID: 4fce562f13fa9d140b21a6e15d3b2953
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2730, y: 3530}
+  - name: Green Inventory Book_Frame_161
+    originalName: 
+    pivot: {x: 0.48104954, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3424
+      y: 3530
+      width: 686
+      height: 416
+    spriteID: e33526934020e574e8aa4dba527530a8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3424, y: 3530}
+  - name: Green Inventory Book_Frame_162
+    originalName: 
+    pivot: {x: 0.48104954, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4118
+      y: 3530
+      width: 686
+      height: 416
+    spriteID: 7999989f2784d1847894cf974e935db2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4118, y: 3530}
+  - name: Green Inventory Book_Frame_163
+    originalName: 
+    pivot: {x: 0.47826087, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 702
+      y: 3106
+      width: 690
+      height: 416
+    spriteID: 16f7468ad3addb44fba28410c1096b5d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 702, y: 3106}
+  - name: Green Inventory Book_Frame_164
+    originalName: 
+    pivot: {x: 0.47277933, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1416
+      y: 986
+      width: 698
+      height: 416
+    spriteID: 615e8ea032404dd47b52527aeed5d462
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1416, y: 986}
+  - name: Green Inventory Book_Frame_165
+    originalName: 
+    pivot: {x: 0.47277933, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2122
+      y: 986
+      width: 698
+      height: 416
+    spriteID: 393cfbfeb1f87f949974e3ab4bd07f67
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2122, y: 986}
+  - name: Green Inventory Book_Frame_166
+    originalName: 
+    pivot: {x: 0.47277933, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2828
+      y: 986
+      width: 698
+      height: 416
+    spriteID: d60514cef18fa3c4cac8cc396f8dfa7f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2828, y: 986}
+  - name: Green Inventory Book_Frame_167
+    originalName: 
+    pivot: {x: 0.47277933, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3534
+      y: 986
+      width: 698
+      height: 416
+    spriteID: ce6275525435b4e47aaad98b21a94c7d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3534, y: 986}
+  - name: Green Inventory Book_Frame_168
+    originalName: 
+    pivot: {x: 0.47277933, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4240
+      y: 986
+      width: 698
+      height: 416
+    spriteID: 5812225c969e04e46bdea55e5531b505
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4240, y: 986}
+  - name: Green Inventory Book_Frame_169
+    originalName: 
+    pivot: {x: 0.47277933, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4946
+      y: 986
+      width: 698
+      height: 416
+    spriteID: 266891efce41419439bb1f9409f8d242
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4946, y: 986}
+  - name: Green Inventory Book_Frame_170
+    originalName: 
+    pivot: {x: 0.47826087, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1400
+      y: 3106
+      width: 690
+      height: 416
+    spriteID: 84e09b87758695a4d88afce03f880ecf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1400, y: 3106}
+  - name: Green Inventory Book_Frame_171
+    originalName: 
+    pivot: {x: 0.47277933, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 5652
+      y: 986
+      width: 698
+      height: 416
+    spriteID: b45c16fc3a7de154db6ceb1c28a7eeb7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 5652, y: 986}
+  - name: Green Inventory Book_Frame_172
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2680
+      y: 5323
+      width: 661
+      height: 416
+    spriteID: af3a05b754d560a4a951e07c12ac3d9f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2680, y: 5323}
+  - name: Green Inventory Book_Frame_173
+    originalName: 
+    pivot: {x: 0.49924356, y: -0.29567307}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3349
+      y: 5323
+      width: 661
+      height: 416
+    spriteID: 3965797c3a257b540a945d7aa9dd1756
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3349, y: 5323}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 1478153538
+    name: Green Inventory Book
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Green Inventory Book_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 267
+        y: 128
+        width: 336
+        height: 421
+      spriteId: 8e4c1ffdfe8187b4ba630f98d927cc3e
+    - name: Green Inventory Book_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 283
+        y: 128
+        width: 336
+        height: 441
+      spriteId: 58d26e343c83f9b45814deb1c41524f8
+    - name: Green Inventory Book_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 299
+        y: 128
+        width: 336
+        height: 507
+      spriteId: 51c5c15ef0159ac40abc0ab0b4250c48
+    - name: Green Inventory Book_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 112
+        y: 123
+        width: 619
+        height: 516
+      spriteId: 0db632d6912578a40969b8976067ec9c
+    - name: Green Inventory Book_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 416
+      spriteId: 5b1ed0055b0531543a5292b0304aac47
+    - name: Green Inventory Book_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 416
+      spriteId: 9fd6058087317f44b886bb862b752b87
+    - name: Green Inventory Book_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 112
+        y: 123
+        width: 619
+        height: 516
+      spriteId: 837ac6cdac2e912449bf1d5c56ff47fe
+    - name: Green Inventory Book_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 299
+        y: 128
+        width: 336
+        height: 507
+      spriteId: 4de1c05ab05d3694081884ad9c934bd7
+    - name: Green Inventory Book_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 283
+        y: 128
+        width: 336
+        height: 441
+      spriteId: 2340ea938d2a1664daea09e45f444b80
+    - name: Green Inventory Book_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 267
+        y: 128
+        width: 336
+        height: 421
+      spriteId: 58a5dcd962d2d5347b0e7d88751e1372
+    - name: Green Inventory Book_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 267
+        y: 128
+        width: 336
+        height: 421
+      spriteId: 9b2fd4b305bd9c04480233706707e48d
+    - name: Green Inventory Book_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 283
+        y: 128
+        width: 336
+        height: 441
+      spriteId: c9535d17f1365bc4fbd8c439e25a9768
+    - name: Green Inventory Book_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 299
+        y: 128
+        width: 336
+        height: 507
+      spriteId: 01e378b9f7a0f4f4d921c1c2f1b23e80
+    - name: Green Inventory Book_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 112
+        y: 123
+        width: 619
+        height: 516
+      spriteId: 39968d92fe8070948a8c6bc566d14b95
+    - name: Green Inventory Book_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 416
+      spriteId: 7df62cb770d91684eae1a98958eb82c1
+    - name: Green Inventory Book_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 416
+      spriteId: 92b1983ba385e8546a14e0866e190c13
+    - name: Green Inventory Book_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 112
+        y: 123
+        width: 619
+        height: 516
+      spriteId: 34a151fd586be4c479d6aee5c3f874ef
+    - name: Green Inventory Book_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 299
+        y: 128
+        width: 336
+        height: 507
+      spriteId: 732ce7697b79f7e48a48af4680b324a6
+    - name: Green Inventory Book_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 283
+        y: 128
+        width: 336
+        height: 441
+      spriteId: fe9d165eee2817f4ea15149f0a22b8e0
+    - name: Green Inventory Book_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: 267
+        y: 128
+        width: 336
+        height: 421
+      spriteId: 0b882fd4120e2c44ebe5a7919b4d06ec
+    - name: Green Inventory Book_Frame_24
+      frameIndex: 24
+      cellRect:
+        x: 430
+        y: 123
+        width: 37
+        height: 418
+      spriteId: e04ddbf077fb1b54088f471431e3a036
+    - name: Green Inventory Book_Frame_25
+      frameIndex: 25
+      cellRect:
+        x: 336
+        y: 123
+        width: 225
+        height: 456
+      spriteId: 85186b6039864f841998b9a0796eefa8
+    - name: Green Inventory Book_Frame_26
+      frameIndex: 26
+      cellRect:
+        x: 158
+        y: 123
+        width: 581
+        height: 484
+      spriteId: af485cc05e9f5ea429091ed6c58f42fe
+    - name: Green Inventory Book_Frame_27
+      frameIndex: 27
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 416
+      spriteId: aae203ceef31fd548876a5585f56cdd0
+    - name: Green Inventory Book_Frame_29
+      frameIndex: 29
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 416
+      spriteId: 4834cf369b95f9d4a9d5bfb37d9fbdcc
+    - name: Green Inventory Book_Frame_30
+      frameIndex: 30
+      cellRect:
+        x: 158
+        y: 123
+        width: 581
+        height: 484
+      spriteId: bb503e6d3df0c734eb9fb6e820a70416
+    - name: Green Inventory Book_Frame_31
+      frameIndex: 31
+      cellRect:
+        x: 336
+        y: 123
+        width: 225
+        height: 456
+      spriteId: 4bc99f2f9af815f43a050edbeea78e87
+    - name: Green Inventory Book_Frame_32
+      frameIndex: 32
+      cellRect:
+        x: 430
+        y: 123
+        width: 37
+        height: 418
+      spriteId: ef7a8ad87c8663d4897f29420ce1acf2
+    - name: Green Inventory Book_Frame_34
+      frameIndex: 34
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 416
+      spriteId: d3b7563df926add43872efe96070604a
+    - name: Green Inventory Book_Frame_44
+      frameIndex: 44
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 416
+      spriteId: 152f5b865d8500c4d98e8d4496427ffe
+    - name: Green Inventory Book_Frame_54
+      frameIndex: 54
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 416
+      spriteId: 3e1ea5c71bf9db942a063d7775022a23
+    - name: Green Inventory Book_Frame_63
+      frameIndex: 63
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 416
+      spriteId: b4155b45b73418345991d9ee6ba6682c
+    - name: Green Inventory Book_Frame_72
+      frameIndex: 72
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 416
+      spriteId: 31f7899adc3275d4699356419cbffcf0
+    - name: Green Inventory Book_Frame_81
+      frameIndex: 81
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 416
+      spriteId: 803f0c22cf7f7a5439cbb3889393de6e
+    - name: Green Inventory Book_Frame_35
+      frameIndex: 35
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 421
+      spriteId: 952a18747f81b1c4eb4328b511f373d3
+    - name: Green Inventory Book_Frame_36
+      frameIndex: 36
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 441
+      spriteId: 0ec36a918228ed94bae3c3c451be323a
+    - name: Green Inventory Book_Frame_37
+      frameIndex: 37
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 432
+      spriteId: 6a4f98d2413244d46875acba4080e9e9
+    - name: Green Inventory Book_Frame_38
+      frameIndex: 38
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 429
+      spriteId: 1a58a24b879b34c49a619ce9e86c8aba
+    - name: Green Inventory Book_Frame_39
+      frameIndex: 39
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 416
+      spriteId: d03e0e6f6d6322d4bb3a5185d7c439a8
+    - name: Green Inventory Book_Frame_40
+      frameIndex: 40
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 416
+      spriteId: 13863b6480d8f3a4ab5ac380af57541f
+    - name: Green Inventory Book_Frame_41
+      frameIndex: 41
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 416
+      spriteId: 5da3d8ead41863949a28e52d211eb9d4
+    - name: Green Inventory Book_Frame_42
+      frameIndex: 42
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 416
+      spriteId: e20fc9c9d00f15249a5cf16b04318fae
+    - name: Green Inventory Book_Frame_45
+      frameIndex: 45
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 421
+      spriteId: d2c9f17b88fce25479f6773b6e27f8ee
+    - name: Green Inventory Book_Frame_46
+      frameIndex: 46
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 441
+      spriteId: 6add0aebf8afe4541b1c223fa74246dc
+    - name: Green Inventory Book_Frame_47
+      frameIndex: 47
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 432
+      spriteId: 3bd38f2494218bc45bc1bfb947f74185
+    - name: Green Inventory Book_Frame_48
+      frameIndex: 48
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 429
+      spriteId: 6ba895d4ad9631e47a8da46ce8aa9f40
+    - name: Green Inventory Book_Frame_49
+      frameIndex: 49
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 416
+      spriteId: ea12affddf83b4440a2e2ccf540955c6
+    - name: Green Inventory Book_Frame_50
+      frameIndex: 50
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 416
+      spriteId: c2cf034a93ea58a499c9f38179cf598e
+    - name: Green Inventory Book_Frame_51
+      frameIndex: 51
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 416
+      spriteId: 59f0d499585649b4795d7ba6b72f43ee
+    - name: Green Inventory Book_Frame_52
+      frameIndex: 52
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 416
+      spriteId: 98684f3c5bbb6744d9d06c3de8d2b10f
+    - name: Green Inventory Book_Frame_55
+      frameIndex: 55
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 428
+      spriteId: 8c61f39b70af4da44a535941e19fa0e2
+    - name: Green Inventory Book_Frame_56
+      frameIndex: 56
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 453
+      spriteId: d835f83d9c6a1144080f4f1067b6350c
+    - name: Green Inventory Book_Frame_57
+      frameIndex: 57
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 457
+      spriteId: c9acda46a8b510e48a7519e7a3ffb890
+    - name: Green Inventory Book_Frame_58
+      frameIndex: 58
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 450
+      spriteId: 8b6ab4041d1684446befa52d3c7c0425
+    - name: Green Inventory Book_Frame_59
+      frameIndex: 59
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 429
+      spriteId: fcc1035ea743d09498d717fa7c68930e
+    - name: Green Inventory Book_Frame_60
+      frameIndex: 60
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 419
+      spriteId: d4a39f7a85eba9b4ca3ace4cc053b780
+    - name: Green Inventory Book_Frame_61
+      frameIndex: 61
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 416
+      spriteId: 315a3c3c2a71c0f43a260eb1244843af
+    - name: Green Inventory Book_Frame_64
+      frameIndex: 64
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 428
+      spriteId: 75cdb641d4a137748b6570460d242b9a
+    - name: Green Inventory Book_Frame_65
+      frameIndex: 65
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 453
+      spriteId: d34ac14763f49064183e977f73961eb7
+    - name: Green Inventory Book_Frame_66
+      frameIndex: 66
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 457
+      spriteId: 4a877d8eb38fcd940b6e4cb99ff51e7a
+    - name: Green Inventory Book_Frame_67
+      frameIndex: 67
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 450
+      spriteId: e69974bcc84918a4fa1b6cd4979e1fe6
+    - name: Green Inventory Book_Frame_68
+      frameIndex: 68
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 429
+      spriteId: ef7ddef5ba43c9747b024234a84028d8
+    - name: Green Inventory Book_Frame_69
+      frameIndex: 69
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 419
+      spriteId: aa7271697662a6a4d84febade91bf576
+    - name: Green Inventory Book_Frame_70
+      frameIndex: 70
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 416
+      spriteId: 12b5052f10ac1cd43bec15476866efce
+    - name: Green Inventory Book_Frame_73
+      frameIndex: 73
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 419
+      spriteId: ce73f92db657758489797144f5405dad
+    - name: Green Inventory Book_Frame_74
+      frameIndex: 74
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 429
+      spriteId: 68194bc2d67772b4f9ded35e43db392e
+    - name: Green Inventory Book_Frame_75
+      frameIndex: 75
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 450
+      spriteId: b9eddcadd969afe4a9a86e335d633fa3
+    - name: Green Inventory Book_Frame_76
+      frameIndex: 76
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 457
+      spriteId: fdf8e71d905ba834fb45ea7413efb274
+    - name: Green Inventory Book_Frame_77
+      frameIndex: 77
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 453
+      spriteId: bb6c9ffddea15b44fafbf19da5512d21
+    - name: Green Inventory Book_Frame_78
+      frameIndex: 78
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 428
+      spriteId: c7e83e0e42ae85d45b5db8d7eccdd80e
+    - name: Green Inventory Book_Frame_79
+      frameIndex: 79
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 416
+      spriteId: 97945aac8606c2c499f64492536e5034
+    - name: Green Inventory Book_Frame_82
+      frameIndex: 82
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 419
+      spriteId: bfd3e562dfcd3e04a854a6e6280f74ed
+    - name: Green Inventory Book_Frame_83
+      frameIndex: 83
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 429
+      spriteId: 83f3617327e33df4c9adabe7d947d785
+    - name: Green Inventory Book_Frame_84
+      frameIndex: 84
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 450
+      spriteId: d108047bebba96e4d90cbd74af11dfc6
+    - name: Green Inventory Book_Frame_85
+      frameIndex: 85
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 457
+      spriteId: 0b5a9cc4885ef36458e50d6d017e8d78
+    - name: Green Inventory Book_Frame_86
+      frameIndex: 86
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 453
+      spriteId: c2979b6d1b81695459bb9f06e1a07ca5
+    - name: Green Inventory Book_Frame_87
+      frameIndex: 87
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 428
+      spriteId: e7884d123a4798b4ba40b3cf056d911d
+    - name: Green Inventory Book_Frame_88
+      frameIndex: 88
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 416
+      spriteId: c34941f343e42794a806b38a0b8caac7
+    - name: Green Inventory Book_Frame_90
+      frameIndex: 90
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: 0f634aa428e42c647bc720b5726e1b40
+    - name: Green Inventory Book_Frame_91
+      frameIndex: 91
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: 077fa6e18913f6d40b0d3b81a95ee726
+    - name: Green Inventory Book_Frame_92
+      frameIndex: 92
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: 49acddfb1b5551a4ca8de72d757357a3
+    - name: Green Inventory Book_Frame_93
+      frameIndex: 93
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: 01de1c77bb2f27e48904903dfd85f537
+    - name: Green Inventory Book_Frame_94
+      frameIndex: 94
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: 3dda3d779cc26a449b07293b9b11aeac
+    - name: Green Inventory Book_Frame_95
+      frameIndex: 95
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: 7d041d2c2b6038342bb72274fa3a0beb
+    - name: Green Inventory Book_Frame_96
+      frameIndex: 96
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: 6d10c102e667f4c42917d8ae576f984e
+    - name: Green Inventory Book_Frame_97
+      frameIndex: 97
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: b74b915288e024b44a391ae2b093cb49
+    - name: Green Inventory Book_Frame_98
+      frameIndex: 98
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: 936c1c408af3ce243bd41eccf8970c7f
+    - name: Green Inventory Book_Frame_99
+      frameIndex: 99
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: 8d05269a6ea30f143996cae2ad8cab72
+    - name: Green Inventory Book_Frame_100
+      frameIndex: 100
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: 39b7cd331cdceed47845ccda36b6a811
+    - name: Green Inventory Book_Frame_101
+      frameIndex: 101
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: 33481f5d7e7f1bf4fad283a59dc3c07f
+    - name: Green Inventory Book_Frame_102
+      frameIndex: 102
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: 499bce0e4910113458d01136f71c2087
+    - name: Green Inventory Book_Frame_103
+      frameIndex: 103
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: 562353a1db3a0a74b9235e750e3609a6
+    - name: Green Inventory Book_Frame_104
+      frameIndex: 104
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: 8e4e6654f655083449bd1b8f4106eb1b
+    - name: Green Inventory Book_Frame_105
+      frameIndex: 105
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: 8b02e05d10a24ef4189e1af32235e3b6
+    - name: Green Inventory Book_Frame_106
+      frameIndex: 106
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: 3dce355fc61d8744eac39145139a3979
+    - name: Green Inventory Book_Frame_107
+      frameIndex: 107
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: 0fc04149f7542f743816aa4a8b3bbcc5
+    - name: Green Inventory Book_Frame_108
+      frameIndex: 108
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: 43f5a378e6f61574e9ec6f69958b1e15
+    - name: Green Inventory Book_Frame_109
+      frameIndex: 109
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: 5959e636eb54d794c8152038e3342cfe
+    - name: Green Inventory Book_Frame_110
+      frameIndex: 110
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: 3e70d924db25b974ea8192aa0b56e33d
+    - name: Green Inventory Book_Frame_111
+      frameIndex: 111
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: 32085003a7f3c1e42be23b8deb1b7320
+    - name: Green Inventory Book_Frame_112
+      frameIndex: 112
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: 19790f4b77798b54da46163c14225fc9
+    - name: Green Inventory Book_Frame_113
+      frameIndex: 113
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: 441d6480d892c9d44ad67eaec9d0cdee
+    - name: Green Inventory Book_Frame_114
+      frameIndex: 114
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: 29334f2b0fd2f2c4093a1ba836637e9c
+    - name: Green Inventory Book_Frame_115
+      frameIndex: 115
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: ba3f33c2dc657d54b8434669cdf7b128
+    - name: Green Inventory Book_Frame_116
+      frameIndex: 116
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: e740719b3cacb2747a55d555029ac5ed
+    - name: Green Inventory Book_Frame_117
+      frameIndex: 117
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: fa790724460ca934b8c986b984ff695d
+    - name: Green Inventory Book_Frame_118
+      frameIndex: 118
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: 5061879a34671064b9a1fe68b09e56ff
+    - name: Green Inventory Book_Frame_119
+      frameIndex: 119
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: b8bdca7c31c08714d827312a37934f28
+    - name: Green Inventory Book_Frame_120
+      frameIndex: 120
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: 69f51d75499943347abf66431c9dc366
+    - name: Green Inventory Book_Frame_121
+      frameIndex: 121
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: 65270c206fccc114c8d9c40bd44aeb53
+    - name: Green Inventory Book_Frame_122
+      frameIndex: 122
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: deaaaf5ab8fe40b4da6a3014606faba5
+    - name: Green Inventory Book_Frame_123
+      frameIndex: 123
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: d543eadefd24a814daad564db00390ea
+    - name: Green Inventory Book_Frame_124
+      frameIndex: 124
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: 8cbce6cbce8942b48963c82d49066165
+    - name: Green Inventory Book_Frame_125
+      frameIndex: 125
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: f19507c73d3ec5d4e939b26fbb8be6d3
+    - name: Green Inventory Book_Frame_127
+      frameIndex: 127
+      cellRect:
+        x: 118
+        y: 123
+        width: 686
+        height: 416
+      spriteId: d5ccc4bcc63625449b13ad13aade81e5
+    - name: Green Inventory Book_Frame_128
+      frameIndex: 128
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: 78e706b4e9e0d98489c7a66a7b5e56d9
+    - name: Green Inventory Book_Frame_129
+      frameIndex: 129
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: 7133e3863bbb65f429681bdd5c286d2a
+    - name: Green Inventory Book_Frame_130
+      frameIndex: 130
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: 343bd270e5696574bab382d3dadb9c88
+    - name: Green Inventory Book_Frame_131
+      frameIndex: 131
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: fc4fe35f724af7543a27903dade6ab1e
+    - name: Green Inventory Book_Frame_132
+      frameIndex: 132
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: 3710203ce76feed4d955394b0cb8f1b5
+    - name: Green Inventory Book_Frame_133
+      frameIndex: 133
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: 3e1f46cd73f34234e894b50e7b5d4038
+    - name: Green Inventory Book_Frame_134
+      frameIndex: 134
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: 816196077f8d8114d90c7cf179074e59
+    - name: Green Inventory Book_Frame_135
+      frameIndex: 135
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: 4c443a816f1e7344fb2b27f65a32cf2f
+    - name: Green Inventory Book_Frame_136
+      frameIndex: 136
+      cellRect:
+        x: 118
+        y: 123
+        width: 695
+        height: 416
+      spriteId: cd15f8aa30f6c29488eaaed1c9565275
+    - name: Green Inventory Book_Frame_138
+      frameIndex: 138
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 416
+      spriteId: acb660ab5f0b218489fb6eaa607e2c15
+    - name: Green Inventory Book_Frame_139
+      frameIndex: 139
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 416
+      spriteId: be4251d73d3ba554aa8546aff7a3e714
+    - name: Green Inventory Book_Frame_140
+      frameIndex: 140
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 416
+      spriteId: 8422d5c632e708f47a5c35c68597c98f
+    - name: Green Inventory Book_Frame_141
+      frameIndex: 141
+      cellRect:
+        x: 118
+        y: 123
+        width: 698
+        height: 416
+      spriteId: adcafa45c53f4144f841a041fd039754
+    - name: Green Inventory Book_Frame_142
+      frameIndex: 142
+      cellRect:
+        x: 118
+        y: 123
+        width: 690
+        height: 416
+      spriteId: 0490a30335dd0844db4e5accec8b300a
+    - name: Green Inventory Book_Frame_143
+      frameIndex: 143
+      cellRect:
+        x: 118
+        y: 123
+        width: 698
+        height: 416
+      spriteId: bec177870f344ca4f97296bd1833fd2f
+    - name: Green Inventory Book_Frame_144
+      frameIndex: 144
+      cellRect:
+        x: 118
+        y: 123
+        width: 698
+        height: 416
+      spriteId: 988404762cb974b4f8f29535bcca6c21
+    - name: Green Inventory Book_Frame_145
+      frameIndex: 145
+      cellRect:
+        x: 118
+        y: 123
+        width: 698
+        height: 416
+      spriteId: bc13f9031ac4ad24da8f3f30caec7689
+    - name: Green Inventory Book_Frame_146
+      frameIndex: 146
+      cellRect:
+        x: 118
+        y: 123
+        width: 698
+        height: 416
+      spriteId: a238604c4aa65e944ba6e84808cd2e7f
+    - name: Green Inventory Book_Frame_147
+      frameIndex: 147
+      cellRect:
+        x: 118
+        y: 123
+        width: 698
+        height: 416
+      spriteId: 0c56f012cbb3a2945bfea87c23856819
+    - name: Green Inventory Book_Frame_148
+      frameIndex: 148
+      cellRect:
+        x: 118
+        y: 123
+        width: 698
+        height: 416
+      spriteId: 7519ca8bebc73ff4dad9e6b8272a0abb
+    - name: Green Inventory Book_Frame_149
+      frameIndex: 149
+      cellRect:
+        x: 118
+        y: 123
+        width: 690
+        height: 416
+      spriteId: 9af742ccb86f1534ab162fb0a3e7f6d2
+    - name: Green Inventory Book_Frame_150
+      frameIndex: 150
+      cellRect:
+        x: 118
+        y: 123
+        width: 686
+        height: 416
+      spriteId: 3685560b2f0372f45abf7c3cc6de7420
+    - name: Green Inventory Book_Frame_151
+      frameIndex: 151
+      cellRect:
+        x: 118
+        y: 123
+        width: 686
+        height: 416
+      spriteId: d86dd4ebb600ecd439230a103d257c7b
+    - name: Green Inventory Book_Frame_152
+      frameIndex: 152
+      cellRect:
+        x: 118
+        y: 123
+        width: 686
+        height: 416
+      spriteId: 2a2b241312f4a3e45b3255f2a4a220ba
+    - name: Green Inventory Book_Frame_153
+      frameIndex: 153
+      cellRect:
+        x: 118
+        y: 123
+        width: 686
+        height: 416
+      spriteId: 2523ac46447ed6b4e984b86fb2f3ed6f
+    - name: Green Inventory Book_Frame_154
+      frameIndex: 154
+      cellRect:
+        x: 118
+        y: 123
+        width: 686
+        height: 416
+      spriteId: 8f8a0451116d9044fb6ef8bd28c23c95
+    - name: Green Inventory Book_Frame_155
+      frameIndex: 155
+      cellRect:
+        x: 118
+        y: 123
+        width: 686
+        height: 416
+      spriteId: ff4db35f7eefc354b8ad9b1193b3735b
+    - name: Green Inventory Book_Frame_157
+      frameIndex: 157
+      cellRect:
+        x: 118
+        y: 123
+        width: 686
+        height: 416
+      spriteId: 1bfb96ae4e735f342a55fb0c1714b437
+    - name: Green Inventory Book_Frame_158
+      frameIndex: 158
+      cellRect:
+        x: 118
+        y: 123
+        width: 686
+        height: 416
+      spriteId: dad74f4e5d89f03488885bd965efb917
+    - name: Green Inventory Book_Frame_159
+      frameIndex: 159
+      cellRect:
+        x: 118
+        y: 123
+        width: 686
+        height: 416
+      spriteId: 9c0856682fef2ec43967bc433dd09ff5
+    - name: Green Inventory Book_Frame_160
+      frameIndex: 160
+      cellRect:
+        x: 118
+        y: 123
+        width: 686
+        height: 416
+      spriteId: 4fce562f13fa9d140b21a6e15d3b2953
+    - name: Green Inventory Book_Frame_161
+      frameIndex: 161
+      cellRect:
+        x: 118
+        y: 123
+        width: 686
+        height: 416
+      spriteId: e33526934020e574e8aa4dba527530a8
+    - name: Green Inventory Book_Frame_162
+      frameIndex: 162
+      cellRect:
+        x: 118
+        y: 123
+        width: 686
+        height: 416
+      spriteId: 7999989f2784d1847894cf974e935db2
+    - name: Green Inventory Book_Frame_163
+      frameIndex: 163
+      cellRect:
+        x: 118
+        y: 123
+        width: 690
+        height: 416
+      spriteId: 16f7468ad3addb44fba28410c1096b5d
+    - name: Green Inventory Book_Frame_164
+      frameIndex: 164
+      cellRect:
+        x: 118
+        y: 123
+        width: 698
+        height: 416
+      spriteId: 615e8ea032404dd47b52527aeed5d462
+    - name: Green Inventory Book_Frame_165
+      frameIndex: 165
+      cellRect:
+        x: 118
+        y: 123
+        width: 698
+        height: 416
+      spriteId: 393cfbfeb1f87f949974e3ab4bd07f67
+    - name: Green Inventory Book_Frame_166
+      frameIndex: 166
+      cellRect:
+        x: 118
+        y: 123
+        width: 698
+        height: 416
+      spriteId: d60514cef18fa3c4cac8cc396f8dfa7f
+    - name: Green Inventory Book_Frame_167
+      frameIndex: 167
+      cellRect:
+        x: 118
+        y: 123
+        width: 698
+        height: 416
+      spriteId: ce6275525435b4e47aaad98b21a94c7d
+    - name: Green Inventory Book_Frame_168
+      frameIndex: 168
+      cellRect:
+        x: 118
+        y: 123
+        width: 698
+        height: 416
+      spriteId: 5812225c969e04e46bdea55e5531b505
+    - name: Green Inventory Book_Frame_169
+      frameIndex: 169
+      cellRect:
+        x: 118
+        y: 123
+        width: 698
+        height: 416
+      spriteId: 266891efce41419439bb1f9409f8d242
+    - name: Green Inventory Book_Frame_170
+      frameIndex: 170
+      cellRect:
+        x: 118
+        y: 123
+        width: 690
+        height: 416
+      spriteId: 84e09b87758695a4d88afce03f880ecf
+    - name: Green Inventory Book_Frame_171
+      frameIndex: 171
+      cellRect:
+        x: 118
+        y: 123
+        width: 698
+        height: 416
+      spriteId: b45c16fc3a7de154db6ceb1c28a7eeb7
+    - name: Green Inventory Book_Frame_172
+      frameIndex: 172
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 416
+      spriteId: af3a05b754d560a4a951e07c12ac3d9f
+    - name: Green Inventory Book_Frame_173
+      frameIndex: 173
+      cellRect:
+        x: 118
+        y: 123
+        width: 661
+        height: 416
+      spriteId: 3965797c3a257b540a945d7aa9dd1756
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 896, y: 720}
