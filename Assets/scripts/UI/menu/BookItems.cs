@@ -7,10 +7,13 @@ public class BookItems : MonoBehaviour
     public Animator anim;
 
     public GameObject image2;
+    public GameObject image3;
     public GameObject lobbyUI;
     public GameObject lobbyContainer;
 
     public ShowItems showItems;
+
+    public bool done;
 
     // Start is called before the first frame update
     void Start()
@@ -18,10 +21,19 @@ public class BookItems : MonoBehaviour
         anim = GetComponent<Animator>();
         if (image2 != null)
         {
+            image3.SetActive(false);
             image2.SetActive(false);
             lobbyContainer.SetActive(false);
             lobbyUI.SetActive(false);
             anim.SetBool("isOpening", true);
+        }
+    }
+
+    private void Update()
+    {
+        if(done == true && image3 != null)
+        {
+            image3.SetActive(true);
         }
     }
 
@@ -82,5 +94,11 @@ public class BookItems : MonoBehaviour
             lobbyContainer.SetActive(true);
             lobbyUI.SetActive(true);
         }
+    }
+
+    public void UnactivateButtons()
+    {
+        lobbyContainer.SetActive(false);
+        lobbyUI.SetActive(false);
     }
 }
