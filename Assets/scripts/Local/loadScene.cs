@@ -34,4 +34,10 @@ public class loadScene : MonoBehaviour
             SceneManager.LoadScene("level5");
         }
     }
+
+    public void QuitGame()
+    {
+        Debug.Log("quit");
+        Application.Quit();
+    }
 }
