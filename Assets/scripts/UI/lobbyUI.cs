@@ -21,6 +21,8 @@ public class lobbyUI : MonoBehaviour
     [SerializeField] private Transform lobbyContainer;
     [SerializeField] private Transform lobbyTemplate;
 
+    public BookItems bookitems;
+
     private void Awake()
     {
         LocalLobbyButton.onClick.AddListener(() =>
@@ -29,7 +31,8 @@ public class lobbyUI : MonoBehaviour
         });
         createLobbyButton.onClick.AddListener(() =>
         {
-            createLobbyUI.show();
+            bookitems.ShowCreateLobbyUI();
+            //createLobbyUI.show();
         });
         quickJoinButton.onClick.AddListener(() =>
         {

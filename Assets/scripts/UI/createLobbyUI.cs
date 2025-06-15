@@ -9,7 +9,9 @@ public class createLobbyUI : MonoBehaviour
     [SerializeField] private Button closeButton;
     [SerializeField] private Button publicButton;
     [SerializeField] private Button privateButton;
-    [SerializeField] private TMP_InputField lobbyNameInputField;
+    [SerializeField] private InputField lobbyNameInputField;
+
+    public BookItems bookItems;
 
     private void Awake()
     {
@@ -23,7 +25,7 @@ public class createLobbyUI : MonoBehaviour
         });
         closeButton.onClick.AddListener(() =>
         {
-            hide();
+            bookItems.BackTolobby();
         });
     }
 

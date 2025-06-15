@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class unshowItems : MonoBehaviour
+public class HideItems : MonoBehaviour
 {
     public Animator anim;
 
@@ -17,9 +17,9 @@ public class unshowItems : MonoBehaviour
     public void OnAnimationFinishedAppear()
     {
         anim.SetBool("Disappear", false);
-        bookItems.CloseBook();
+        bookItems.hasDisappeared = true;
         bookItems.UnactivateButtons();
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     public void DisappearButtons()

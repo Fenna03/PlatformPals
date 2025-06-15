@@ -6,24 +6,28 @@ public class BookItems : MonoBehaviour
 {
     public Animator anim;
 
-    public GameObject image2;
-    public GameObject image3;
+    public GameObject showItemContainer;
+    public GameObject hideItemContainer;
+    public GameObject createLobbyContainer;
     public GameObject lobbyUI;
     public GameObject lobbyContainer;
 
     public ShowItems showItems;
+    public HideItems hideItems;
 
-    public bool done;
+    public bool hasDisappeared;
+    public bool right;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
-        if (image2 != null)
+        if (showItemContainer != null)
         {
-            image3.SetActive(false);
-            image2.SetActive(false);
+            hideItemContainer.SetActive(false);
+            showItemContainer.SetActive(false);
             lobbyContainer.SetActive(false);
+            createLobbyContainer.SetActive(false);
             lobbyUI.SetActive(false);
             anim.SetBool("isOpening", true);
         }
@@ -31,9 +35,15 @@ public class BookItems : MonoBehaviour
 
     private void Update()
     {
-        if(done == true && image3 != null)
+        if (hasDisappeared == true && right == false)
         {
-            image3.SetActive(true);
+            hasDisappeared = false;
+            flipLeftBook();
+        }
+        else if(hasDisappeared == true && right == true)
+        {
+            hasDisappeared = false;
+            flipRightBook();
         }
     }
 
@@ -53,6 +63,10 @@ public class BookItems : MonoBehaviour
     public void OnAnimationFinishedLeft()
     {
         anim.SetBool("flipLeft", false);
+
+        showItemContainer.SetActive(true);
+        showItems.ShowButtons();
+        createLobbyContainer.SetActive(true);
     }
 
     public void flipLeftBook()
@@ -64,7 +78,11 @@ public class BookItems : MonoBehaviour
     #region flipRight
     public void OnAnimationFinishedRight()
     {
+        right = false;
         anim.SetBool("flipRight", false);
+
+        showItemContainer.SetActive(true);
+        activateButtons();
     }
 
     public void flipRightBook()
@@ -76,9 +94,9 @@ public class BookItems : MonoBehaviour
 
     public void OnAnimationFinishedOpening()
     {
-        if (image2 != null)
+        if (showItemContainer != null)
         {
-            image2.SetActive(true);
+            showItemContainer.SetActive(true);
             activateButtons();
         }
 
@@ -89,16 +107,28 @@ public class BookItems : MonoBehaviour
     {
         showItems.ShowButtons();
 
-        if (image2.activeSelf == true)
+        if (showItemContainer.activeSelf == true)
         {
             lobbyContainer.SetActive(true);
             lobbyUI.SetActive(true);
         }
     }
 
+    public void ShowCreateLobbyUI()
+    {
+        hideItemContainer.SetActive(true);
+    }
+
     public void UnactivateButtons()
     {
+        createLobbyContainer.SetActive(false);
         lobbyContainer.SetActive(false);
         lobbyUI.SetActive(false);
+    }
+
+    public void BackTolobby()
+    {
+        right = true;
+        hideItemContainer.SetActive(true);
     }
 }

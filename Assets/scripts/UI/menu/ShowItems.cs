@@ -15,7 +15,7 @@ public class ShowItems : MonoBehaviour
     public void OnAnimationFinishedAppear()
     {
         anim.SetBool("Appear", false);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     public void AppearBook()
