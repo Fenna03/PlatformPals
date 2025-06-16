@@ -11,7 +11,7 @@ public class loadScene : MonoBehaviour
         PlayerPrefs.SetInt("mode", gameMode);
         if(gameMode == 0)
         {
-            SceneManager.LoadScene("Menu 1");
+            SceneManager.LoadScene("Menu1");
         }
         if (gameMode == 1)
         {

@@ -20,13 +20,21 @@ public class characterSelectUI : MonoBehaviour
             // Leave the lobby
             multiplayerGameLobby.Instance.leaveLobby();
 
-            // Reset the player data list
-            if (optionsScript.Instance.playerDataNetworkList != null && NetworkManager.Singleton.IsServer)
+            // 🔻 Unsubscribe from event handlers
+            if (NetworkManager.Singleton != null)
             {
-                optionsScript.Instance.playerDataNetworkList.Clear();
+                NetworkManager.Singleton.OnClientConnectedCallback -= optionsScript.Instance.NetworkManager_OnClientConnectedCallback;
+                NetworkManager.Singleton.OnClientDisconnectCallback -= optionsScript.Instance.NetworkManager_Server_onClientDisconnectCallback;
+                NetworkManager.Singleton.OnClientConnectedCallback -= optionsScript.Instance.NetworkManager_Client_OnClientConnectedCallback;
+                NetworkManager.Singleton.OnClientDisconnectCallback -= optionsScript.Instance.NetworkManager_Client_onClientDisconnectCallback;
             }
 
-            // Clean up visuals and reset other state
+            // Clear player data and visuals
+            if (optionsScript.Instance.playerDataList != null && NetworkManager.Singleton.IsServer)
+            {
+                optionsScript.Instance.playerDataList.Clear();
+            }
+
             optionsScript.Instance.CleanupPlayerCSP();
             optionsScript.Instance.ResetOptionsState();
 
@@ -52,7 +60,7 @@ public class characterSelectUI : MonoBehaviour
     private IEnumerator DelayedSceneLoad()
     {
         yield return new WaitForEndOfFrame();
-        Loader.Load(Loader.Scene.Menu);
+        Loader.Load(Loader.Scene.Menu1);
     }
 
     public void Update()

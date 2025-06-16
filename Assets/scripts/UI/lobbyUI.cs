@@ -10,18 +10,27 @@ using UnityEngine.UI;
 
 public class lobbyUI : MonoBehaviour
 {
+    [Header("Buttons")]
     [SerializeField] private Button LocalLobbyButton;
     [SerializeField] private Button createLobbyButton;
     [SerializeField] private Button quickJoinButton;
     [SerializeField] private Button codeJoinButton;
 
     [SerializeField] private InputField codeInputField;
-    [SerializeField] private createLobbyUI createLobbyUI;
 
-    [SerializeField] private Transform lobbyContainer;
+    [Header("Containers")]
+    [SerializeField] private List<Transform> lobbyContainers; // List of lobbyContainer pages
     [SerializeField] private Transform lobbyTemplate;
 
+    [Header("gameObjects")]
+    public GameObject arrowLeft;
+    public GameObject arrowRight;
+
+    [Header("scripts")]
     public BookItems bookitems;
+    [SerializeField] private createLobbyUI createLobbyUI;
+
+    public bool test;
 
     private void Awake()
     {
@@ -32,7 +41,6 @@ public class lobbyUI : MonoBehaviour
         createLobbyButton.onClick.AddListener(() =>
         {
             bookitems.ShowCreateLobbyUI();
-            //createLobbyUI.show();
         });
         quickJoinButton.onClick.AddListener(() =>
         {
@@ -44,6 +52,8 @@ public class lobbyUI : MonoBehaviour
         });
 
         lobbyTemplate.gameObject.SetActive(false);
+        arrowLeft.SetActive(false);
+        arrowRight.SetActive(false);
     }
     private void Start()
     {
@@ -58,22 +68,77 @@ public class lobbyUI : MonoBehaviour
 
     private void updateLobby(List<Lobby> lobbyList)
     {
-        foreach (Transform child in lobbyContainer)
+        // Clear all containers
+        foreach (Transform container in lobbyContainers)
         {
-            if (child == lobbyTemplate) continue;
-            Destroy(child.gameObject);
+            foreach (Transform child in container)
+            {
+                if (child == lobbyTemplate) continue;
+                Destroy(child.gameObject);
+            }
         }
+
+        int containerIndex = 0;
+        int itemsPerContainer = 6;
+        int itemCount = 0;
 
         foreach (Lobby lobby in lobbyList)
         {
-            Transform lobbyTransform = Instantiate(lobbyTemplate, lobbyContainer);
+            // If current container is full, move to next
+            if (itemCount >= itemsPerContainer)
+            {
+                containerIndex++;
+                itemCount = 0;
+            }
+
+            if (containerIndex >= lobbyContainers.Count)
+            {
+                Debug.LogWarning("Ran out of containers to place lobbies!");
+                break; // Optional: stop or handle overflow
+            }
+
+            Transform currentContainer = lobbyContainers[containerIndex];
+
+            Transform lobbyTransform = Instantiate(lobbyTemplate, currentContainer);
             lobbyTransform.gameObject.SetActive(true);
             lobbyTransform.GetComponent<lobbyListSingleUI>().setLobby(lobby);
+
+            itemCount++;
         }
+
+        // Example: activate navigation arrows if more than one container needed
+        arrowLeft.SetActive(lobbyList.Count > itemsPerContainer);
+        arrowRight.SetActive(lobbyList.Count > itemsPerContainer);
     }
 
     private void OnDestroy()
     {
         multiplayerGameLobby.Instance.onLobbyListChanged -= multiplayerGameLobby_onLobbyListChangedEventArgs;
     }
+
+#if UNITY_EDITOR
+    [ContextMenu("Test Populate Lobbies")]
+    private void TestPopulateLobbies()
+    {
+        List<Lobby> mockLobbies = new List<Lobby>();
+
+        for (int i = 0; i < 8; i++) // Generate 8 fake lobbies
+        {
+            Lobby fakeLobby = new Lobby(
+                id: $"lobby_{i}",
+                name: $"Test Lobby {i + 1}",
+                players: new List<Player>(), // Empty player list
+                maxPlayers: 4,
+                isPrivate: false,
+                data: null,
+                lobbyCode: $"CODE{i + 1}"
+            );
+
+            mockLobbies.Add(fakeLobby);
+        }
+
+        updateLobby(mockLobbies);
+    }
+#endif
+
 }

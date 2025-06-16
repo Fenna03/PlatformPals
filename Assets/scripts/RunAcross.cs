@@ -42,7 +42,6 @@ public class RunAcross : MonoBehaviour
     {
         speed = 0;
         float value = Random.Range(0, 3);
-        Debug.Log(value);
         yield return new WaitForSeconds(value);
         speed = 5;
     }

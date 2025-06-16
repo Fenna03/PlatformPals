@@ -9,6 +9,7 @@ public class Loader : MonoBehaviour
     public enum Scene
     {
         start,
+        Menu1,
         Menu,
         characterSelect,
         levelSelect,
@@ -37,7 +38,7 @@ public class Loader : MonoBehaviour
         Loader.targetScene = targetScene;
 
 
-        SceneManager.LoadScene(Scene.Menu.ToString());
+        SceneManager.LoadScene(Scene.Menu1.ToString());
     }
 
     public static void loadNetwork(Scene targetScene)
