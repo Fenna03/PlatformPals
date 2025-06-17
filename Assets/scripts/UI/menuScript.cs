@@ -17,7 +17,7 @@ public class menuScript : NetworkBehaviour
         }
         if (gameMode == 1)
         {
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("Menu1");
         }
 
     }

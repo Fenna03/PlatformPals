@@ -33,6 +33,10 @@ public class loadScene : MonoBehaviour
         {
             SceneManager.LoadScene("level5");
         }
+        if(gameMode == 6)
+        {
+            SceneManager.LoadScene("MainScreen");
+        }
     }
 
     public void QuitGame()

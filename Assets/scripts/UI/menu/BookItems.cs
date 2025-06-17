@@ -14,6 +14,7 @@ public class BookItems : MonoBehaviour
     public GameObject lobbyContainer;
     public GameObject lobbyContainer2;
     public GameObject lobbyContainer3;
+    public GameObject quitContainer;
 
     [Header("scripts")]
     public ShowItems showItems;
@@ -37,6 +38,7 @@ public class BookItems : MonoBehaviour
             lobbyContainer.SetActive(false);
             createLobbyContainer.SetActive(false);
             lobbyUI.SetActive(false);
+            quitContainer.SetActive(false);
             anim.SetBool("isOpening", true);
         }
     }
@@ -91,6 +93,7 @@ public class BookItems : MonoBehaviour
         if (whichOne == false)
         {
             createLobbyContainer.SetActive(true);
+            Debug.Log(createLobbyContainer.activeSelf);
         }
         else if(whichOne == true)
         {
@@ -127,22 +130,25 @@ public class BookItems : MonoBehaviour
 
     public void OnAnimationFinishedOpening()
     {
-        if (showItemContainer != null)
-        {
-            showItemContainer.SetActive(true);
-            activateButtons();
-        }
-        anim.SetBool("isOpening", false); 
+        showItemContainer.SetActive(true);
+        activateButtons();
+
+        anim.SetBool("isOpening", false);
     }
 
     public void activateButtons()
     {
         showItems.ShowButtons();
 
-        if (showItemContainer.activeSelf == true)
+        if (whichOne == false)
         {
             lobbyContainer.SetActive(true);
             lobbyUI.SetActive(true);
+        }
+        else if(whichOne == true)
+        {
+            whichOne = false;
+            quitContainer.SetActive(true);
         }
     }
 
@@ -160,6 +166,7 @@ public class BookItems : MonoBehaviour
         lobbyUI.SetActive(false);
         lobbyUi.arrowLeft.SetActive(false);
         lobbyUi.arrowRight.SetActive(false);
+        quitContainer.SetActive(false);
     }
 
     public void BackTolobby()
@@ -170,6 +177,13 @@ public class BookItems : MonoBehaviour
     public void MoreContainers()
     {
         left = true;
+        hideItemContainer.SetActive(true);
+    }
+
+    public void startQuitAnim()
+    {
+        right = true;
+        whichOne = true;
         hideItemContainer.SetActive(true);
     }
 }
