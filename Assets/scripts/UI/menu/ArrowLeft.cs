@@ -4,12 +4,16 @@ using UnityEngine.UI;
 
 public class ArrowLeft : MonoBehaviour
 {
-    public Button left;
-    //public Button right;
-
+    public BookItems bookItems;
     public void OnLeftClick()
     {
-        Debug.Log("test");
+        Debug.Log("left");
+        bookItems.MoreContainers();
+        bookItems.whichOne = true;
     }
-
+    public void OnRightClick()
+    {
+        Debug.Log("right");
+        bookItems.BackTolobby();
+    }
 }

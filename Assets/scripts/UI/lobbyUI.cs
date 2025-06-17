@@ -1,9 +1,7 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.Services.Lobbies.Models;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -32,6 +30,9 @@ public class lobbyUI : MonoBehaviour
 
     public bool test;
 
+    private int currentLobbyCount = 0;
+    private const int itemsPerContainer = 6;
+
     private void Awake()
     {
         LocalLobbyButton.onClick.AddListener(() =>
@@ -55,10 +56,22 @@ public class lobbyUI : MonoBehaviour
         arrowLeft.SetActive(false);
         arrowRight.SetActive(false);
     }
+
     private void Start()
     {
         multiplayerGameLobby.Instance.onLobbyListChanged += multiplayerGameLobby_onLobbyListChangedEventArgs;
         updateLobby(new List<Lobby>());
+    }
+
+    private void Update()
+    {
+        bool shouldShowArrows = currentLobbyCount > itemsPerContainer;
+
+        if (arrowLeft.activeSelf != shouldShowArrows)
+            arrowLeft.SetActive(shouldShowArrows);
+
+        if (arrowRight.activeSelf != shouldShowArrows)
+            arrowRight.SetActive(shouldShowArrows);
     }
 
     private void multiplayerGameLobby_onLobbyListChangedEventArgs(object sender, multiplayerGameLobby.onLobbyListChangedEventArgs e)
@@ -79,12 +92,10 @@ public class lobbyUI : MonoBehaviour
         }
 
         int containerIndex = 0;
-        int itemsPerContainer = 6;
         int itemCount = 0;
 
         foreach (Lobby lobby in lobbyList)
         {
-            // If current container is full, move to next
             if (itemCount >= itemsPerContainer)
             {
                 containerIndex++;
@@ -94,11 +105,10 @@ public class lobbyUI : MonoBehaviour
             if (containerIndex >= lobbyContainers.Count)
             {
                 Debug.LogWarning("Ran out of containers to place lobbies!");
-                break; // Optional: stop or handle overflow
+                break;
             }
 
             Transform currentContainer = lobbyContainers[containerIndex];
-
             Transform lobbyTransform = Instantiate(lobbyTemplate, currentContainer);
             lobbyTransform.gameObject.SetActive(true);
             lobbyTransform.GetComponent<lobbyListSingleUI>().setLobby(lobby);
@@ -106,9 +116,8 @@ public class lobbyUI : MonoBehaviour
             itemCount++;
         }
 
-        // Example: activate navigation arrows if more than one container needed
-        arrowLeft.SetActive(lobbyList.Count > itemsPerContainer);
-        arrowRight.SetActive(lobbyList.Count > itemsPerContainer);
+        // Store the count for Update() to use
+        currentLobbyCount = lobbyList.Count;
     }
 
     private void OnDestroy()
@@ -122,12 +131,12 @@ public class lobbyUI : MonoBehaviour
     {
         List<Lobby> mockLobbies = new List<Lobby>();
 
-        for (int i = 0; i < 8; i++) // Generate 8 fake lobbies
+        for (int i = 0; i < 13; i++) // Generate 13 fake lobbies
         {
             Lobby fakeLobby = new Lobby(
                 id: $"lobby_{i}",
                 name: $"Test Lobby {i + 1}",
-                players: new List<Player>(), // Empty player list
+                players: new List<Player>(),
                 maxPlayers: 4,
                 isPrivate: false,
                 data: null,
@@ -140,5 +149,5 @@ public class lobbyUI : MonoBehaviour
         updateLobby(mockLobbies);
     }
 #endif
-
 }
+

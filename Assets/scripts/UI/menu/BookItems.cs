@@ -6,17 +6,25 @@ public class BookItems : MonoBehaviour
 {
     public Animator anim;
 
+    [Header("gameObjects")]
     public GameObject showItemContainer;
     public GameObject hideItemContainer;
     public GameObject createLobbyContainer;
     public GameObject lobbyUI;
     public GameObject lobbyContainer;
+    public GameObject lobbyContainer2;
+    public GameObject lobbyContainer3;
 
+    [Header("scripts")]
     public ShowItems showItems;
     public HideItems hideItems;
+    public lobbyUI lobbyUi;
 
+    [Header("booleans")]
     public bool hasDisappeared;
     public bool right;
+    public bool left;
+    public bool whichOne;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +53,17 @@ public class BookItems : MonoBehaviour
             hasDisappeared = false;
             flipRightBook();
         }
+
+        if (hasDisappeared == true && left == false)
+        {
+            hasDisappeared = false;
+            flipRightBook();
+        }
+        else if (hasDisappeared == true && left == true)
+        {
+            hasDisappeared = false;
+            flipLeftBook();
+        }
     }
 
     #region close
@@ -66,7 +85,19 @@ public class BookItems : MonoBehaviour
 
         showItemContainer.SetActive(true);
         showItems.ShowButtons();
-        createLobbyContainer.SetActive(true);
+        lobbyUi.arrowLeft.SetActive(true);
+        lobbyUi.arrowRight.SetActive(true);
+
+        if (whichOne == false)
+        {
+            createLobbyContainer.SetActive(true);
+        }
+        else if(whichOne == true)
+        {
+            lobbyContainer2.SetActive(true);
+            lobbyContainer3.SetActive(true);
+            whichOne = false;
+        }
     }
 
     public void flipLeftBook()
@@ -82,6 +113,8 @@ public class BookItems : MonoBehaviour
         anim.SetBool("flipRight", false);
 
         showItemContainer.SetActive(true);
+        lobbyUi.arrowLeft.SetActive(true);
+        lobbyUi.arrowRight.SetActive(true);
         activateButtons();
     }
 
@@ -99,7 +132,6 @@ public class BookItems : MonoBehaviour
             showItemContainer.SetActive(true);
             activateButtons();
         }
-
         anim.SetBool("isOpening", false); 
     }
 
@@ -123,12 +155,21 @@ public class BookItems : MonoBehaviour
     {
         createLobbyContainer.SetActive(false);
         lobbyContainer.SetActive(false);
+        lobbyContainer2.SetActive(false);
+        lobbyContainer3.SetActive(false);
         lobbyUI.SetActive(false);
+        lobbyUi.arrowLeft.SetActive(false);
+        lobbyUi.arrowRight.SetActive(false);
     }
 
     public void BackTolobby()
     {
         right = true;
+        hideItemContainer.SetActive(true);
+    }
+    public void MoreContainers()
+    {
+        left = true;
         hideItemContainer.SetActive(true);
     }
 }
