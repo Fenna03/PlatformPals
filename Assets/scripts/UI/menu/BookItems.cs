@@ -26,6 +26,7 @@ public class BookItems : MonoBehaviour
     public bool right;
     public bool left;
     public bool whichOne;
+    public bool backToLobby;
 
     // Start is called before the first frame update
     void Start()
@@ -90,18 +91,24 @@ public class BookItems : MonoBehaviour
         lobbyUi.arrowLeft.SetActive(true);
         lobbyUi.arrowRight.SetActive(true);
 
-        if (whichOne == false)
+        
+        if (whichOne == false && backToLobby == false)
         {
             createLobbyContainer.SetActive(true);
-            Debug.Log(createLobbyContainer.activeSelf);
         }
-        else if(whichOne == true)
+        else if(whichOne == true && backToLobby == false)
         {
             lobbyContainer2.SetActive(true);
             lobbyContainer3.SetActive(true);
             whichOne = false;
         }
+        else if (backToLobby == true)
+        {
+            activateButtons();
+            backToLobby = false;
+        }
     }
+
 
     public void flipLeftBook()
     {
@@ -178,6 +185,11 @@ public class BookItems : MonoBehaviour
     {
         left = true;
         hideItemContainer.SetActive(true);
+    }
+
+    public void QuitBackLobby()
+    {
+        backToLobby = true;
     }
 
     public void startQuitAnim()
