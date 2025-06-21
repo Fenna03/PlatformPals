@@ -32,7 +32,14 @@ public class LocalGameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(Players.Count == 0)
+        {
+            ReadyButton.gameObject.SetActive(false);
+        }
+        else if(Players.Count >= 1)
+        {
+            ReadyButton.gameObject.SetActive(true);
+        }
     }
 
     public void CheckForDuplicateSkins()
