@@ -23,6 +23,7 @@ public class LocalGameManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
     }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,13 +33,16 @@ public class LocalGameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Players.Count == 0)
+        if(ReadyButton != null)
         {
-            ReadyButton.gameObject.SetActive(false);
-        }
-        else if(Players.Count >= 1)
-        {
-            ReadyButton.gameObject.SetActive(true);
+            if (Players.Count == 0)
+            {
+                ReadyButton.gameObject.SetActive(false);
+            }
+            else if (Players.Count >= 1)
+            {
+                ReadyButton.gameObject.SetActive(true);
+            }
         }
     }
 
@@ -67,14 +71,20 @@ public class LocalGameManager : MonoBehaviour
             if (skinCount[localPlayerData[i].skinId] > 1)
             {
                 playerManager.EnableImage(); // Show exclamation if duplicate
-                ReadyButton.GetComponent<Image>().color = Color.gray;
-                ReadyButton.interactable = false;
+                if(ReadyButton != null)
+                {
+                    ReadyButton.GetComponent<Image>().color = Color.gray;
+                    ReadyButton.interactable = false;
+                }
             }
             else
             {
                 playerManager.DisableImage(); // Hide exclamation if unique
-                ReadyButton.GetComponent<Image>().color = Color.white;
-                ReadyButton.interactable = true;
+                if (ReadyButton != null)
+                {
+                    ReadyButton.GetComponent<Image>().color = Color.white;
+                    ReadyButton.interactable = true;
+                }
             }
         }
     }
