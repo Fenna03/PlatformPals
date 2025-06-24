@@ -2104,7 +2104,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &824284585
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2748,7 +2748,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a243ee54aeeff040a8731afa0f36d60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  optionsMenu: {fileID: 0}
   paused: 0
 --- !u!1 &1108651603
 GameObject:
@@ -4913,7 +4912,8 @@ MonoBehaviour:
   closeButton: {fileID: 1274566639}
   publicButton: {fileID: 1008039627}
   privateButton: {fileID: 498624985}
-  lobbyNameInputField: {fileID: 1685794917}
+  lobbyNameInputField: {fileID: 0}
+  bookItems: {fileID: 0}
 --- !u!1 &1998124115
 GameObject:
   m_ObjectHideFlags: 0
@@ -5052,9 +5052,13 @@ MonoBehaviour:
   quickJoinButton: {fileID: 1160783575}
   codeJoinButton: {fileID: 258230480}
   codeInputField: {fileID: 681536637}
-  createLobbyUI: {fileID: 1974565511}
-  lobbyContainer: {fileID: 242707940}
+  lobbyContainers: []
   lobbyTemplate: {fileID: 179381530}
+  arrowLeft: {fileID: 0}
+  arrowRight: {fileID: 0}
+  bookitems: {fileID: 0}
+  createLobbyUI: {fileID: 1974565511}
+  test: 0
 --- !u!1 &2028384990
 GameObject:
   m_ObjectHideFlags: 0

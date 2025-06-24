@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using Unity.Netcode;
 using UnityEngine;
@@ -10,9 +9,11 @@ public class lobbyMessageUI : MonoBehaviour
 {
     [SerializeField] private Text messageText;
     [SerializeField] private Button closeButton;
+    private CanvasGroup canvasGroup;
 
     private void Awake()
     {
+        canvasGroup = GetComponent<CanvasGroup>();
         closeButton.onClick.AddListener(Hide);
     }
 
@@ -55,35 +56,30 @@ public class lobbyMessageUI : MonoBehaviour
 
     private void Instance_onFailedToJoinGame(object sender, EventArgs e)
     {
-        if (NetworkManager.Singleton.DisconnectReason == "")
+        string message = NetworkManager.Singleton.DisconnectReason;
+        if (string.IsNullOrEmpty(message))
         {
-            showMessage("Failed to connect");
-        }
-        else
-        {
-            showMessage(NetworkManager.Singleton.DisconnectReason);
+            message = "Failed to connect";
         }
 
-        Show();
-
-        messageText.text = NetworkManager.Singleton.DisconnectReason;
-        if (messageText.text == "")
-        {
-            messageText.text = "Failed to connect";
-        }
+        showMessage(message);
     }
 
     private void showMessage(string message)
     {
-        Show();
         messageText.text = message;
+        Show();
     }
+
     private void Show()
     {
         gameObject.SetActive(true);
+        StartCoroutine(FadeCanvasGroup(canvasGroup, 0f, 1f, 0.3f));
     }
+
     private void Hide()
     {
+        StopAllCoroutines();
         gameObject.SetActive(false);
     }
 
@@ -95,6 +91,18 @@ public class lobbyMessageUI : MonoBehaviour
         multiplayerGameLobby.Instance.onJoinStarted -= Instance_onJoinStarted;
         multiplayerGameLobby.Instance.onJoinFailed -= Instance_onJoinFailed;
         multiplayerGameLobby.Instance.onQuickJoinFailed -= Instance_onQuickJoinFailed;
+    }
 
+    private IEnumerator FadeCanvasGroup(CanvasGroup cg, float startAlpha, float endAlpha, float duration)
+    {
+        float elapsed = 0f;
+        cg.alpha = startAlpha;
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            cg.alpha = Mathf.Lerp(startAlpha, endAlpha, elapsed / duration);
+            yield return null;
+        }
+        cg.alpha = endAlpha;
     }
 }
