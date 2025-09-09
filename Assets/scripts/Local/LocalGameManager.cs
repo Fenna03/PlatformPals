@@ -99,7 +99,7 @@ public class LocalGameManager : MonoBehaviour
         }
 
         // Check if Players list is empty to prevent out-of-range errors
-        if (Players.Count == 0 || Players[0].playerSkinList.Count == 0)
+        if (Players.Count == 0 || Players[0].playerSkinList.Count == 0) //error
         {
             return 0; // Default to skin 0 (or handle differently)
         }

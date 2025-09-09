@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShowItems : MonoBehaviour
+public class HideItems1 : MonoBehaviour
 {
     public Animator anim;
+
     public LevelScriptBook bookItems;
 
     // Start is called before the first frame update
@@ -15,17 +16,19 @@ public class ShowItems : MonoBehaviour
 
     public void OnAnimationFinishedAppear()
     {
-        anim.SetBool("Appear", false);
+        anim.SetBool("Disappear", false);
+        bookItems.hasDisappeared = true;
+        bookItems.UnactivateButtons();
         gameObject.SetActive(false);
     }
 
-    public void AppearBook()
+    public void DisappearButtons()
     {
-        anim.SetBool("Appear", true);
+        anim.SetBool("Disappear", true);
     }
 
-    public void ShowButtons()
+    public void HideButtons()
     {
-        AppearBook();
+        DisappearButtons();
     }
 }
