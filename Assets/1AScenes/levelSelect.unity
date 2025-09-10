@@ -1225,8 +1225,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BookItems, Assembly-CSharp
+      - m_Target: {fileID: 1817537059}
+        m_TargetAssemblyTypeName: LevelScriptBook, Assembly-CSharp
         m_MethodName: MoreContainers
         m_Mode: 1
         m_Arguments:
@@ -1237,8 +1237,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BookItems, Assembly-CSharp
+      - m_Target: {fileID: 1817537059}
+        m_TargetAssemblyTypeName: LevelScriptBook, Assembly-CSharp
         m_MethodName: QuitBackLobby
         m_Mode: 1
         m_Arguments:
@@ -2406,6 +2406,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 337145641}
+  - component: {fileID: 337145642}
   m_Layer: 0
   m_Name: IntroLevels
   m_TagString: Untagged
@@ -2431,6 +2432,24 @@ Transform:
   - {fileID: 317580173}
   m_Father: {fileID: 2023101521}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &337145642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337145640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d0db3b0eb685724bb990935bb0681fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuButton: {fileID: 0}
+  level1: {fileID: 561719524}
+  level2: {fileID: 360450506}
+  level3: {fileID: 1783668921}
+  level4: {fileID: 746484140}
+  level5: {fileID: 365238337}
 --- !u!1 &340040550
 GameObject:
   m_ObjectHideFlags: 0
@@ -5148,16 +5167,6 @@ MonoBehaviour:
   level3: {fileID: 242644705}
   level4: {fileID: 499566387}
   level5: {fileID: 1447203112}
-  level6: {fileID: 1286268219}
-  level7: {fileID: 175442342}
-  level8: {fileID: 921029105}
-  level9: {fileID: 830227620}
-  level10: {fileID: 1662824027}
-  level11: {fileID: 371845465}
-  level12: {fileID: 1082134611}
-  level13: {fileID: 244743741}
-  level14: {fileID: 1745578895}
-  level15: {fileID: 2072060649}
 --- !u!4 &842373965
 Transform:
   m_ObjectHideFlags: 0
@@ -11214,7 +11223,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 1673723624}
-  bookItems: {fileID: 1817537059}
 --- !u!95 &1673723624
 Animator:
   serializedVersion: 5

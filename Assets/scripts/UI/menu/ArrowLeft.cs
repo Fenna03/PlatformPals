@@ -2,16 +2,32 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ArrowLeft1 : MonoBehaviour
+public class ArrowLeft : MonoBehaviour
 {
     public LevelScriptBook bookItems;
     public void OnLeftClick()
     {
-        bookItems.MoreContainers();
+        if(bookItems.playersContainer2.activeSelf == true && bookItems.playersContainer2.activeSelf == true)
+        {
+            bookItems.MoreContainers();
+        }
+        else
+        {
+            bookItems.MoreContainers();
+            bookItems.QuitBackLobby();
+        }
         //bookItems.quitOrNot = true;
     }
     public void OnRightClick()
     {
-        bookItems.BackTolobby();
+        if(bookItems.playersContainer2.activeSelf == true && bookItems.playersContainer2.activeSelf == true)
+        {
+            bookItems.quitOrNot = true;
+            bookItems.BackTolobby();
+        }
+        else
+        {
+            bookItems.BackTolobby();
+        }
     }
 }

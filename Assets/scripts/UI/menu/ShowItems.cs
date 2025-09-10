@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShowItems : MonoBehaviour
 {
     public Animator anim;
-    public LevelScriptBook bookItems;
+    //public LevelScriptBook bookItems;
 
     // Start is called before the first frame update
     void Start()

@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ArrowLeft : MonoBehaviour
+public class ArrowLeft1 : MonoBehaviour
 {
     public BookItems bookItems;
     public void OnLeftClick()

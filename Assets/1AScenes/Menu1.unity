@@ -3911,8 +3911,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1968416423}
-        m_TargetAssemblyTypeName: ArrowLeft, Assembly-CSharp
+      - m_Target: {fileID: 1968416422}
+        m_TargetAssemblyTypeName: ArrowLeft1, Assembly-CSharp
         m_MethodName: OnLeftClick
         m_Mode: 1
         m_Arguments:
@@ -8896,7 +8896,7 @@ GameObject:
   - component: {fileID: 1968416418}
   - component: {fileID: 1968416417}
   - component: {fileID: 1968416421}
-  - component: {fileID: 1968416423}
+  - component: {fileID: 1968416422}
   m_Layer: 5
   m_Name: test2 CANVAS
   m_TagString: Untagged
@@ -9017,7 +9017,7 @@ MonoBehaviour:
   AlwaysReplicateAsRoot: 0
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!114 &1968416423
+--- !u!114 &1968416422
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9026,7 +9026,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1968416416}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbbd5d07b527a6e479399617efe70b78, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b9ef306a3f6a444483e11430d7b9551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bookItems: {fileID: 1166427096}
@@ -10484,8 +10484,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1968416423}
-        m_TargetAssemblyTypeName: ArrowLeft, Assembly-CSharp
+      - m_Target: {fileID: 1968416422}
+        m_TargetAssemblyTypeName: ArrowLeft1, Assembly-CSharp
         m_MethodName: OnRightClick
         m_Mode: 1
         m_Arguments:

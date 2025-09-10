@@ -4,16 +4,6 @@ using UnityEngine;
 
 public class LevelScriptBook : MonoBehaviour
 {
-    /*how many flips do I need??
-     * left: 4 players, 2/3 player. 2
-     * right: 2/3 players, quit.     2
-     * 
-     * for flip left: okay so if backToPlayers23 is true it will go back to the screen with intro level 2 and 3. 
-     * if it is false, it can just automatically go to 4 players? this will be done with an if else statement for when there are more levels.
-     * 
-     * for flip right: if backToPlayer23 is true go back to intro level 2 and 3
-     * if it is false, also if else statement, go to quit
-    */
     public Animator anim;
 
     [Header("gameObjects")]
@@ -130,6 +120,7 @@ public class LevelScriptBook : MonoBehaviour
         anim.SetBool("flipRight", false);
 
         showItemContainer.SetActive(true);
+        activateButtons();
         right = false;
     }
 
