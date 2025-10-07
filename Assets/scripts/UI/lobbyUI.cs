@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using TMPro;
 using Unity.Services.Lobbies.Models;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -27,8 +25,6 @@ public class lobbyUI : MonoBehaviour
     [Header("scripts")]
     public BookItems bookitems;
     [SerializeField] private createLobbyUI createLobbyUI;
-
-    public bool test;
 
     private int currentLobbyCount = 0;
     private const int itemsPerContainer = 6;
@@ -124,30 +120,4 @@ public class lobbyUI : MonoBehaviour
     {
         multiplayerGameLobby.Instance.onLobbyListChanged -= multiplayerGameLobby_onLobbyListChangedEventArgs;
     }
-
-#if UNITY_EDITOR
-    [ContextMenu("Test Populate Lobbies")]
-    private void TestPopulateLobbies()
-    {
-        List<Lobby> mockLobbies = new List<Lobby>();
-
-        for (int i = 0; i < 13; i++) // Generate 13 fake lobbies
-        {
-            Lobby fakeLobby = new Lobby(
-                id: $"lobby_{i}",
-                name: $"Test Lobby {i + 1}",
-                players: new List<Player>(),
-                maxPlayers: 4,
-                isPrivate: false,
-                data: null,
-                lobbyCode: $"CODE{i + 1}"
-            );
-
-            mockLobbies.Add(fakeLobby);
-        }
-
-        updateLobby(mockLobbies);
-    }
-#endif
 }
-

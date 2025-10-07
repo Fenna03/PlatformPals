@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 using static Unity.Netcode.NetworkManager;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using Unity.Services.Authentication;
-using UnityEngine.TextCore.Text;
-using System.Linq;
 using UnityEngine.InputSystem;
 
 public class optionsScript : NetworkBehaviour
@@ -57,7 +53,7 @@ public class optionsScript : NetworkBehaviour
             }
         }
 
-        if (scene.name == "Menu" && playerCSP.Count != 0)
+        if (scene.name == "Menu1" && playerCSP.Count != 0)
         {
             CleanupPlayerCSP();
         }
@@ -65,15 +61,12 @@ public class optionsScript : NetworkBehaviour
 
     public void ResetOptionsState()
     {
-        Debug.Log("Resetting options state...");
-
-        playerDataList = new List<playerData>();
+        Debug.Log("Resetting");
+        playerDataList.Clear();
         playerCSP.Clear();
         localData.Clear();
         TotalPlayers = 0;
         samePlayer = false;
-
-        Debug.Log("Reset complete.");
     }
 
     public void CleanupPlayerCSP()
@@ -103,19 +96,43 @@ public class optionsScript : NetworkBehaviour
     {
         if (IsServer)
         {
-            NetworkManager.Singleton.SceneManager.OnLoadEventCompleted += SceneManager_OnLoadEventCompleted;
-            playerDataList.Clear();
+            NetworkManager.Singleton.SceneManager.OnLoadEventCompleted += OnSceneLoadCompleted;
         }
     }
 
-    private void SceneManager_OnLoadEventCompleted(string sceneName, UnityEngine.SceneManagement.LoadSceneMode loadSceneMode, List<ulong> clientsCompleted, List<ulong> clientsTimedOut)
+    private void OnSceneLoadCompleted(string sceneName, LoadSceneMode mode, List<ulong> clientsCompleted, List<ulong> clientsTimedOut)
     {
-        foreach (ulong clientId in NetworkManager.Singleton.ConnectedClientsIds)
+        Debug.Log($"Scene {sceneName} fully loaded for clients: {clientsCompleted.Count}");
+
+        foreach (ulong clientId in clientsCompleted)
         {
-            Transform playerTransform = Instantiate(GetPlayerSkin(GetPlayerDataFromClientId(clientId).skinId).transform, new Vector3(2.0f, 10f, 0), Quaternion.identity);
-            playerTransform.GetComponent<NetworkObject>().SpawnAsPlayerObject(clientId, true);
+            if (GetPlayerDataFromClientId(clientId).Equals(default(playerData))) continue;
+
+            Debug.Log($"Spawning player for client {clientId} in scene {sceneName}");
+            SpawnPlayer(clientId);
         }
     }
+
+
+    private void SpawnPlayer(ulong clientId)
+    {
+        Debug.Log($"Spawning player for clientId: {clientId}");
+
+        var playerData = GetPlayerDataFromClientId(clientId);
+        if (playerData.Equals(default(playerData)))
+        {
+            Debug.LogWarning($"No playerData found for clientId {clientId}!");
+            return;
+        }
+
+        var prefab = GetPlayerSkin(playerData.skinId);
+        var playerObj = Instantiate(prefab, new Vector3(2.0f, 10f, 0), Quaternion.identity);
+        playerObj.GetComponent<NetworkObject>().SpawnAsPlayerObject(clientId, true);
+
+        Debug.Log($"Spawned player with skinId {playerData.skinId}");
+    }
+
+
 
     public void startHost()
     {
@@ -156,9 +173,19 @@ public class optionsScript : NetworkBehaviour
             clientId = clientId,
             skinId = GetFirstUnusedSkinId(),
         });
+
         OnPlayerDataNetworkListChanged?.Invoke(this, EventArgs.Empty);
+
+        // Set the player’s Unity Services player ID
         setPlayerIdServerRPC(AuthenticationService.Instance.PlayerId);
+
+        // ✅ After updating, sync the full list to all clients
+        if (IsServer)
+        {
+            SyncPlayerDataClientRpc(playerDataList.ToArray());
+        }
     }
+
 
     private void NetworkManager_ConnectionApprovalCallback(NetworkManager.ConnectionApprovalRequest request, NetworkManager.ConnectionApprovalResponse response)
     {
@@ -272,16 +299,18 @@ public class optionsScript : NetworkBehaviour
     private void ChangePlayerSkinServerRpc(int skinId, ServerRpcParams rpcParams = default)
     {
         ChangePlayerSkinClientRpc(skinId);
-
         int index = GetPlayerDataIndexFromClientId(rpcParams.Receive.SenderClientId);
         if (index >= 0)
         {
             var data = playerDataList[index];
             data.skinId = skinId;
             playerDataList[index] = data;
-            OnPlayerDataNetworkListChanged?.Invoke(this, EventArgs.Empty);
         }
+
+        // Broadcast to everyone
+        SyncPlayerDataClientRpc(playerDataList.ToArray());
     }
+
 
     [ClientRpc]
     void ChangePlayerSkinClientRpc(int skinId)
@@ -299,6 +328,14 @@ public class optionsScript : NetworkBehaviour
                 samePlayer = false;
             }
         }
+    }
+
+    [ClientRpc]
+    private void SyncPlayerDataClientRpc(playerData[] allData)
+    {
+        playerDataList.Clear();
+        playerDataList.AddRange(allData);
+        OnPlayerDataNetworkListChanged?.Invoke(this, EventArgs.Empty);
     }
 
     private bool IsSkinAvailable(int skinId)

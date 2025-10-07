@@ -31,7 +31,7 @@ public class sceneManager : MonoBehaviour
         {
             menuButton.onClick.AddListener(() =>
             {
-                Loader.loadNetwork(Loader.Scene.Menu);
+                Loader.loadNetwork(Loader.Scene.Menu1);
             });
         }
 

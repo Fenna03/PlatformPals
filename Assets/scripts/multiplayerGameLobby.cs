@@ -69,7 +69,7 @@ public class multiplayerGameLobby : MonoBehaviour
     
     private void handlePeriodicListLobbies()
     {
-        if (joinedLobby == null && AuthenticationService.Instance.IsSignedIn && SceneManager.GetActiveScene().name == Loader.Scene.Menu.ToString())
+        if (joinedLobby == null && AuthenticationService.Instance.IsSignedIn && SceneManager.GetActiveScene().name == Loader.Scene.Menu1.ToString())
         {
             listLobbiesTimer -= Time.deltaTime;
             if (listLobbiesTimer <= 0f)

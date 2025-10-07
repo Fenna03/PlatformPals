@@ -1,41 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
-using static Cinemachine.CinemachineTriggerAction.ActionSettings;
-using UnityEngine.SceneManagement;
 
 public class loadScene : MonoBehaviour
 {
     public void PlayGame(int gameMode)
     {
         PlayerPrefs.SetInt("mode", gameMode);
-        if(gameMode == 0)
+
+        string sceneName = gameMode switch
         {
-            SceneManager.LoadScene("Menu1");
+            0 => "Menu1",
+            1 => "level1",
+            2 => "level2",
+            3 => "level3",
+            4 => "level4",
+            5 => "level5",
+            6 => "MainScreen",
+            _ => "Menu1"
+        };
+
+        if (optionsScript.Instance.isOnline == true)
+        {
+            // Use NGO scene manager for synced networked scenes
+            NetworkManager.Singleton.SceneManager.LoadScene(sceneName, UnityEngine.SceneManagement.LoadSceneMode.Single);
         }
-        if (gameMode == 1)
+        else
         {
-            SceneManager.LoadScene("level1");
-        }
-        if (gameMode == 2)
-        {
-            SceneManager.LoadScene("level2");
-        }
-        if (gameMode == 3)
-        {
-            SceneManager.LoadScene("level3");
-        }
-        if (gameMode == 4)
-        {
-            SceneManager.LoadScene("level4");
-        }
-        if (gameMode == 5)
-        {
-            SceneManager.LoadScene("level5");
-        }
-        if(gameMode == 6)
-        {
-            SceneManager.LoadScene("MainScreen");
+            // Local / single-player fallback
+            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
         }
     }
 
@@ -45,3 +37,4 @@ public class loadScene : MonoBehaviour
         Application.Quit();
     }
 }
+

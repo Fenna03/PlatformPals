@@ -1,72 +1,69 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Netcode;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class MovingPlayer : NetworkBehaviour
 {
     private Vector2 moveInput;
 
+    [Header("Stats")]
     private float speed = 4.5f;
     public float health = 10f;
 
-    //jumping
+    [Header("Jumping")]
     public float jumpingPower = 7f;
     public bool isGrounded = true;
     public int jumpAmount = 0;
 
-    //flipping
+    [Header("Flip & Components")]
     private bool isFacingRight = true;
-
-    //things on character
-    Rigidbody2D rb;
+    private Rigidbody2D rb;
     public Animator anim;
 
-    // Start is called before the first frame update
-    void Start()
+    public override void OnNetworkSpawn()
     {
+        base.OnNetworkSpawn();
+
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
+        var input = GetComponent<PlayerInput>();
+        if (input != null)
+            input.enabled = IsOwner; // enable input only for the local owner
+
+        Debug.Log($"{gameObject.name}: PlayerInput enabled = {input.enabled} (Owner: {IsOwner})");
+
+        // Initialize animations
         anim.SetBool("isRunning", false);
         anim.SetBool("isJumping", false);
         anim.SetBool("isFalling", false);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if(optionsScript.Instance.isOnline == true)
-        {
-            if (!IsOwner)
-            {
-                return;
-            }
-        }        
+        if (!IsOwner) return;
 
-        //Moving();
+        // Only owner handles flipping locally
         Flip();
     }
 
     private void FixedUpdate()
     {
-        // Apply the movement in FixedUpdate for consistent physics updates
-        MovePlayer();
-    }
-    // Called by Unity Input System when "Move" action is triggered
-    public void OnMove(InputAction.CallbackContext context)
-    {
-        moveInput = context.ReadValue<Vector2>();        
+        if (IsOwner)
+            MovePlayer();
     }
 
-    // Called by Unity Input System when "Jump" action is triggered
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        if (!IsOwner) return;
+
+        moveInput = context.ReadValue<Vector2>();
+    }
+
     public void OnJump(InputAction.CallbackContext context)
     {
+        if (!IsOwner) return;
+
         if (context.performed && isGrounded)
         {
             JumpPlayer();
@@ -75,61 +72,79 @@ public class MovingPlayer : NetworkBehaviour
 
     private void JumpPlayer()
     {
-        if (rb != null)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-            jumpAmount++;
-            isGrounded = false;
-            anim.SetBool("isJumping", true);
-            if (jumpAmount >= 1)
-            {
-                anim.SetBool("isFalling", true);
-            }
-        }
+        if (rb == null) return;
+
+        rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+        jumpAmount++;
+        isGrounded = false;
+
+        anim.SetBool("isJumping", true);
+        if (jumpAmount >= 1)
+            anim.SetBool("isFalling", true);
+
+        // Sync animations to others
+        SendAnimationClientRpc(true, jumpAmount >= 1);
     }
 
     private void MovePlayer()
     {
-        if (rb != null)
-        {
-            rb.velocity = new Vector2(moveInput.x * speed, rb.velocity.y);
-        }
+        if (rb == null) return;
+
+        rb.velocity = new Vector2(moveInput.x * speed, rb.velocity.y);
+
+        // Sync running animation
+        bool isRunning = Mathf.Abs(moveInput.x) > 0.01f;
+        anim.SetBool("isRunning", isRunning);
+        SendAnimationClientRpc(isRunning, anim.GetBool("isFalling"));
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag == "ground" || collision.collider.tag == "Player" || collision.collider.tag == "button")
+        if (!IsOwner) return;
+
+        if (collision.collider.CompareTag("ground") || collision.collider.CompareTag("Player") || collision.collider.CompareTag("button"))
         {
             jumpAmount = 0;
             isGrounded = true;
+
             anim.SetBool("isFalling", false);
             anim.SetBool("isJumping", false);
+
+            SendAnimationClientRpc(anim.GetBool("isRunning"), false);
         }
     }
 
     void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.collider.tag == "ground" || collision.collider.tag == "Player" || collision.collider.tag == "button")
+        if (!IsOwner) return;
+
+        if (collision.collider.CompareTag("ground") || collision.collider.CompareTag("Player") || collision.collider.CompareTag("button"))
         {
             isGrounded = false;
             anim.SetBool("isFalling", true);
             anim.SetBool("isRunning", false);
+
+            SendAnimationClientRpc(false, true);
         }
     }
 
-    void Flip()
+    private void Flip()
     {
-        if (isFacingRight && moveInput.x < 0f || !isFacingRight && moveInput.x > 0f)
+        if ((isFacingRight && moveInput.x < 0f) || (!isFacingRight && moveInput.x > 0f))
         {
             isFacingRight = !isFacingRight;
             Vector3 localScale = transform.localScale;
             localScale.x *= -1f;
             transform.localScale = localScale;
-            anim.SetBool("isRunning", true);
         }
-        else if(moveInput.x == 0f)
-        {
-            anim.SetBool("isRunning", false);
-        }
+    }
+
+    [ClientRpc]
+    private void SendAnimationClientRpc(bool isRunning, bool isFalling)
+    {
+        if (IsOwner) return; // skip local owner
+
+        anim.SetBool("isRunning", isRunning);
+        anim.SetBool("isFalling", isFalling);
     }
 }

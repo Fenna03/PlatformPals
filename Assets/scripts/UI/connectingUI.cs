@@ -25,13 +25,11 @@ public class connectingUI : MonoBehaviour
 
     private void Show()
     {
-        Debug.Log("show");
         gameObject.SetActive(true);
     }
 
     private void Hide()
     {
-        Debug.Log("hide");
         gameObject.SetActive(false);
     }
 
