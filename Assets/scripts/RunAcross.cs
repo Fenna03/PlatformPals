@@ -5,7 +5,7 @@ using UnityEngine;
 public class RunAcross : MonoBehaviour
 {
     private float speed = 5f;
-    private Vector3 startPos = new Vector3(-13f, -3.32f, 0f);
+    private Vector3 startPos = new Vector3(-62f, -3.32f, 0f);
     private bool isStopped = false;
 
     public GameObject objectToSpawn; // Assign a prefab in the inspector
@@ -32,7 +32,7 @@ public class RunAcross : MonoBehaviour
             }
         }
 
-        if (transform.position.x >= 13)
+        if (transform.position.x >= -31)
         {
             transform.position = startPos;
             StartCoroutine(WaitforRandomAmount());

@@ -57,17 +57,14 @@ public class ButtonScript : NetworkBehaviour
         anim.SetBool("isReleased", true);
         if (fanScript != null)
         {
-            Debug.Log("fan test");
             fanScript.Off();
         }
         if (fireScript != null)
         {
-            Debug.Log("fire test");
             fireScript.On();
         }
         if (trampolineScript != null)
         {
-            Debug.Log("trampoline test");
             trampolineScript.Off();
         }
     }

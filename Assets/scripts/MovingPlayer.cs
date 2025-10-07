@@ -94,7 +94,10 @@ public class MovingPlayer : NetworkBehaviour
 
         // Sync running animation
         bool isRunning = Mathf.Abs(moveInput.x) > 0.01f;
-        anim.SetBool("isRunning", isRunning);
+        if(isGrounded == true)
+        {
+            anim.SetBool("isRunning", isRunning);
+        }
         SendAnimationClientRpc(isRunning, anim.GetBool("isFalling"));
     }
 

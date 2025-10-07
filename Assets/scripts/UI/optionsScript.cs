@@ -102,13 +102,10 @@ public class optionsScript : NetworkBehaviour
 
     private void OnSceneLoadCompleted(string sceneName, LoadSceneMode mode, List<ulong> clientsCompleted, List<ulong> clientsTimedOut)
     {
-        Debug.Log($"Scene {sceneName} fully loaded for clients: {clientsCompleted.Count}");
-
         foreach (ulong clientId in clientsCompleted)
         {
             if (GetPlayerDataFromClientId(clientId).Equals(default(playerData))) continue;
-
-            Debug.Log($"Spawning player for client {clientId} in scene {sceneName}");
+            
             SpawnPlayer(clientId);
         }
     }
@@ -116,20 +113,15 @@ public class optionsScript : NetworkBehaviour
 
     private void SpawnPlayer(ulong clientId)
     {
-        Debug.Log($"Spawning player for clientId: {clientId}");
-
         var playerData = GetPlayerDataFromClientId(clientId);
         if (playerData.Equals(default(playerData)))
         {
-            Debug.LogWarning($"No playerData found for clientId {clientId}!");
             return;
         }
 
         var prefab = GetPlayerSkin(playerData.skinId);
         var playerObj = Instantiate(prefab, new Vector3(2.0f, 10f, 0), Quaternion.identity);
         playerObj.GetComponent<NetworkObject>().SpawnAsPlayerObject(clientId, true);
-
-        Debug.Log($"Spawned player with skinId {playerData.skinId}");
     }
 
 
