@@ -11253,6 +11253,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookItems: {fileID: 1817537059}
+  leftArrow: {fileID: 1971300425}
+  rightArrow: {fileID: 983900566}
 --- !u!114 &2023101517
 MonoBehaviour:
   m_ObjectHideFlags: 0

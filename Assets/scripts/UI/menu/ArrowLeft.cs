@@ -1,10 +1,19 @@
+using System.Collections;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class ArrowLeft : MonoBehaviour
 {
     public LevelScriptBook bookItems;
+    public GameObject leftArrow;
+    public GameObject rightArrow;
+
+    private void Start()
+    {
+        leftArrow.SetActive(false);
+        rightArrow.SetActive(false);
+        StartCoroutine(WaitAndPrint());
+    }
+
     public void OnLeftClick()
     {
         if(bookItems.playersContainer2.activeSelf == true && bookItems.playersContainer2.activeSelf == true)
@@ -28,6 +37,17 @@ public class ArrowLeft : MonoBehaviour
         else
         {
             bookItems.BackTolobby();
+        }
+    }
+
+    private IEnumerator WaitAndPrint()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(0.5f);
+
+            leftArrow.SetActive(true);
+            rightArrow.SetActive(true);
         }
     }
 }

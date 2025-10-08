@@ -31,8 +31,6 @@ public class MovingPlayer : NetworkBehaviour
         if (input != null)
             input.enabled = IsOwner; // enable input only for the local owner
 
-        Debug.Log($"{gameObject.name}: PlayerInput enabled = {input.enabled} (Owner: {IsOwner})");
-
         // Initialize animations
         anim.SetBool("isRunning", false);
         anim.SetBool("isJumping", false);
