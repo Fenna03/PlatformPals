@@ -72,6 +72,7 @@ public class ButtonScript : NetworkBehaviour
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (!IsClient) return; // only detect on client
+        Debug.Log($"[ButtonScript] Collision detected on {NetworkManager.Singleton.LocalClientId}, IsServer:{IsServer}, IsClient:{IsClient}, col:{col.gameObject.name}");
 
         if (col.gameObject.CompareTag("Player"))
         {
