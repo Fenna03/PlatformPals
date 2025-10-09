@@ -27,6 +27,7 @@ public class ButtonScript : NetworkBehaviour
     [ClientRpc]
     void PressClientRpc()
     {
+        Debug.Log($"PressClientRpc called on {NetworkManager.Singleton.LocalClientId}");
         anim.SetBool("isPressed", true);
         anim.SetBool("isReleased", false);
         if(fanScript != null)
@@ -70,9 +71,11 @@ public class ButtonScript : NetworkBehaviour
     }
     private void OnCollisionEnter2D(Collision2D col)
     {
+        if (!IsClient) return; // only detect on client
+
         if (col.gameObject.CompareTag("Player"))
         {
-            if(optionsScript.Instance.isOnline == true)
+            if (optionsScript.Instance.isOnline)
             {
                 OnButtonPressServerRpc();
             }
@@ -82,6 +85,7 @@ public class ButtonScript : NetworkBehaviour
             }
         }
     }
+
     private void OnCollisionExit2D(Collision2D col)
     {
         if (col.gameObject.CompareTag("Player"))
@@ -133,5 +137,4 @@ public class ButtonScript : NetworkBehaviour
             trampolineScript.Off();
         }
     }
-
 }
