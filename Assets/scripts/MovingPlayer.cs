@@ -67,6 +67,12 @@ public class MovingPlayer : NetworkBehaviour
             JumpPlayer();
         }
     }
+    public void OnEscape(InputAction.CallbackContext context)
+    {
+        if (!IsOwner) return;
+
+        optionsScript.Instance.TogglePauseGame();
+    }
 
     private void JumpPlayer()
     {

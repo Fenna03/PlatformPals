@@ -34,20 +34,4 @@ public class menuScript : NetworkBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-
-    //// Pauses/unpauses game on Escape
-    //void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.Escape))
-    //    {
-    //        TogglePause();
-    //    }
-    //}
-
-    //public void TogglePause()
-    //{
-    //    optionsMenu.gameObject.SetActive(!optionsMenu.gameObject.activeSelf);
-    //    paused = !paused;
-    //    Debug.Log("Paused state: " + paused);
-    //}
 }

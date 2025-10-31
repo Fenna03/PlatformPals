@@ -368,6 +368,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: c8b87720-2737-4c5e-a3cb-9abf577e9d6b
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -810106631385029833}
+        m_TargetAssemblyTypeName: MovingPlayer, Assembly-CSharp
+        m_MethodName: OnEscape
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0f68df52-8aac-4918-8c2e-b4a6a503da3a
+    m_ActionName: movement/Escape[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: movement

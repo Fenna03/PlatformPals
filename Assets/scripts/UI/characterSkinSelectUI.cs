@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,16 +6,19 @@ public class CharacterSkinSelectUI : MonoBehaviour
 {
     [SerializeField] private int skinId;
     [SerializeField] private Image image;
+    private Button button;
 
     private void Awake()
     {
         if (this == null || gameObject == null)
         {
-            Debug.LogError("i am null BUTTONCHOOSE");
+            Debug.LogError("i am null");
             return;
         }
-        GetComponent<Button>().onClick.RemoveAllListeners();
-        GetComponent<Button>().onClick.AddListener(() =>
+
+        button = GetComponent<Button>();
+        button.onClick.RemoveAllListeners();
+        button.onClick.AddListener(() =>
         {
             if (optionsScript.Instance != null)
             {
@@ -32,35 +35,14 @@ public class CharacterSkinSelectUI : MonoBehaviour
             optionsScript.Instance.OnPlayerDataNetworkListChanged += Instance_OnPlayerDataNetworkListChanged;
             UpdateIsSelected();
         }
-    }
 
-    private void Instance_OnPlayerDataNetworkListChanged(object sender, EventArgs e)
-    {
-        UpdateIsSelected();
-    }
-
-    private void UpdateIsSelected()
-    {
-        if (optionsScript.Instance == null) return;  // Prevent null reference errors
-
-        bool isSelected = optionsScript.Instance.GetPlayerData().skinId == skinId;
-        UpdateButtonState();
-    }
-
-    private void UpdateButtonState()
-    {
-        if (optionsScript.Instance == null) return;  // Prevent null reference errors
-
-        // Disable button if this skin is already selected
-        GetComponent<Button>().interactable = optionsScript.Instance.GetPlayerData().skinId != skinId;
-    }
-
-    private void OnDisable()
-    {
-        if (optionsScript.Instance != null)
+        // ✅ Subscribe to the ready change event
+        if (characterSelectReady.Instance != null)
         {
-            optionsScript.Instance.OnPlayerDataNetworkListChanged -= Instance_OnPlayerDataNetworkListChanged;
+            characterSelectReady.Instance.onReadyChanged += CharacterSelectReady_OnReadyChanged;
         }
+
+        UpdateButtonInteractable();
     }
 
     private void OnDestroy()
@@ -69,5 +51,45 @@ public class CharacterSkinSelectUI : MonoBehaviour
         {
             optionsScript.Instance.OnPlayerDataNetworkListChanged -= Instance_OnPlayerDataNetworkListChanged;
         }
+
+        if (characterSelectReady.Instance != null)
+        {
+            characterSelectReady.Instance.onReadyChanged -= CharacterSelectReady_OnReadyChanged;
+        }
+    }
+
+    private void Instance_OnPlayerDataNetworkListChanged(object sender, EventArgs e)
+    {
+        UpdateIsSelected();
+    }
+
+    private void CharacterSelectReady_OnReadyChanged(object sender, EventArgs e)
+    {
+        UpdateButtonInteractable();
+    }
+
+    private void UpdateIsSelected()
+    {
+        if (optionsScript.Instance == null) return;
+        bool isSelected = optionsScript.Instance.GetPlayerData().skinId == skinId;
+        UpdateButtonState();
+    }
+
+    private void UpdateButtonState()
+    {
+        if (optionsScript.Instance == null) return;
+        button.interactable = optionsScript.Instance.GetPlayerData().skinId != skinId;
+    }
+
+    // ✅ New helper method
+    private void UpdateButtonInteractable()
+    {
+        if (characterSelectReady.Instance == null || optionsScript.Instance == null) return;
+
+        ulong localClientId = Unity.Netcode.NetworkManager.Singleton.LocalClientId;
+        bool isReady = characterSelectReady.Instance.isPlayerReady(localClientId);
+
+        // Disable all skin buttons when ready
+        button.interactable = !isReady;
     }
 }

@@ -52,8 +52,6 @@ public class finishLevel : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         touchers.Add(col.gameObject.GetComponent<MovingPlayer>());
-        Debug.Log("all players: " + players.Count);
-        Debug.Log("touching it: "+ touchers.Count);
         if(touchers.Count == players.Count)
         {
             MessageText.enabled = true;
@@ -74,7 +72,6 @@ public class finishLevel : MonoBehaviour
         touchers.Remove(collision.gameObject.GetComponent<MovingPlayer>()); 
         if (touchers.Count != players.Count)
         {
-            Debug.Log("test");
             MessageText.enabled = false;
             levelButton.gameObject.SetActive(false);
         }

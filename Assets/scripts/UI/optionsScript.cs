@@ -26,14 +26,26 @@ public class optionsScript : NetworkBehaviour
     public event EventHandler OnTryingToJoinGame;
     public event EventHandler OnFailedToJoinGame;
     public event EventHandler OnPlayerDataNetworkListChanged;
+    public event EventHandler OnLocalGamePaused;
+    public event EventHandler OnLocalGameUnpaused;
+    public event EventHandler OnOnlineGamePaused;
+    public event EventHandler OnOnlineGameUnpaused;
+
+    private Dictionary<ulong, bool> playerPausedDictionary;
+    private bool isLocalGamePaused;
 
     public bool isOnline = false;
     public bool isLocal = false;
+
+    private NetworkVariable<bool> isGamePaused = new NetworkVariable<bool>(false);
+    public GameObject pauseMenu;
 
     private void Awake()
     {
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        playerPausedDictionary = new Dictionary<ulong, bool>();
 
         playerDataList = new List<playerData>(); // Initialize list
         RefreshPlayerList();
@@ -43,6 +55,18 @@ public class optionsScript : NetworkBehaviour
     {
         Scene scene = SceneManager.GetActiveScene();
         var components = FindObjectsOfType<characterSelectPlayer>();
+
+        if (pauseMenu == null)
+        {
+            Debug.Log("regret");
+            var pauseManager = FindObjectOfType<PauseManager>();
+            if (pauseManager != null)
+            {
+                Debug.Log("oh wait there is one");
+                pauseMenu = pauseManager.gameObject;
+                pauseMenu.SetActive(false);
+            }
+        }
 
         foreach (var component in components)
         {
@@ -97,6 +121,21 @@ public class optionsScript : NetworkBehaviour
         if (IsServer)
         {
             NetworkManager.Singleton.SceneManager.OnLoadEventCompleted += OnSceneLoadCompleted;
+        }
+        isGamePaused.OnValueChanged += isGamePaused_OnValueChanged;
+    }
+
+    private void isGamePaused_OnValueChanged(bool previousValue, bool newValue)
+    {
+        if(isGamePaused.Value)
+        {
+            Time.timeScale = 0f;
+            OnOnlineGamePaused.Invoke(this, EventArgs.Empty);
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            OnOnlineGameUnpaused.Invoke(this, EventArgs.Empty);
         }
     }
 
@@ -358,5 +397,60 @@ public class optionsScript : NetworkBehaviour
     {
         NetworkManager.Singleton.DisconnectClient(clientId);
         NetworkManager_Server_onClientDisconnectCallback(clientId);
+    }
+
+    public void TogglePauseGame()
+    {
+        isLocalGamePaused = !isLocalGamePaused;
+        if (isLocalGamePaused)
+        {
+            PauseGameServerRPC();
+
+            if(pauseMenu != null)
+            {
+                pauseMenu.SetActive(true);
+            }
+            OnLocalGamePaused?.Invoke(this, EventArgs.Empty);
+        }
+        else
+        {
+            UnpauseGameServerRPC();
+
+            if (pauseMenu != null)
+            {
+                pauseMenu.SetActive(false);
+            }
+            OnLocalGameUnpaused?.Invoke(this, EventArgs.Empty);
+        }
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    private void PauseGameServerRPC(ServerRpcParams serverRpcParams = default)
+    {
+        playerPausedDictionary[serverRpcParams.Receive.SenderClientId] = true;
+
+        TestGamePausedState();
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    private void UnpauseGameServerRPC(ServerRpcParams serverRpcParams = default)
+    {
+        playerPausedDictionary[serverRpcParams.Receive.SenderClientId] = false;
+        TestGamePausedState();
+    }
+
+    private void TestGamePausedState()
+    {
+        foreach(ulong clientId in NetworkManager.Singleton.ConnectedClientsIds)
+        {
+            if(playerPausedDictionary.ContainsKey(clientId) && playerPausedDictionary[clientId])
+            {
+                isGamePaused.Value = true;
+                //is paused
+                return;
+            }
+        }
+
+        isGamePaused.Value = false;
     }
 }

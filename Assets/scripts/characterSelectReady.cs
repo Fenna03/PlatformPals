@@ -1,14 +1,11 @@
-using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using System;
 
 public class characterSelectReady : NetworkBehaviour
 {
     public static characterSelectReady Instance { get; private set; }
-
 
     private Dictionary<ulong, bool> playerReadyDictionary;
 
@@ -33,14 +30,21 @@ public class characterSelectReady : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     private void setPlayerReadyServerRpc(ServerRpcParams serverRpcParams = default)
     {
-        setPlayerReadyClientRpc(serverRpcParams.Receive.SenderClientId);
+        ulong clientId = serverRpcParams.Receive.SenderClientId;
 
-        playerReadyDictionary[serverRpcParams.Receive.SenderClientId] = true;
+        // Toggle the player's ready state
+        bool isReady = playerReadyDictionary.ContainsKey(clientId) && playerReadyDictionary[clientId];
+        bool newReadyState = !isReady;
+        playerReadyDictionary[clientId] = newReadyState;
 
+        // Sync with all clients
+        setPlayerReadyClientRpc(clientId, newReadyState);
+
+        // Check if everyone is ready
         bool allClientsReady = true;
-        foreach (ulong clientId in NetworkManager.Singleton.ConnectedClientsIds)
+        foreach (ulong id in NetworkManager.Singleton.ConnectedClientsIds)
         {
-            if (!playerReadyDictionary.ContainsKey(clientId) || !playerReadyDictionary[clientId])
+            if (!playerReadyDictionary.ContainsKey(id) || !playerReadyDictionary[id])
             {
                 allClientsReady = false;
                 break;
@@ -55,10 +59,9 @@ public class characterSelectReady : NetworkBehaviour
     }
 
     [ClientRpc]
-    private void setPlayerReadyClientRpc(ulong clientId)
+    private void setPlayerReadyClientRpc(ulong clientId, bool isReady)
     {
-        playerReadyDictionary[clientId] = true;
-
+        playerReadyDictionary[clientId] = isReady;
         onReadyChanged?.Invoke(this, EventArgs.Empty);
     }
 

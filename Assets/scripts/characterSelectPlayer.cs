@@ -28,7 +28,6 @@ public class characterSelectPlayer : MonoBehaviour
                 }
             });
         }
-
     }
 
     public void EnableImage()
@@ -67,24 +66,23 @@ public class characterSelectPlayer : MonoBehaviour
         // Check if the object is still valid
         if (this == null || gameObject == null)
         {
-            //Debug.LogError("i am null: " + playerIndex);
+            Debug.LogError("i am null: " + playerIndex);
             //Instantiate(optionsScript.Instance.playerSkins[playerIndex]);
             //return;
         }
 
-        if (optionsScript.Instance != null &&
-    optionsScript.Instance.isPlayerIndexConnected(playerIndex))
+        if (optionsScript.Instance != null && optionsScript.Instance.isPlayerIndexConnected(playerIndex))
         {
             Show();
 
             playerData playerData = optionsScript.Instance.GetPlayerDataFromPlayerIndex(playerIndex);
             if (ReadyGameObject != null)
             {
-                ReadyGameObject.SetActive(characterSelectReady.Instance.isPlayerReady(playerData.clientId)); //error
+                ReadyGameObject.SetActive(characterSelectReady.Instance.isPlayerReady(playerData.clientId));
             }
             if (playerVisual != null)
             {
-                playerVisual.SetPlayerSkin(optionsScript.Instance.GetPlayerSkin(playerData.skinId));//error
+                playerVisual.SetPlayerSkin(optionsScript.Instance.GetPlayerSkin(playerData.skinId));
             }
         }
         else
