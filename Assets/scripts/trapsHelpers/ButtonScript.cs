@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Unity.Netcode;
+using UnityEngine;
 
 public class ButtonScript : NetworkBehaviour
 {
@@ -10,20 +8,40 @@ public class ButtonScript : NetworkBehaviour
     public fireOnOff fireScript;
     public trampolineOnOff trampolineScript;
 
-    //public BoxCollider2D BC;
-
-    // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
     }
 
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        // Only clients detect local collision
+        if (!IsClient) return;
+
+        if (col.gameObject.CompareTag("Player"))
+        {
+            // Client tells the server a press happened
+            OnButtonPressServerRpc();
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D col)
+    {
+        if (!IsClient) return;
+
+        if (col.gameObject.CompareTag("Player"))
+        {
+            OnButtonReleaseServerRpc();
+        }
+    }
+
     [ServerRpc(RequireOwnership = false)]
-    public void OnButtonPressServerRpc(ServerRpcParams serverRpcParams = default)
+    private void OnButtonPressServerRpc(ServerRpcParams rpcParams = default)
     {
         PressClientRpc();
     }
 
+<<<<<<< Updated upstream
     [ClientRpc]
     void PressClientRpc()
     {
@@ -44,13 +62,16 @@ public class ButtonScript : NetworkBehaviour
         }
     }
 
+=======
+>>>>>>> Stashed changes
     [ServerRpc(RequireOwnership = false)]
-    public void OnButtonReleaseServerRpc(ServerRpcParams serverRpcParams = default)
+    private void OnButtonReleaseServerRpc(ServerRpcParams rpcParams = default)
     {
         ReleaseClientRpc();
     }
 
     [ClientRpc]
+<<<<<<< Updated upstream
     void ReleaseClientRpc()
     {
         //Debug.Log("test");
@@ -103,39 +124,24 @@ public class ButtonScript : NetworkBehaviour
     }
 
     private void PressLocal()
+=======
+    private void PressClientRpc()
+>>>>>>> Stashed changes
     {
         anim.SetBool("isPressed", true);
         anim.SetBool("isReleased", false);
-
-        if (fanScript != null)
-        {
-            fanScript.On();
-        }
-        if (fireScript != null)
-        {
-            fireScript.Off();
-        }
-        if (trampolineScript != null)
-        {
-            trampolineScript.On();
-        }
+        if (fanScript != null) fanScript.On();
+        if (fireScript != null) fireScript.Off();
+        if (trampolineScript != null) trampolineScript.On();
     }
-    private void ReleaseLocal()
+
+    [ClientRpc]
+    private void ReleaseClientRpc()
     {
         anim.SetBool("isPressed", false);
         anim.SetBool("isReleased", true);
-
-        if (fanScript != null)
-        {
-            fanScript.Off();
-        }
-        if (fireScript != null)
-        {
-            fireScript.On();
-        }
-        if (trampolineScript != null)
-        {
-            trampolineScript.Off();
-        }
+        if (fanScript != null) fanScript.Off();
+        if (fireScript != null) fireScript.On();
+        if (trampolineScript != null) trampolineScript.Off();
     }
 }
