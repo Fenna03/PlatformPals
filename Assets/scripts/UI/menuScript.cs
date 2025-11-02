@@ -13,11 +13,18 @@ public class menuScript : NetworkBehaviour
 
         if (gameMode == 0)
         {
-            SceneManager.LoadScene("start");
+            Loader.Load(Loader.Scene.start);
+            //SceneManager.LoadScene("start");
         }
         if (gameMode == 1)
         {
-            SceneManager.LoadScene("Menu1");
+            Loader.Load(Loader.Scene.Menu1);
+            //SceneManager.LoadScene("Menu1");
+        }
+        if (gameMode == 2)
+        {
+            Loader.Load(Loader.Scene.Menu1);
+            //SceneManager.LoadScene("levelSelect");
         }
 
     }
