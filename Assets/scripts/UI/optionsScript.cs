@@ -37,7 +37,7 @@ public class optionsScript : NetworkBehaviour
     public bool isOnline = false;
     public bool isLocal = false;
 
-    private NetworkVariable<bool> isGamePaused = new NetworkVariable<bool>(false);
+    public NetworkVariable<bool> isGamePaused = new NetworkVariable<bool>(false);
     public GameObject pauseMenu;
 
     private void Awake()
@@ -58,11 +58,9 @@ public class optionsScript : NetworkBehaviour
 
         if (pauseMenu == null)
         {
-            Debug.Log("regret");
             var pauseManager = FindObjectOfType<PauseManager>();
             if (pauseManager != null)
             {
-                Debug.Log("oh wait there is one");
                 pauseMenu = pauseManager.gameObject;
                 pauseMenu.SetActive(false);
             }
@@ -453,4 +451,24 @@ public class optionsScript : NetworkBehaviour
 
         isGamePaused.Value = false;
     }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (pauseMenu != null)
+        {
+            Destroy(pauseMenu);
+            pauseMenu = null;
+        }
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
 }

@@ -580,7 +580,7 @@ GameObject:
   - component: {fileID: 1624272332}
   - component: {fileID: 1624272331}
   m_Layer: 0
-  m_Name: Menu
+  m_Name: Menu (optionsScript)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -625,6 +625,9 @@ MonoBehaviour:
   samePlayer: 0
   isOnline: 0
   isLocal: 0
+  isGamePaused:
+    m_InternalValue: 0
+  pauseMenu: {fileID: 0}
 --- !u!4 &1624272333
 Transform:
   m_ObjectHideFlags: 0
