@@ -15,23 +15,38 @@ public class ButtonScript : NetworkBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        // Only clients detect local collision
-        if (!IsClient) return;
-
-        if (col.gameObject.CompareTag("Player"))
+        if (GameManager.Instance.isOnline)
         {
-            // Client tells the server a press happened
-            OnButtonPressServerRpc();
+            // Only clients detect local collision
+            if (!IsClient) return;
+
+            if (col.gameObject.CompareTag("Player"))
+            {
+                // Client tells the server a press happened
+                OnButtonPressServerRpc();
+            }
+        }
+        else
+        {
+            ButtonPressed();
         }
     }
 
     private void OnCollisionExit2D(Collision2D col)
     {
-        if (!IsClient) return;
-
-        if (col.gameObject.CompareTag("Player"))
+        if (GameManager.Instance.isOnline)
         {
-            OnButtonReleaseServerRpc();
+            // Only clients detect local collision
+            if (!IsClient) return;
+
+            if (col.gameObject.CompareTag("Player"))
+            {
+                OnButtonReleaseServerRpc();
+            }
+        }
+        else
+        {
+            ButtonUnpressed();
         }
     }
 
@@ -59,6 +74,23 @@ public class ButtonScript : NetworkBehaviour
 
     [ClientRpc]
     private void ReleaseClientRpc()
+    {
+        anim.SetBool("isPressed", false);
+        anim.SetBool("isReleased", true);
+        if (fanScript != null) fanScript.Off();
+        if (fireScript != null) fireScript.On();
+        if (trampolineScript != null) trampolineScript.Off();
+    }
+
+    private void ButtonPressed()
+    {
+        anim.SetBool("isPressed", true);
+        anim.SetBool("isReleased", false);
+        if (fanScript != null) fanScript.On();
+        if (fireScript != null) fireScript.Off();
+        if (trampolineScript != null) trampolineScript.On();
+    }
+    private void ButtonUnpressed()
     {
         anim.SetBool("isPressed", false);
         anim.SetBool("isReleased", true);
