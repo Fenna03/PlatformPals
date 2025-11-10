@@ -12,9 +12,9 @@ public class mainMenuCleanup : MonoBehaviour
             Destroy(NetworkManager.Singleton.gameObject);
         }
 
-        if (optionsScript.Instance != null)
+        if (GameManager.Instance != null)
         {
-            Destroy(optionsScript.Instance.gameObject);
+            Destroy(GameManager.Instance.gameObject);
         }
 
         if (multiplayerGameLobby.Instance != null)

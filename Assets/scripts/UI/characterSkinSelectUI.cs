@@ -20,9 +20,9 @@ public class CharacterSkinSelectUI : MonoBehaviour
         button.onClick.RemoveAllListeners();
         button.onClick.AddListener(() =>
         {
-            if (optionsScript.Instance != null)
+            if (GameManager.Instance != null)
             {
-                optionsScript.Instance.ChangePlayerSkin(skinId);
+                GameManager.Instance.ChangePlayerSkin(skinId);
                 UpdateButtonState();
             }
         });
@@ -30,9 +30,9 @@ public class CharacterSkinSelectUI : MonoBehaviour
 
     private void Start()
     {
-        if (optionsScript.Instance != null)
+        if (GameManager.Instance != null)
         {
-            optionsScript.Instance.OnPlayerDataNetworkListChanged += Instance_OnPlayerDataNetworkListChanged;
+            GameManager.Instance.OnPlayerDataNetworkListChanged += Instance_OnPlayerDataNetworkListChanged;
             UpdateIsSelected();
         }
 
@@ -47,9 +47,9 @@ public class CharacterSkinSelectUI : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (optionsScript.Instance != null)
+        if (GameManager.Instance != null)
         {
-            optionsScript.Instance.OnPlayerDataNetworkListChanged -= Instance_OnPlayerDataNetworkListChanged;
+            GameManager.Instance.OnPlayerDataNetworkListChanged -= Instance_OnPlayerDataNetworkListChanged;
         }
 
         if (characterSelectReady.Instance != null)
@@ -70,21 +70,21 @@ public class CharacterSkinSelectUI : MonoBehaviour
 
     private void UpdateIsSelected()
     {
-        if (optionsScript.Instance == null) return;
-        bool isSelected = optionsScript.Instance.GetPlayerData().skinId == skinId;
+        if (GameManager.Instance == null) return;
+        bool isSelected = GameManager.Instance.GetPlayerData().skinId == skinId;
         UpdateButtonState();
     }
 
     private void UpdateButtonState()
     {
-        if (optionsScript.Instance == null) return;
-        button.interactable = optionsScript.Instance.GetPlayerData().skinId != skinId;
+        if (GameManager.Instance == null) return;
+        button.interactable = GameManager.Instance.GetPlayerData().skinId != skinId;
     }
 
     // ✅ New helper method
     private void UpdateButtonInteractable()
     {
-        if (characterSelectReady.Instance == null || optionsScript.Instance == null) return;
+        if (characterSelectReady.Instance == null || GameManager.Instance == null) return;
 
         ulong localClientId = Unity.Netcode.NetworkManager.Singleton.LocalClientId;
         bool isReady = characterSelectReady.Instance.isPlayerReady(localClientId);

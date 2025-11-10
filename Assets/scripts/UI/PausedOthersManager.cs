@@ -6,35 +6,35 @@ public class PausedOthersManager : MonoBehaviour
 {
     private void Start()
     {
-        optionsScript.Instance.OnOnlineGamePaused += Instance_OnOnlineGamePaused;
-        optionsScript.Instance.OnOnlineGameUnpaused += Instance_OnOnlineGameUnpaused;
+        GameManager.Instance.OnOnlineGamePaused += Instance_OnOnlineGamePaused;
+        GameManager.Instance.OnOnlineGameUnpaused += Instance_OnOnlineGameUnpaused;
 
         Hide();
     }
     private void OnEnable()
     {
-        if (optionsScript.Instance != null)
+        if (GameManager.Instance != null)
         {
-            optionsScript.Instance.OnOnlineGamePaused += Instance_OnOnlineGamePaused;
-            optionsScript.Instance.OnOnlineGameUnpaused += Instance_OnOnlineGameUnpaused;
+            GameManager.Instance.OnOnlineGamePaused += Instance_OnOnlineGamePaused;
+            GameManager.Instance.OnOnlineGameUnpaused += Instance_OnOnlineGameUnpaused;
         }
     }
 
     private void OnDisable()
     {
-        if (optionsScript.Instance != null)
+        if (GameManager.Instance != null)
         {
-            optionsScript.Instance.OnOnlineGamePaused -= Instance_OnOnlineGamePaused;
-            optionsScript.Instance.OnOnlineGameUnpaused -= Instance_OnOnlineGameUnpaused;
+            GameManager.Instance.OnOnlineGamePaused -= Instance_OnOnlineGamePaused;
+            GameManager.Instance.OnOnlineGameUnpaused -= Instance_OnOnlineGameUnpaused;
         }
     }
 
     private void OnDestroy()
     {
-        if (optionsScript.Instance != null)
+        if (GameManager.Instance != null)
         {
-            optionsScript.Instance.OnOnlineGamePaused -= Instance_OnOnlineGamePaused;
-            optionsScript.Instance.OnOnlineGameUnpaused -= Instance_OnOnlineGameUnpaused;
+            GameManager.Instance.OnOnlineGamePaused -= Instance_OnOnlineGamePaused;
+            GameManager.Instance.OnOnlineGameUnpaused -= Instance_OnOnlineGameUnpaused;
         }
     }
 

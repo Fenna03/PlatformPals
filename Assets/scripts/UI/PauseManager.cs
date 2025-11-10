@@ -17,10 +17,10 @@ public class PauseManager : MonoBehaviour
         optionsObject.SetActive(false);
         Resume.onClick.AddListener(() =>
         {
-            if (optionsScript.Instance != null)
+            if (GameManager.Instance != null)
             {
                 // Use the same logic as pressing Escape again
-                optionsScript.Instance.TogglePauseGame();
+                GameManager.Instance.TogglePauseGame();
             }
         }); 
         options.onClick.AddListener(() =>
@@ -34,10 +34,10 @@ public class PauseManager : MonoBehaviour
 
             if (NetworkManager.Singleton != null)
             {
-                NetworkManager.Singleton.OnClientConnectedCallback -= optionsScript.Instance.NetworkManager_OnClientConnectedCallback;
-                NetworkManager.Singleton.OnClientDisconnectCallback -= optionsScript.Instance.NetworkManager_Server_onClientDisconnectCallback;
-                NetworkManager.Singleton.OnClientConnectedCallback -= optionsScript.Instance.NetworkManager_Client_OnClientConnectedCallback;
-                NetworkManager.Singleton.OnClientDisconnectCallback -= optionsScript.Instance.NetworkManager_Client_onClientDisconnectCallback;
+                NetworkManager.Singleton.OnClientConnectedCallback -= GameManager.Instance.NetworkManager_OnClientConnectedCallback;
+                NetworkManager.Singleton.OnClientDisconnectCallback -= GameManager.Instance.NetworkManager_Server_onClientDisconnectCallback;
+                NetworkManager.Singleton.OnClientConnectedCallback -= GameManager.Instance.NetworkManager_Client_OnClientConnectedCallback;
+                NetworkManager.Singleton.OnClientDisconnectCallback -= GameManager.Instance.NetworkManager_Client_onClientDisconnectCallback;
 
                 if (NetworkManager.Singleton.IsClient || NetworkManager.Singleton.IsServer)
                 {
@@ -45,8 +45,8 @@ public class PauseManager : MonoBehaviour
                 }
             }
 
-            optionsScript.Instance?.CleanupPlayerCSP();
-            optionsScript.Instance?.ResetOptionsState();
+            GameManager.Instance?.CleanupPlayerCSP();
+            GameManager.Instance?.ResetOptionsState();
 
             StartCoroutine(DelayedSceneLoad());
         });
@@ -61,7 +61,8 @@ public class PauseManager : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
         Loader.Load(Loader.Scene.MainScreen);
-        optionsScript.Instance.TogglePauseGame();
+        GameManager.Instance.isOnline = false;
+        GameManager.Instance.TogglePauseGame();
         Time.timeScale = 1f;
     }
 }

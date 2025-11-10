@@ -6,17 +6,15 @@ public class MovingPlayer : NetworkBehaviour
 {
     private Vector2 moveInput;
 
-    [Header("Stats")]
     private float speed = 4.5f;
     public float health = 10f;
-
-    [Header("Jumping")]
     public float jumpingPower = 7f;
+
     public bool isGrounded = true;
+    private bool isFacingRight = true;
+
     public int jumpAmount = 0;
 
-    [Header("Flip & Components")]
-    private bool isFacingRight = true;
     private Rigidbody2D rb;
     public Animator anim;
 
@@ -70,8 +68,14 @@ public class MovingPlayer : NetworkBehaviour
     public void OnEscape(InputAction.CallbackContext context)
     {
         if (!IsOwner) return;
+        if(GameManager.Instance.isOnline == true)
+        {
+            GameManager.Instance.TogglePauseGame();
+        }
+        else
+        {
 
-        optionsScript.Instance.TogglePauseGame();
+        }
     }
 
     private void JumpPlayer()

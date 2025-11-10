@@ -18,7 +18,7 @@ public class PlayerSpawner : MonoBehaviour
     private void SpawnPlayers()
     {
         // Loop through each player in LocalGameManager
-        if (optionsScript.Instance.isLocal == true)
+        if (GameManager.Instance.isLocal == true)
         {
             for (int i = 0; i < LocalGameManager.Instance.localPlayerData.Count; i++)
             {

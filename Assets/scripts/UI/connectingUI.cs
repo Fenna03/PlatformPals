@@ -7,8 +7,8 @@ public class connectingUI : MonoBehaviour
 {
     private void Start()
     {
-        optionsScript.Instance.OnTryingToJoinGame += Multiplayer_OnTryingToJoinGame;
-        optionsScript.Instance.OnFailedToJoinGame += Multiplayer_OnFailedToJoinGame;
+        GameManager.Instance.OnTryingToJoinGame += Multiplayer_OnTryingToJoinGame;
+        GameManager.Instance.OnFailedToJoinGame += Multiplayer_OnFailedToJoinGame;
 
         Hide();
     }
@@ -35,7 +35,7 @@ public class connectingUI : MonoBehaviour
 
     private void OnDestroy()
     {
-        optionsScript.Instance.OnTryingToJoinGame -= Multiplayer_OnTryingToJoinGame;
-        optionsScript.Instance.OnFailedToJoinGame -= Multiplayer_OnFailedToJoinGame;
+        GameManager.Instance.OnTryingToJoinGame -= Multiplayer_OnTryingToJoinGame;
+        GameManager.Instance.OnFailedToJoinGame -= Multiplayer_OnFailedToJoinGame;
     }
 }

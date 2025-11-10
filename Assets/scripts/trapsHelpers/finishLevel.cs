@@ -17,7 +17,7 @@ public class finishLevel : MonoBehaviour
     {
         levelButton.onClick.AddListener(() =>
         {
-            if(optionsScript.Instance.isOnline == true)
+            if(GameManager.Instance.isOnline == true)
             {
                 Loader.loadNetwork(Loader.Scene.levelSelect);
             }
@@ -56,7 +56,7 @@ public class finishLevel : MonoBehaviour
         {
             MessageText.enabled = true;
             MessageText.text = "You Finished the level!!";
-            if(optionsScript.Instance.isOnline == true)
+            if(GameManager.Instance.isOnline == true)
             {
                 levelButton.gameObject.SetActive(NetworkManager.Singleton.IsServer);
             }

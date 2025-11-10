@@ -19,7 +19,7 @@ public class lobbyMessageUI : MonoBehaviour
 
     private void Start()
     {
-        optionsScript.Instance.OnFailedToJoinGame += Instance_onFailedToJoinGame;
+        GameManager.Instance.OnFailedToJoinGame += Instance_onFailedToJoinGame;
         multiplayerGameLobby.Instance.onCreateLobbyStarted += multiplayerGameLobby_OnCreateLobbyStarted;
         multiplayerGameLobby.Instance.onCreateLobbyFailed += multiplayerGameLobby_OnCreateLobbyFailed;
         multiplayerGameLobby.Instance.onJoinStarted += Instance_onJoinStarted;
@@ -85,7 +85,7 @@ public class lobbyMessageUI : MonoBehaviour
 
     private void OnDestroy()
     {
-        optionsScript.Instance.OnFailedToJoinGame -= Instance_onFailedToJoinGame;
+        GameManager.Instance.OnFailedToJoinGame -= Instance_onFailedToJoinGame;
         multiplayerGameLobby.Instance.onCreateLobbyStarted -= multiplayerGameLobby_OnCreateLobbyStarted;
         multiplayerGameLobby.Instance.onCreateLobbyFailed -= multiplayerGameLobby_OnCreateLobbyFailed;
         multiplayerGameLobby.Instance.onJoinStarted -= Instance_onJoinStarted;

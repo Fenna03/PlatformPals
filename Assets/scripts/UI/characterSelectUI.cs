@@ -23,20 +23,20 @@ public class characterSelectUI : MonoBehaviour
             // 🔻 Unsubscribe from event handlers
             if (NetworkManager.Singleton != null)
             {
-                NetworkManager.Singleton.OnClientConnectedCallback -= optionsScript.Instance.NetworkManager_OnClientConnectedCallback;
-                NetworkManager.Singleton.OnClientDisconnectCallback -= optionsScript.Instance.NetworkManager_Server_onClientDisconnectCallback;
-                NetworkManager.Singleton.OnClientConnectedCallback -= optionsScript.Instance.NetworkManager_Client_OnClientConnectedCallback;
-                NetworkManager.Singleton.OnClientDisconnectCallback -= optionsScript.Instance.NetworkManager_Client_onClientDisconnectCallback;
+                NetworkManager.Singleton.OnClientConnectedCallback -= GameManager.Instance.NetworkManager_OnClientConnectedCallback;
+                NetworkManager.Singleton.OnClientDisconnectCallback -= GameManager.Instance.NetworkManager_Server_onClientDisconnectCallback;
+                NetworkManager.Singleton.OnClientConnectedCallback -= GameManager.Instance.NetworkManager_Client_OnClientConnectedCallback;
+                NetworkManager.Singleton.OnClientDisconnectCallback -= GameManager.Instance.NetworkManager_Client_onClientDisconnectCallback;
             }
 
             // Clear player data and visuals
-            if (optionsScript.Instance.playerDataList != null && NetworkManager.Singleton.IsServer)
+            if (GameManager.Instance.playerDataList != null && NetworkManager.Singleton.IsServer)
             {
-                optionsScript.Instance.playerDataList.Clear();
+                GameManager.Instance.playerDataList.Clear();
             }
 
-            optionsScript.Instance.CleanupPlayerCSP();
-            optionsScript.Instance.ResetOptionsState();
+            GameManager.Instance.CleanupPlayerCSP();
+            GameManager.Instance.ResetOptionsState();
 
             // Shutdown NetworkManager
             if (NetworkManager.Singleton != null && (NetworkManager.Singleton.IsClient || NetworkManager.Singleton.IsServer))
@@ -50,7 +50,7 @@ public class characterSelectUI : MonoBehaviour
         //when player clicks on ready and they don't have the same skin it sets the player to ready
         ReadyButton.onClick.AddListener(() =>
         {
-            if (optionsScript.Instance.samePlayer == false)
+            if (GameManager.Instance.samePlayer == false)
             {
                 characterSelectReady.Instance.setPlayerReady();
             }
@@ -60,13 +60,14 @@ public class characterSelectUI : MonoBehaviour
     private IEnumerator DelayedSceneLoad()
     {
         yield return new WaitForEndOfFrame();
-        Loader.Load(Loader.Scene.Menu1);
+        GameManager.Instance.isOnline = false;
+        Loader.Load(Loader.Scene.MainScreen);
     }
 
     public void Update()
     {
         //if the players don't have the same skin on the button is white otherwise it's gray
-        if (optionsScript.Instance.samePlayer == false)
+        if (GameManager.Instance.samePlayer == false)
         {
             ReadyButton.GetComponent<Image>().color = Color.white;
         }

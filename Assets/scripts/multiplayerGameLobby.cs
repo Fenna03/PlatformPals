@@ -129,7 +129,7 @@ public class multiplayerGameLobby : MonoBehaviour
     {
         try
         {
-        Allocation allocation = await RelayService.Instance.CreateAllocationAsync(optionsScript.MAX_PLAYER_AMOUNT - 1);
+        Allocation allocation = await RelayService.Instance.CreateAllocationAsync(GameManager.MAX_PLAYER_AMOUNT - 1);
 
             return allocation;
         }catch (RelayServiceException e) 
@@ -171,7 +171,7 @@ public class multiplayerGameLobby : MonoBehaviour
         onCreateLobbyStarted?.Invoke(this, EventArgs.Empty);
         try
         {
-            joinedLobby = await LobbyService.Instance.CreateLobbyAsync(lobbyName, optionsScript.MAX_PLAYER_AMOUNT, new CreateLobbyOptions
+            joinedLobby = await LobbyService.Instance.CreateLobbyAsync(lobbyName, GameManager.MAX_PLAYER_AMOUNT, new CreateLobbyOptions
             {
                 IsPrivate = isPrivate,
             });
@@ -192,7 +192,7 @@ public class multiplayerGameLobby : MonoBehaviour
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(new RelayServerData(allocation, "dtls"));
 
             //Debug.Log("start Host");
-            optionsScript.Instance.startHost();
+            GameManager.Instance.startHost();
             Loader.loadNetwork(Loader.Scene.characterSelect);
         } catch (LobbyServiceException e)
         {
@@ -214,7 +214,7 @@ public class multiplayerGameLobby : MonoBehaviour
 
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(new RelayServerData(joinAllocation, "dtls"));
             
-            optionsScript.Instance.startClient();
+            GameManager.Instance.startClient();
         }
         catch (LobbyServiceException e)
         {
@@ -236,7 +236,7 @@ public class multiplayerGameLobby : MonoBehaviour
 
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(new RelayServerData(joinAllocation, "dtls"));
 
-            optionsScript.Instance.startClient();
+            GameManager.Instance.startClient();
         }
         catch (LobbyServiceException e)
         {
@@ -258,7 +258,7 @@ public class multiplayerGameLobby : MonoBehaviour
 
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(new RelayServerData(joinAllocation, "dtls"));
 
-            optionsScript.Instance.startClient();
+            GameManager.Instance.startClient();
         }catch (LobbyServiceException e)
         {
             Debug.Log(e);

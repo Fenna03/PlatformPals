@@ -19,7 +19,7 @@ public class loadScene : MonoBehaviour
             _ => "Menu1"
         };
 
-        if (optionsScript.Instance.isOnline == true)
+        if (GameManager.Instance.isOnline == true)
         {
             // Use NGO scene manager for synced networked scenes
             NetworkManager.Singleton.SceneManager.LoadScene(sceneName, UnityEngine.SceneManagement.LoadSceneMode.Single);

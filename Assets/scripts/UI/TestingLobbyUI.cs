@@ -13,13 +13,13 @@ public class TestingLobbyUI : MonoBehaviour
     {
         createGameButton.onClick.AddListener(() =>
         {
-            optionsScript.Instance.startHost();
+            GameManager.Instance.startHost();
             Loader.loadNetwork(Loader.Scene.characterSelect);
         });
 
         joinGameButton.onClick.AddListener(() =>
         {
-            optionsScript.Instance.startClient();
+            GameManager.Instance.startClient();
         });
     }
 

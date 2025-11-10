@@ -21,14 +21,14 @@ public class readyButton : MonoBehaviour
     public void LoadNextScene()
     {
         SceneManager.LoadScene("LocalLevelSelect");
-        optionsScript.Instance.isLocal = true;
-        optionsScript.Instance.isOnline = false;
+        GameManager.Instance.isLocal = true;
+        GameManager.Instance.isOnline = false;
     }
 
     public void LoadMainMenu()
     {
         SceneManager.LoadScene("MainScreen");
-        optionsScript.Instance.isLocal = false;
-        optionsScript.Instance.isOnline = false;
+        GameManager.Instance.isLocal = false;
+        GameManager.Instance.isOnline = false;
     }
 }

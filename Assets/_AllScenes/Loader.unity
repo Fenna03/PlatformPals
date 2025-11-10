@@ -580,7 +580,7 @@ GameObject:
   - component: {fileID: 1624272332}
   - component: {fileID: 1624272331}
   m_Layer: 0
-  m_Name: Menu (optionsScript)
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

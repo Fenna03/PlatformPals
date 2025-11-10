@@ -22,9 +22,9 @@ public class characterSelectPlayer : MonoBehaviour
             {
                 if (NetworkManager.Singleton.IsServer)
                 {
-                    playerData playerData = optionsScript.Instance.GetPlayerDataFromPlayerIndex(playerIndex);
+                    playerData playerData = GameManager.Instance.GetPlayerDataFromPlayerIndex(playerIndex);
                     multiplayerGameLobby.Instance.KickPlayer(playerData.playerId.ToString());
-                    optionsScript.Instance.kickPlayer(playerData.clientId);
+                    GameManager.Instance.kickPlayer(playerData.clientId);
                 }
             });
         }
@@ -44,7 +44,7 @@ public class characterSelectPlayer : MonoBehaviour
 
     private void Start()
     {
-        optionsScript.Instance.OnPlayerDataNetworkListChanged += optionsScript_OnPlayerDataNetworkListChanged;
+        GameManager.Instance.OnPlayerDataNetworkListChanged += optionsScript_OnPlayerDataNetworkListChanged;
         characterSelectReady.Instance.onReadyChanged += characterSelectReady_OnreadyChanged;
 
         kickButton.gameObject.SetActive(NetworkManager.Singleton.IsServer);
@@ -71,18 +71,18 @@ public class characterSelectPlayer : MonoBehaviour
             //return;
         }
 
-        if (optionsScript.Instance != null && optionsScript.Instance.isPlayerIndexConnected(playerIndex))
+        if (GameManager.Instance != null && GameManager.Instance.isPlayerIndexConnected(playerIndex))
         {
             Show();
 
-            playerData playerData = optionsScript.Instance.GetPlayerDataFromPlayerIndex(playerIndex);
+            playerData playerData = GameManager.Instance.GetPlayerDataFromPlayerIndex(playerIndex);
             if (ReadyGameObject != null)
             {
                 ReadyGameObject.SetActive(characterSelectReady.Instance.isPlayerReady(playerData.clientId));
             }
             if (playerVisual != null)
             {
-                playerVisual.SetPlayerSkin(optionsScript.Instance.GetPlayerSkin(playerData.skinId));
+                playerVisual.SetPlayerSkin(GameManager.Instance.GetPlayerSkin(playerData.skinId));
             }
         }
         else
@@ -104,8 +104,8 @@ public class characterSelectPlayer : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (optionsScript.Instance != null)
-            optionsScript.Instance.OnPlayerDataNetworkListChanged -= optionsScript_OnPlayerDataNetworkListChanged;
+        if (GameManager.Instance != null)
+            GameManager.Instance.OnPlayerDataNetworkListChanged -= optionsScript_OnPlayerDataNetworkListChanged;
 
         if (characterSelectReady.Instance != null)
             characterSelectReady.Instance.onReadyChanged -= characterSelectReady_OnreadyChanged;
