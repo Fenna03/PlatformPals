@@ -11,6 +11,32 @@ public class PausedOthersManager : MonoBehaviour
 
         Hide();
     }
+    private void OnEnable()
+    {
+        if (optionsScript.Instance != null)
+        {
+            optionsScript.Instance.OnOnlineGamePaused += Instance_OnOnlineGamePaused;
+            optionsScript.Instance.OnOnlineGameUnpaused += Instance_OnOnlineGameUnpaused;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (optionsScript.Instance != null)
+        {
+            optionsScript.Instance.OnOnlineGamePaused -= Instance_OnOnlineGamePaused;
+            optionsScript.Instance.OnOnlineGameUnpaused -= Instance_OnOnlineGameUnpaused;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (optionsScript.Instance != null)
+        {
+            optionsScript.Instance.OnOnlineGamePaused -= Instance_OnOnlineGamePaused;
+            optionsScript.Instance.OnOnlineGameUnpaused -= Instance_OnOnlineGameUnpaused;
+        }
+    }
 
     private void Instance_OnOnlineGameUnpaused(object sender, System.EventArgs e)
     {

@@ -36,10 +36,7 @@ public class Loader : MonoBehaviour
 
     public static void Load(Scene targetScene)
     {
-        Loader.targetScene = targetScene;
-
-
-        SceneManager.LoadScene(Scene.Menu1.ToString());
+        SceneManager.LoadScene(targetScene.ToString());
     }
 
     public static void loadNetwork(Scene targetScene)

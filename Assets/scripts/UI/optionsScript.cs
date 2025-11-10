@@ -181,6 +181,49 @@ public class optionsScript : NetworkBehaviour
         isOnline = true;
         isLocal = false;
     }
+    //public void startHost()
+    //{
+    //    if (NetworkManager.Singleton == null)
+    //    {
+    //        Debug.LogError("NetworkManager is not initialized or not assigned in the scene.");
+    //        return;
+    //    }
+
+    //    // ✅ Check if the NetworkManager is already running
+    //    if (NetworkManager.Singleton.IsListening)
+    //    {
+    //        Debug.LogWarning("[Netcode] A network session is already running — stopping it first.");
+    //        NetworkManager.Singleton.Shutdown();
+
+    //        // Wait one frame to ensure it fully stops before restarting
+    //        StartCoroutine(RestartHostNextFrame());
+    //        return;
+    //    }
+
+    //    StartHostInternal();
+    //}
+
+    //private IEnumerator RestartHostNextFrame()
+    //{
+    //    yield return null; // wait one frame
+    //    StartHostInternal();
+    //}
+
+    //private void StartHostInternal()
+    //{
+    //    NetworkManager.NetworkConfig.ConnectionApproval = true;
+
+    //    NetworkManager.Singleton.ConnectionApprovalCallback = NetworkManager_ConnectionApprovalCallback;
+    //    NetworkManager.Singleton.OnClientConnectedCallback += NetworkManager_OnClientConnectedCallback;
+    //    NetworkManager.Singleton.OnClientDisconnectCallback += NetworkManager_Server_onClientDisconnectCallback;
+
+    //    NetworkManager.Singleton.StartHost();
+    //    isOnline = true;
+    //    isLocal = false;
+
+    //    Debug.Log("[Netcode] Host started successfully.");
+    //}
+
 
     public void NetworkManager_Server_onClientDisconnectCallback(ulong clientId)
     {
