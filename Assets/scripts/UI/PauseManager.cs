@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PauseManager : MonoBehaviour
@@ -30,25 +31,35 @@ public class PauseManager : MonoBehaviour
 
         mainMenu.onClick.AddListener(() =>
         {
-            multiplayerGameLobby.Instance?.leaveLobby();
-
-            if (NetworkManager.Singleton != null)
+            if(GameManager.Instance.isOnline)
             {
-                NetworkManager.Singleton.OnClientConnectedCallback -= GameManager.Instance.NetworkManager_OnClientConnectedCallback;
-                NetworkManager.Singleton.OnClientDisconnectCallback -= GameManager.Instance.NetworkManager_Server_onClientDisconnectCallback;
-                NetworkManager.Singleton.OnClientConnectedCallback -= GameManager.Instance.NetworkManager_Client_OnClientConnectedCallback;
-                NetworkManager.Singleton.OnClientDisconnectCallback -= GameManager.Instance.NetworkManager_Client_onClientDisconnectCallback;
+                multiplayerGameLobby.Instance?.leaveLobby();
 
-                if (NetworkManager.Singleton.IsClient || NetworkManager.Singleton.IsServer)
+                if (NetworkManager.Singleton != null)
                 {
-                    NetworkManager.Singleton.Shutdown();
+                    NetworkManager.Singleton.OnClientConnectedCallback -= GameManager.Instance.NetworkManager_OnClientConnectedCallback;
+                    NetworkManager.Singleton.OnClientDisconnectCallback -= GameManager.Instance.NetworkManager_Server_onClientDisconnectCallback;
+                    NetworkManager.Singleton.OnClientConnectedCallback -= GameManager.Instance.NetworkManager_Client_OnClientConnectedCallback;
+                    NetworkManager.Singleton.OnClientDisconnectCallback -= GameManager.Instance.NetworkManager_Client_onClientDisconnectCallback;
+
+                    if (NetworkManager.Singleton.IsClient || NetworkManager.Singleton.IsServer)
+                    {
+                        NetworkManager.Singleton.Shutdown();
+                    }
                 }
+
+                GameManager.Instance?.CleanupPlayerCSP();
+                GameManager.Instance?.ResetOptionsState();
+
+                StartCoroutine(DelayedSceneLoad());
             }
-
-            GameManager.Instance?.CleanupPlayerCSP();
-            GameManager.Instance?.ResetOptionsState();
-
-            StartCoroutine(DelayedSceneLoad());
+            else if (GameManager.Instance.isLocal)
+            {
+                SceneManager.LoadScene("MainScreen");
+                LocalGameManager.Instance.TogglePause();
+                GameManager.Instance.isLocal = false;
+                LocalGameManager.Instance.Reset();
+            }
         });
 
         levels.onClick.AddListener(() =>

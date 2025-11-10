@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LocalGameManager : MonoBehaviour
@@ -9,6 +10,8 @@ public class LocalGameManager : MonoBehaviour
     public List<LocalPlayerData> localPlayerData = new List<LocalPlayerData>();
     public List<LocalManagerScript> Players;
     public Button ReadyButton;
+    public bool isGamePaused = false;
+    public GameObject pauseMenu;
 
     private void Awake()
     {
@@ -24,15 +27,16 @@ public class LocalGameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
+        if(SceneManager.GetActiveScene().name == "LocalCharSelect")
+        {
+            if(ReadyButton == null)
+            {
+               ReadyButton = GameObject.Find("readyButton").GetComponent<Button>();
+            }
+        }
         if(ReadyButton != null)
         {
             if (Players.Count == 0)
@@ -42,6 +46,14 @@ public class LocalGameManager : MonoBehaviour
             else if (Players.Count >= 1)
             {
                 ReadyButton.gameObject.SetActive(true);
+            }
+        }
+        if (pauseMenu == null)
+        {
+            var pauseManager = FindObjectOfType<PauseManager>();
+            if (pauseManager != null)
+            {
+                pauseMenu = pauseManager.gameObject;
             }
         }
     }
@@ -115,5 +127,32 @@ public class LocalGameManager : MonoBehaviour
 
         // If all skins are taken, default to 0 (or any fallback)
         return 0;
+    }
+    
+    public void TogglePause()
+    {
+        isGamePaused = !isGamePaused;
+        if (isGamePaused)
+        {
+            if (GameManager.Instance.pauseMenu != null)
+            {
+                Time.timeScale = 0f;
+                GameManager.Instance.pauseMenu.SetActive(true);
+            }
+        }
+        else
+        {
+            if (GameManager.Instance.pauseMenu != null)
+            {
+                Time.timeScale = 1f;
+                GameManager.Instance.pauseMenu.SetActive(false);
+            }
+        }
+    }
+
+    public void Reset()
+    {
+        localPlayerData.Clear();
+        Players.Clear();
     }
 }

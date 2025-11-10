@@ -1,4 +1,4 @@
-using Unity.Netcode;
+﻿using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,16 +18,31 @@ public class MovingPlayer : NetworkBehaviour
     private Rigidbody2D rb;
     public Animator anim;
 
+    private PlayerInput playerInput;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        playerInput = GetComponent<PlayerInput>();
+    }
+
     public override void OnNetworkSpawn()
     {
         base.OnNetworkSpawn();
 
-        rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
-
-        var input = GetComponent<PlayerInput>();
-        if (input != null)
-            input.enabled = IsOwner; // enable input only for the local owner
+        // ✅ Enable inputs depending on game mode
+        if (GameManager.Instance.isOnline)
+        {
+            if (playerInput != null)
+                playerInput.enabled = IsOwner; // only the owner controls in online mode
+        }
+        else if (GameManager.Instance.isLocal)
+        {
+            // For local mode, all players can have input enabled
+            if (playerInput != null)
+                playerInput.enabled = true;
+        }
 
         // Initialize animations
         anim.SetBool("isRunning", false);
@@ -37,44 +52,50 @@ public class MovingPlayer : NetworkBehaviour
 
     private void Update()
     {
-        if (!IsOwner) return;
+        if (GameManager.Instance.isOnline && !IsOwner)
+            return;
 
-        // Only owner handles flipping locally
         Flip();
     }
 
     private void FixedUpdate()
     {
-        if (IsOwner)
-            MovePlayer();
+        if (GameManager.Instance.isOnline && !IsOwner)
+            return;
+
+        MovePlayer();
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        if (!IsOwner) return;
+        if (GameManager.Instance.isOnline && !IsOwner)
+            return;
 
         moveInput = context.ReadValue<Vector2>();
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (!IsOwner) return;
+        if (GameManager.Instance.isOnline && !IsOwner)
+            return;
 
         if (context.performed && isGrounded)
         {
             JumpPlayer();
         }
     }
+
     public void OnEscape(InputAction.CallbackContext context)
     {
-        if (!IsOwner) return;
-        if(GameManager.Instance.isOnline == true)
+        if (GameManager.Instance.isOnline)
         {
-            GameManager.Instance.TogglePauseGame();
+            if (context.performed)
+                GameManager.Instance.TogglePauseGame();
         }
-        else
+        else if (GameManager.Instance.isLocal)
         {
-
+            if (context.performed)
+                LocalGameManager.Instance.TogglePause();
         }
     }
 
@@ -90,8 +111,8 @@ public class MovingPlayer : NetworkBehaviour
         if (jumpAmount >= 1)
             anim.SetBool("isFalling", true);
 
-        // Sync animations to others
-        SendAnimationClientRpc(true, jumpAmount >= 1);
+        if (GameManager.Instance.isOnline)
+            SendAnimationClientRpc(true, jumpAmount >= 1);
     }
 
     private void MovePlayer()
@@ -100,18 +121,20 @@ public class MovingPlayer : NetworkBehaviour
 
         rb.velocity = new Vector2(moveInput.x * speed, rb.velocity.y);
 
-        // Sync running animation
         bool isRunning = Mathf.Abs(moveInput.x) > 0.01f;
-        if(isGrounded == true)
+        if (isGrounded)
         {
             anim.SetBool("isRunning", isRunning);
         }
-        SendAnimationClientRpc(isRunning, anim.GetBool("isFalling"));
+
+        if (GameManager.Instance.isOnline)
+            SendAnimationClientRpc(isRunning, anim.GetBool("isFalling"));
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!IsOwner) return;
+        if (GameManager.Instance.isOnline && !IsOwner)
+            return;
 
         if (collision.collider.CompareTag("ground") || collision.collider.CompareTag("Player") || collision.collider.CompareTag("button"))
         {
@@ -121,13 +144,15 @@ public class MovingPlayer : NetworkBehaviour
             anim.SetBool("isFalling", false);
             anim.SetBool("isJumping", false);
 
-            SendAnimationClientRpc(anim.GetBool("isRunning"), false);
+            if (GameManager.Instance.isOnline)
+                SendAnimationClientRpc(anim.GetBool("isRunning"), false);
         }
     }
 
     void OnCollisionExit2D(Collision2D collision)
     {
-        if (!IsOwner) return;
+        if (GameManager.Instance.isOnline && !IsOwner)
+            return;
 
         if (collision.collider.CompareTag("ground") || collision.collider.CompareTag("Player") || collision.collider.CompareTag("button"))
         {
@@ -135,7 +160,8 @@ public class MovingPlayer : NetworkBehaviour
             anim.SetBool("isFalling", true);
             anim.SetBool("isRunning", false);
 
-            SendAnimationClientRpc(false, true);
+            if (GameManager.Instance.isOnline)
+                SendAnimationClientRpc(false, true);
         }
     }
 
@@ -159,3 +185,4 @@ public class MovingPlayer : NetworkBehaviour
         anim.SetBool("isFalling", isFalling);
     }
 }
+
