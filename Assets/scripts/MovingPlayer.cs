@@ -1,6 +1,7 @@
 ﻿using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Users;
 
 public class MovingPlayer : NetworkBehaviour
 {
@@ -34,8 +35,22 @@ public class MovingPlayer : NetworkBehaviour
         // ✅ Enable inputs depending on game mode
         if (GameManager.Instance.isOnline)
         {
-            if (playerInput != null)
-                playerInput.enabled = IsOwner; // only the owner controls in online mode
+            if (IsOwner)
+            {
+                // Unpair devices from ANY other PlayerInput on this client
+                foreach (var user in InputUser.all)
+                    user.UnpairDevicesAndRemoveUser();
+
+                // Create a fresh user
+                var newUser = InputUser.CreateUserWithoutPairedDevices();
+
+                // Pair keyboard + mouse
+                InputUser.PerformPairingWithDevice(Keyboard.current, newUser);
+                InputUser.PerformPairingWithDevice(Mouse.current, newUser);
+
+                // Link this PlayerInput to that user
+                newUser.AssociateActionsWithUser(playerInput.actions);
+            }
         }
         else if (GameManager.Instance.isLocal)
         {
@@ -185,4 +200,3 @@ public class MovingPlayer : NetworkBehaviour
         anim.SetBool("isFalling", isFalling);
     }
 }
-
