@@ -14,7 +14,7 @@ public class sceneManager : MonoBehaviour
     [SerializeField] private Button level5;
     //// 3 players
     //[SerializeField] private Button level6;
-    //[SerializeField] private Button level7;
+    [SerializeField] private Button level7;
     //[SerializeField] private Button level8;
     //[SerializeField] private Button level9;
     //[SerializeField] private Button level10;
@@ -62,10 +62,10 @@ public class sceneManager : MonoBehaviour
         //{
         //    Loader.loadNetwork(Loader.Scene.level6);
         //});
-        //level7.onClick.AddListener(() =>
-        //{
-        //    Loader.loadNetwork(Loader.Scene.level7);
-        //});
+        level7.onClick.AddListener(() =>
+        {
+            Loader.loadNetwork(Loader.Scene.level7);
+        });
         //level8.onClick.AddListener(() =>
         //{
         //    Loader.loadNetwork(Loader.Scene.level8);
