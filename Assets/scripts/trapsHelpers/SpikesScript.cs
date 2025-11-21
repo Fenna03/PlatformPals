@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpikesScript : MonoBehaviour
 {
-    GameObject respawner;
+    public GameObject respawner;
 
     public List<MovingPlayer> dying = new List<MovingPlayer>();
 

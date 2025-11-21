@@ -268,7 +268,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   jumpingPower: 7
-  isGrounded: 1
+  isGrounded: 0
   jumpAmount: 0
   anim: {fileID: 2876946754286990267}
 --- !u!114 &-4821251384925297990

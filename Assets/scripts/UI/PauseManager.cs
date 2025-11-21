@@ -31,21 +31,13 @@ public class PauseManager : MonoBehaviour
 
         mainMenu.onClick.AddListener(() =>
         {
-            if(GameManager.Instance.isOnline)
+            if (GameManager.Instance.isOnline)
             {
                 multiplayerGameLobby.Instance?.leaveLobby();
 
-                if (NetworkManager.Singleton != null)
+                if (NetworkManager.Singleton.IsClient || NetworkManager.Singleton.IsServer)
                 {
-                    NetworkManager.Singleton.OnClientConnectedCallback -= GameManager.Instance.NetworkManager_OnClientConnectedCallback;
-                    NetworkManager.Singleton.OnClientDisconnectCallback -= GameManager.Instance.NetworkManager_Server_onClientDisconnectCallback;
-                    NetworkManager.Singleton.OnClientConnectedCallback -= GameManager.Instance.NetworkManager_Client_OnClientConnectedCallback;
-                    NetworkManager.Singleton.OnClientDisconnectCallback -= GameManager.Instance.NetworkManager_Client_onClientDisconnectCallback;
-
-                    if (NetworkManager.Singleton.IsClient || NetworkManager.Singleton.IsServer)
-                    {
-                        NetworkManager.Singleton.Shutdown();
-                    }
+                    NetworkManager.Singleton.Shutdown();
                 }
 
                 GameManager.Instance?.CleanupPlayerCSP();
@@ -64,14 +56,37 @@ public class PauseManager : MonoBehaviour
 
         levels.onClick.AddListener(() =>
         {
-            Loader.Load(Loader.Scene.levelSelect);
-            Time.timeScale = 1f;
+            if (GameManager.Instance.isOnline)
+            {
+                GameManager.Instance.TogglePauseGame();
+                Time.timeScale = 1f;
+
+                NetworkManager.Singleton.SceneManager.LoadScene(
+                    "levelSelect",
+                    LoadSceneMode.Additive
+                );
+            }
+            else if (GameManager.Instance.isLocal)
+            {
+                SceneManager.LoadScene("levelSelect", LoadSceneMode.Additive);
+                LocalGameManager.Instance.TogglePause();
+                Time.timeScale = 1f;
+            }
         });
     }
     private IEnumerator DelayedSceneLoad()
     {
         yield return new WaitForEndOfFrame();
         Loader.Load(Loader.Scene.MainScreen);
+        GameManager.Instance.isOnline = false;
+        GameManager.Instance.TogglePauseGame();
+        Time.timeScale = 1f;
+    }
+
+    private IEnumerator LoadLevelsClean()
+    {
+        yield return new WaitForEndOfFrame();
+        Loader.Load(Loader.Scene.levelSelect);
         GameManager.Instance.isOnline = false;
         GameManager.Instance.TogglePauseGame();
         Time.timeScale = 1f;

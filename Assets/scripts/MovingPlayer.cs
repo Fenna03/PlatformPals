@@ -11,10 +11,10 @@ public class MovingPlayer : NetworkBehaviour
     public float health = 10f;
     public float jumpingPower = 7f;
 
-    public bool isGrounded = true;
+    public bool isGrounded = false;
     private bool isFacingRight = true;
 
-    public int jumpAmount = 0;
+    public int jumpAmount = 1;
 
     private Rigidbody2D rb;
     public Animator anim;
@@ -27,43 +27,62 @@ public class MovingPlayer : NetworkBehaviour
         anim = GetComponent<Animator>();
         playerInput = GetComponent<PlayerInput>();
     }
-
     public override void OnNetworkSpawn()
     {
         base.OnNetworkSpawn();
 
-        // ✅ Enable inputs depending on game mode
+        // ⛔ Do NOT apply input logic in menu / lobby / level-select scenes
+        if (!IsGameplayScene())
+            return;
+
+        // ⛔ Only the owner gets input
+        if (!IsOwner)
+            return;
+
         if (GameManager.Instance.isOnline)
         {
-            if (IsOwner)
-            {
-                // Unpair devices from ANY other PlayerInput on this client
-                foreach (var user in InputUser.all)
-                    user.UnpairDevicesAndRemoveUser();
-
-                // Create a fresh user
-                var newUser = InputUser.CreateUserWithoutPairedDevices();
-
-                // Pair keyboard + mouse
-                InputUser.PerformPairingWithDevice(Keyboard.current, newUser);
-                InputUser.PerformPairingWithDevice(Mouse.current, newUser);
-
-                // Link this PlayerInput to that user
-                newUser.AssociateActionsWithUser(playerInput.actions);
-            }
+            SetupOnlineInput();
         }
         else if (GameManager.Instance.isLocal)
         {
-            // For local mode, all players can have input enabled
             if (playerInput != null)
                 playerInput.enabled = true;
         }
 
-        // Initialize animations
+        InitAnimations();
+    }
+    private bool IsGameplayScene()
+    {
+        string scene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+
+        // TODO: Replace these with your real level names
+        return scene.StartsWith("Level_") || scene == "GameScene";
+    }
+
+    private void SetupOnlineInput()
+    {
+        // Remove any existing user safely
+        foreach (var user in InputUser.all)
+        {
+            if (user.valid)
+                user.UnpairDevicesAndRemoveUser();
+        }
+
+        var newUser = InputUser.CreateUserWithoutPairedDevices();
+
+        InputUser.PerformPairingWithDevice(Keyboard.current, newUser);
+        InputUser.PerformPairingWithDevice(Mouse.current, newUser);
+
+        newUser.AssociateActionsWithUser(playerInput.actions);
+    }
+
+    private void InitAnimations()
+    {
         anim.SetBool("isRunning", false);
         anim.SetBool("isJumping", false);
         anim.SetBool("isFalling", false);
     }
+
 
     private void Update()
     {

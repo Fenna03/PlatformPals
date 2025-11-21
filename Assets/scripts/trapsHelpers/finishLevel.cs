@@ -23,7 +23,7 @@ public class finishLevel : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene(6);
+                SceneManager.LoadScene("levelSelect");
             }
         });
     }
