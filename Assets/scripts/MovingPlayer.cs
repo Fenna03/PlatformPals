@@ -27,53 +27,15 @@ public class MovingPlayer : NetworkBehaviour
         anim = GetComponent<Animator>();
         playerInput = GetComponent<PlayerInput>();
     }
+
     public override void OnNetworkSpawn()
     {
         base.OnNetworkSpawn();
 
-        // ⛔ Do NOT apply input logic in menu / lobby / level-select scenes
-        if (!IsGameplayScene())
-            return;
-
-        // ⛔ Only the owner gets input
-        if (!IsOwner)
-            return;
-
-        if (GameManager.Instance.isOnline)
-        {
-            SetupOnlineInput();
-        }
-        else if (GameManager.Instance.isLocal)
-        {
-            if (playerInput != null)
-                playerInput.enabled = true;
-        }
+        if (playerInput != null)
+            playerInput.enabled = IsOwner;
 
         InitAnimations();
-    }
-    private bool IsGameplayScene()
-    {
-        string scene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
-
-        // TODO: Replace these with your real level names
-        return scene.StartsWith("Level_") || scene == "GameScene";
-    }
-
-    private void SetupOnlineInput()
-    {
-        // Remove any existing user safely
-        foreach (var user in InputUser.all)
-        {
-            if (user.valid)
-                user.UnpairDevicesAndRemoveUser();
-        }
-
-        var newUser = InputUser.CreateUserWithoutPairedDevices();
-
-        InputUser.PerformPairingWithDevice(Keyboard.current, newUser);
-        InputUser.PerformPairingWithDevice(Mouse.current, newUser);
-
-        newUser.AssociateActionsWithUser(playerInput.actions);
     }
 
     private void InitAnimations()

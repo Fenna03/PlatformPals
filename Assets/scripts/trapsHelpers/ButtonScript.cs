@@ -15,39 +15,34 @@ public class ButtonScript : NetworkBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (GameManager.Instance.isOnline)
-        {
-            // Only clients detect local collision
-            if (!IsClient) return;
+        if (!IsClient) return;
 
-            if (col.gameObject.CompareTag("Player"))
-            {
-                // Client tells the server a press happened
-                OnButtonPressServerRpc();
-            }
-        }
-        else
+        if (col.gameObject.CompareTag("Player"))
         {
-            ButtonPressed();
+            PressServerRpc();
         }
     }
 
     private void OnCollisionExit2D(Collision2D col)
     {
-        if (GameManager.Instance.isOnline)
-        {
-            // Only clients detect local collision
-            if (!IsClient) return;
+        if (!IsClient) return;
 
-            if (col.gameObject.CompareTag("Player"))
-            {
-                OnButtonReleaseServerRpc();
-            }
-        }
-        else
+        if (col.gameObject.CompareTag("Player"))
         {
-            ButtonUnpressed();
+            ReleaseServerRpc();
         }
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    private void PressServerRpc()
+    {
+        PressClientRpc();
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    private void ReleaseServerRpc()
+    {
+        ReleaseClientRpc();
     }
 
     [ServerRpc(RequireOwnership = false)]
